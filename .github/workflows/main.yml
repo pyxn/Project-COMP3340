@@ -4,7 +4,7 @@ on:
       - main
   pull_request:
     branches:
-      - test
+      - main
     types: [closed]
       
 name: Github Action - SFTP Mirror
