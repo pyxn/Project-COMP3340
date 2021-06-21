@@ -1,0 +1,29 @@
+on:
+  push:
+    branches:    
+      - main
+on:
+  pull_request:
+    branches:
+      - main
+    types: [closed]
+      
+name: Github Action - SFTP Mirror
+jobs:
+  SFTP-Mirror:
+    name: SFTP Mirror
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@master
+
+    - name: SFTP Mirror
+      uses: pyxn/sftp-mirror@v1.0.0
+      env:
+        HOSTNAME: ${{ secrets.HOSTNAME }}
+        USERNAME: ${{ secrets.USERNAME }}
+        PASSWORD: ${{ secrets.PASSWORD }}
+        PATH_LOCAL: "./public_html/"
+        PATH_REMOTE: "./newcitybetterlife.com/public_html/"
+        PROTOCOL: sftp
+        PORT: 22
+        ARGS: --verbose --delete
