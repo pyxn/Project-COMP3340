@@ -1,8 +1,12 @@
-name: Deploy on Test Server
+# --------------------------------------------------------------------------
+# WORKFLOW: DEPLOY WEBSITE TO BACKUP (TEST) SERVER
+# --------------------------------------------------------------------------
+# This workflow will deploy the website to the backup test server when:
+# - a commit is merged through a pull request on the 'main' branch
+# --------------------------------------------------------------------------
+
+name: Deploy on Backup Server
 on:
-  push:
-    branches:
-      - test
   pull_request:
     branches:
       - main

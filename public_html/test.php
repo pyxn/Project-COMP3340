@@ -1,1 +1,1 @@
-<?php echo 'Hello, PHP! This code is currently on the test server. Testing both push and pull request workflow.'; ?>
+<?php echo 'Hello, PHP! The code was successfully uploaded after a closed pull request on the main branch.'; ?>
