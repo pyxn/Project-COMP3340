@@ -20,10 +20,12 @@
                     <li><a href = "#">About</a></li>
                 </ul>
             </nav>
+           
             <div id="airQuality" style="width:800px;height:480px;"></div>
         </main>
 
         <script>
+        
             var trace1 = {
               x: ['AB', 'BC', 'MB', 'NB', 'NL', 'NS', 'ON', 'PE', 'QC', 'SK', 'YU'],
               y: [5.764, 4.922, 3.614, 5.668, 3.657, 3.674, 6.182, 3.321, 6.545, 4.722, 2.588],
@@ -45,10 +47,10 @@
                 },
                 bargap :0.2
             };
-          
-          Plotly.newPlot('airQuality', data);
+            
+            Plotly.newPlot('airQuality', data, layout);
+
         </script>
 
     </body>
 </html>
-
