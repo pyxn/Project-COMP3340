@@ -12,7 +12,6 @@ nav {
     border: 2px solid royalblue;
     width: 10em;
     background-color: royalblue;
-    max-height: 20px;
 }
 
 nav ul {
@@ -39,6 +38,14 @@ nav ul li:hover {
 
 a {
     text-decoration: none;
+    color: royalblue;
+}
+
+nav {
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 1000;
 }
 
 /* -----------------------------------
@@ -46,5 +53,5 @@ MAIN: SET TO TWO COLUMNS
 -------------------------------------*/
 main {
     display: grid;
-    grid-template-columns: 144px auto;
+    justify-items: center;
 }
