@@ -1,0 +1,20 @@
+body { font-family: arial, sans-serif}
+nav {font-weight: bold;
+    color: white;
+    border: 2px solid royalblue;
+    width: 10em;
+    background-color: royalblue
+}
+nav ul {display: none;
+        list-style: none;
+        margin: 0;
+        padding: 0;
+}
+nav:hover ul {display: block}
+nav ul li {border-top: 2px solid royalblue;
+           background-color:white;
+           width: 10em;
+           color: black;
+}
+nav ul li:hover {background-color: powderblue;}
+a {text-decoration: none;}
