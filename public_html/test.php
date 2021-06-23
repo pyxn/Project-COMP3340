@@ -1,1 +1,1 @@
-<?php echo 'Hello, PHP!'; ?>
+<?php echo 'Hello, PHP! This code is currently on the test server.'; ?>
