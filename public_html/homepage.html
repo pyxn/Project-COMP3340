@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Home Page</title>
+        <meta charset = "utf-8">
+        <link rel="stylesheet" href="./homepage.css">
+        <script src="https://cdn.plot.ly/plotly-2.1.0.min.js"></script>
+
+    </head>
+    <body>
+
+        <main>
+            <nav>Menu
+                <ul>
+                    <li><a href = "#">Home Page</a></li>
+                    <li><a href = "#">Sign in</a></li>
+                    <li><a href = "#">My Favorite</a></li>
+                    <li><a href = "#">Top 10 livable cities</a></li>
+                    <li><a href = "#">Find dream city</a></li>
+                    <li><a href = "#">About</a></li>
+                </ul>
+            </nav>
+            <div id="airQuality" style="width:600px;height:250px;"></div>
+        </main>
+
+        <script>
+            var data = [
+            {
+              x: ['NU', 'ON', 'BC', 'AB', 'NB', 'PEI', 'ASK', 'MB', 'NL', 'NT', 'QC', 'SK', 'YT'],
+              y: [20, 14, 23, 125, 99, 34, 56, 21, 5, 100, 56, 12, 34],
+              type: 'bar'
+            }
+          ];
+          
+          Plotly.newPlot('airQuality', data);
+        </script>
+
+    </body>
+</html>
+
