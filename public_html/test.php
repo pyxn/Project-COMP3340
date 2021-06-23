@@ -1,1 +1,1 @@
-<?php echo 'Hello, PHP! This code is currently on the test server.'; ?>
+<?php echo 'Hello, PHP! This code is currently on the test server. Testing both push and pull request workflow.'; ?>
