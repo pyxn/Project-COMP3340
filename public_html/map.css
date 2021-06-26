@@ -1,0 +1,22 @@
+
+
+
+
+.col-8{
+  
+}
+
+
+#map {
+    margin:0 auto;
+   
+	width:50%;
+	float:left;	
+    height: 50%;
+  }
+html,
+body {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+}  
