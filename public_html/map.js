@@ -181,7 +181,7 @@ function initMap() {
       }
   ]
   });
-  map.data.loadGeoJson("canada_provinces.geojson");
+  map.data.loadGeoJson("public_html/canada_provinces.geojson");
 
   map.data.setStyle(function(){
           return{
