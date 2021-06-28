@@ -1,0 +1,18 @@
+@import "../styles/graph.css";
+@import "../styles/map.css";
+@import "../styles/navigation.css";
+
+/* -----------------------------------
+UNIVERSAL (HOMEPAGE+)
+-------------------------------------*/
+
+html, body {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    height: 100%;
+    font-family: arial, sans-serif
+}

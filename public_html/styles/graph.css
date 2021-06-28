@@ -1,0 +1,9 @@
+/* -----------------------------------
+AIR QUALITY GRAPH
+-------------------------------------*/
+
+div#airQuality {
+    width:800px;
+    height:480px;
+    background-color: antiquewhite;
+}

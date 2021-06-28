@@ -1,1 +1,0 @@
-<?php echo 'Hello, PHP! The code was successfully uploaded after a push on the main branch.'; ?>
