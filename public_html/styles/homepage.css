@@ -1,0 +1,88 @@
+/* -----------------------------------
+INTERACTIVE MAP
+-------------------------------------*/
+
+div#map {
+    width: 100%;
+    height: 480px;
+}
+
+/* -----------------------------------
+AIR QUALITY GRAPH
+-------------------------------------*/
+
+div#airQuality {
+    height: 480px;
+}
+
+/* -----------------------------------
+10 Most Livable Cities Table
+-------------------------------------*/
+
+div#mostLivableCities {
+    display: grid;
+    align-items: center;
+    height: 480px;
+    padding: 1.618rem;
+
+}
+
+table#mostLivableCitiesTable {
+    font-size: 1rem;
+    white-space: nowrap;
+}
+
+
+table#mostLivableCitiesTable caption.title {
+    font-weight: bold;
+    margin-top: -1.618rem;
+    font-size: 1.618rem;
+}
+
+table#mostLivableCitiesTable caption.subtitle {
+    font-size: 1rem;
+    margin-bottom: 1rem;
+}
+
+
+table#mostLivableCitiesTable td, th {
+    padding: 0.414rem;
+    vertical-align: top;
+}
+
+/* -----------------------------------
+RESPONSIVE CODE
+-------------------------------------*/
+
+/* phones (portrait) */
+
+@media only screen and (max-width: 767px) and (orientation: portrait) {
+
+    div#map {
+        max-width: 100vw;
+        height: 480px;
+        margin-top: 2.618rem;
+    }
+
+    div#airQuality {
+        max-width: 100vw;
+        margin-top: 2.618rem;
+    }
+
+    div#mostLivableCities {
+        overflow-x: scroll;
+        min-height: 610px;
+    }
+}
+
+/* phones (normal) */
+
+@media only screen and (max-width: 767px) and (orientation: landscape) {
+
+}
+
+/* tablets and desktops */
+
+@media only screen and (min-width: 768px) {
+
+}
