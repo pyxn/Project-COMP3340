@@ -1,6 +1,14 @@
-body {
+#map {
+    height: 400px;
+    width: 600px;
+  }
+
+  body {
+    height: 100%;
     font-family: arial, sans-serif
 }
+
+
 
 /* -----------------------------------
 NAV: INTERACTIVE MENU
@@ -9,9 +17,9 @@ NAV: INTERACTIVE MENU
 nav {
     font-weight: bold;
     color: white;
-    border: 2px solid royalblue;
+    border: 2px solid #e67300;
     width: 10em;
-    background-color: royalblue;
+    background-color: #e67300;
 }
 
 nav ul {
@@ -26,19 +34,19 @@ nav:hover ul {
 }
 
 nav ul li {
-    border-top: 2px solid royalblue;
+    border-top: 2px solid #e67300;
     background-color: white;
     width: 10em;
     color: black;
 }
 
 nav ul li:hover {
-    background-color: powderblue;
+    background-color: #fff2e6;
 }
 
 a {
     text-decoration: none;
-    color: royalblue;
+    color: #e67300;
 }
 
 nav {
