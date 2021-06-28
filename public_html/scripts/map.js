@@ -5,14 +5,14 @@ function mapStyle() {
         fillColor: '#657976',
         strokeColor: '#ddecf0',
         strokeWeight: 1,
-        fillOpacity: 0.5,
+        fillOpacity: 0.5
     }
 }
 
 function initMap() {
     map = new google.maps.Map(document.getElementById("map"), {
         center: { lat: 62.6399, lng: -99.5070 },
-        zoom: 3,
+        zoom: 3.2,
         styles: [
             { "featureType": "all", "elementType": "geometry.fill", "stylers": [{ "weight": "2.00" }] },
             { "featureType": "all", "elementType": "geometry.stroke", "stylers": [{ "color": "#9c9c9c" }] },

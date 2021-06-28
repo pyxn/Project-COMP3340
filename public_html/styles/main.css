@@ -1,18 +1,77 @@
-@import "../styles/graph.css";
-@import "../styles/map.css";
-@import "../styles/navigation.css";
+@import url('https://fonts.googleapis.com/css2?family=Public+Sans:wght@100;400;700&display=swap');
+@import "../styles/nav.css";
+@import "../styles/homepage.css";
 
 /* -----------------------------------
 UNIVERSAL (HOMEPAGE+)
 -------------------------------------*/
 
-html, body {
-    height: 100%;
+* {
     margin: 0;
     padding: 0;
+    box-sizing: border-box;
+    line-height: 1.414;
+}
+
+html, body {
+    height: 100%;
+    font-size: 13px;
+    font-family: 'Public Sans', sans-serif;
 }
 
 body {
     height: 100%;
-    font-family: arial, sans-serif
+}
+
+body.sidebar-navigation {
+    display: grid;
+    grid-template-columns: 10em auto;
+}
+
+section.single-column {
+    display: grid;
+    grid-template-columns: 1fr;
+}
+
+section.dual-column-one-third {
+    width: 100%;
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+}
+
+/* -----------------------------------
+RESPONSIVE CODE
+-------------------------------------*/
+
+/* phones (portrait) */
+
+@media only screen and (max-width: 767px) and (orientation: portrait) {
+    html, body {
+        height: 100%;
+        font-size: 16px;
+        font-family: 'Public Sans', sans-serif;
+    }
+
+    body.sidebar-navigation {
+        display: grid;
+        grid-template-columns: auto;
+    }
+
+    section.dual-column-one-third {
+        width: 100%;
+        display: grid;
+        grid-template-columns: auto;
+    }
+}
+
+/* phones (normal) */
+
+@media only screen and (max-width: 767px) and (orientation: landscape) {
+
+}
+
+/* tablets and desktops */
+
+@media only screen and (min-width: 768px) {
+
 }

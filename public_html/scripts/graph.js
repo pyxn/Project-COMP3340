@@ -8,8 +8,18 @@ var trace1 = {
 
 var data = [trace1];
 
+var titleCode = `
+    <span id="airQualityTitle" style="font-family: 'Public Sans', sans-serif; font-size: 1.618rem; font-weight: bold;">
+        Statistic data of PM2.5 
+    </span>
+    <br>
+    <span id="airQualitySubtitle" style="font-family: 'Public Sans', sans-serif; font-size: 1rem;">
+        Based on National Air Pollution Surveillance (NAPS) Program
+    </span>
+`;
+
 var layout = {
-    title: 'Statistic data of PM2.5 based on National Air Pollution Surveillance (NAPS) Program',
+    title: titleCode,
     font: { family: 'Raleway, sans-serif' },
     showlegend: false,
     xaxis: { tickangle: -45 },

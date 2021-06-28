@@ -1,0 +1,73 @@
+/* -----------------------------------
+NAV: INTERACTIVE MENU
+-------------------------------------*/
+
+nav {
+    font-weight: bold;
+    color: white;
+    border: 2px solid #e67300;
+    width: 10rem;
+    background-color: #e67300;
+    max-height: 2rem;
+}
+
+nav ul {
+    display: none;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+nav:hover ul {
+    display: block
+}
+
+nav ul li {
+    border-top: 2px solid #e67300;
+    background-color: white;
+    width: 10em;
+    color: black;
+}
+
+nav ul li:hover {
+    background-color: #fff2e6;
+}
+
+a {
+    text-decoration: none;
+    color: #e67300;
+}
+
+/* -----------------------------------
+RESPONSIVE CODE
+-------------------------------------*/
+
+/* phones (portrait) */
+
+@media only screen and (max-width: 767px) and (orientation: portrait) {
+    nav {
+        width: 100vw;
+        font-size: 1.618rem;
+        position: absolute;
+        top: 0;
+        left: 0;
+        z-index: 1000;
+        min-height: 2.618rem;
+    }
+
+    nav span {
+        padding-left: 1rem;
+    }
+}
+
+/* phones (normal) */
+
+@media only screen and (max-width: 767px) and (orientation: landscape) {
+
+}
+
+/* tablets and desktops */
+
+@media only screen and (min-width: 768px) {
+
+}
