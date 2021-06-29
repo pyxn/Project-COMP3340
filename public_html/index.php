@@ -4,7 +4,7 @@
 <head>
     <title>Home Page</title>
     <meta charset="utf-8">
-    <link rel="stylesheet" href="styles/main.css">
+    <link rel="stylesheet" href="styles/main.css?<?php echo filemtime('styles/main.css') ?>"/>
     <script src="https://cdn.plot.ly/plotly-2.1.0.min.js"></script>
     <script src="https://polyfill.io/v3/polyfill.min.js?features=default"></script>
     <script src="scripts/map.js"></script>
