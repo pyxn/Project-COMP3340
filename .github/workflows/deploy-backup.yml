@@ -1,0 +1,67 @@
+# --------------------------------------------------------------------------
+# WORKFLOW: DEPLOY WEBSITE TO BACKUP (TEST) SERVER
+# --------------------------------------------------------------------------
+# This workflow will deploy the website to the backup test server when:
+# - a commit is merged through a pull request on the 'main' branch
+# --------------------------------------------------------------------------
+
+name: Deploy on Backup Server
+on:
+  push:
+    branches:
+      - main
+  # pull_request:
+  #   branches:
+  #     - main
+  #   types: [closed]
+jobs:
+  SFTP-Mirror:
+    name: SFTP Mirror
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@master
+
+    - name: SFTP Mirror
+      uses: pyxn/sftp-mirror@v1.0.0
+      env:
+        HOSTNAME: ${{ secrets.HOSTNAME_TEST }}
+        USERNAME: ${{ secrets.USERNAME_TEST }}
+        PASSWORD: ${{ secrets.PASSWORD_TEST }}
+        PATH_LOCAL: "./public_html/"
+        PATH_REMOTE: "./newcitybetterlife.com/public_html/"
+        PROTOCOL: sftp
+        PORT: 22
+        ARGS: --verbose --delete
+
+
+# --------------------------------------------------------------------------
+# WORKFLOW: DEPLOY WEBSITE TO MAIN (MYWEB) SERVER
+# --------------------------------------------------------------------------
+# This workflow will deploy the website to the main server when:
+# - a commit is merged through a pull request on the 'main' branch
+# --------------------------------------------------------------------------
+
+# name: Deploy on Main Server
+# on:
+#   pull_request:
+#     branches:
+#       - main
+#     types: [closed]
+# jobs:
+#   SFTP-Mirror:
+#     name: SFTP Mirror
+#     runs-on: ubuntu-latest
+#     steps:
+#     - uses: actions/checkout@master
+
+#     - name: SFTP Mirror
+#       uses: pyxn/sftp-mirror@v1.0.0
+#       env:
+#         HOSTNAME: ${{ secrets.HOSTNAME }}
+#         USERNAME: ${{ secrets.USERNAME }}
+#         PASSWORD: ${{ secrets.PASSWORD }}
+#         PATH_LOCAL: "./public_html/"
+#         PATH_REMOTE: "./public_html/" # ** REQUIRES UPDATE TO SAFE FOLDER **
+#         PROTOCOL: sftp
+#         PORT: 22
+#         ARGS: --verbose --delete
