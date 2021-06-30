@@ -8,8 +8,9 @@ nav {
     border: 2px solid #e67300;
     width: 10rem;
     background-color: #e67300;
-    min-height: 2rem;
-    z-index: 1000;
+    max-height: 1.618rem;
+    height: 1.618rem;
+    z-index: 9999;
 }
 
 nav ul {
