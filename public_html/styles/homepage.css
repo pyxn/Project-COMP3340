@@ -96,6 +96,9 @@ RESPONSIVE CODE
 /* tablets (portrait) */
 
 @media only screen and (min-width: 768px) and (max-width: 1024px) {
+    div#map {
+        margin-top: 1.618rem;
+    }
     div#mostLivableCitiesTableContainer {
         overflow-y: scroll;
         max-width: 100vw;
