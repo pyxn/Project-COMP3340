@@ -6,29 +6,31 @@ nav {
     font-weight: bold;
     color: white;
     border: 2px solid #e67300;
-    width: 10rem;
+    width: 13rem;
     background-color: #e67300;
-    max-height: 1.618rem;
-    height: 1.618rem;
-    z-index: 9999;
+    height: 2.618rem;
+    z-index: 100;
+    padding: 0.618rem;
 }
 
 nav ul {
     display: none;
     list-style: none;
-    margin: 0;
+    margin-top: 0.7rem;
+    margin-left: -0.7rem;
     padding: 0;
 }
 
 nav:hover ul {
-    display: block
+    display: block;
 }
 
 nav ul li {
     border-top: 2px solid #e67300;
     background-color: white;
-    width: 10em;
+    width: 13rem;
     color: black;
+    padding: 0.618rem;
 }
 
 nav ul li:hover {
@@ -46,52 +48,39 @@ RESPONSIVE CODE
 
 /* phones (portrait) */
 
-@media only screen 
-and (max-width: 767px) 
-and (orientation: portrait) {
+@media only screen and (max-width: 767px) and (orientation: portrait) {
     nav {
         width: 100vw;
         position: absolute;
         top: 0;
         left: 0;
-    }
-
-    nav span {
-        padding-left: 1rem;
     }
 }
 
 /* phones (landscape) */
 
-@media only screen 
-and (max-width: 767px) 
-and (orientation: landscape) {
+@media only screen and (max-width: 767px) and (orientation: landscape) {
     nav {
         width: 100vw;
         position: absolute;
         top: 0;
         left: 0;
-    }
-
-    nav span {
-        padding-left: 1rem;
     }
 }
 
 /* tablets (portrait) */
 
-@media only screen 
-and (min-width: 768px) 
-and (max-width: 1024px) 
-and (orientation: portrait) {
+@media only screen and (min-width: 768px) and (max-width: 1024px) {
     nav {
         width: 100vw;
         position: absolute;
         top: 0;
         left: 0;
     }
+}
 
-    nav span {
-        padding-left: 1rem;
-    }
+/* desktop and tablets (landscape) */
+
+@media only screen and (min-width: 1025px) {
+
 }
