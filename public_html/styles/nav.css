@@ -2,6 +2,10 @@
 NAV: INTERACTIVE MENU
 -------------------------------------*/
 
+aside {
+    z-index: 1;
+}
+
 nav {
     font-weight: bold;
     color: white;
@@ -9,7 +13,6 @@ nav {
     width: 13rem;
     background-color: #e67300;
     height: 2.618rem;
-    z-index: 100;
     padding: 0.618rem;
 }
 
@@ -51,9 +54,6 @@ RESPONSIVE CODE
 @media only screen and (max-width: 767px) and (orientation: portrait) {
     nav {
         width: 100vw;
-        position: absolute;
-        top: 0;
-        left: 0;
     }
 }
 
@@ -62,9 +62,6 @@ RESPONSIVE CODE
 @media only screen and (max-width: 767px) and (orientation: landscape) {
     nav {
         width: 100vw;
-        position: absolute;
-        top: 0;
-        left: 0;
     }
 }
 
@@ -73,9 +70,6 @@ RESPONSIVE CODE
 @media only screen and (min-width: 768px) and (max-width: 1024px) {
     nav {
         width: 100vw;
-        position: absolute;
-        top: 0;
-        left: 0;
     }
 }
 
