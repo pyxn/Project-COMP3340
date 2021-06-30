@@ -14,7 +14,7 @@ var titleCode = `
     </span>
     <br>
     <span id="airQualitySubtitle" style="font-family: 'Public Sans', sans-serif; font-size: 1rem;">
-        Based on National Air Pollution Surveillance (NAPS) Program
+        Based on National Air Pollution <br> Surveillance (NAPS) Program
     </span>
 `;
 

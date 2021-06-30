@@ -1,7 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Public+Sans:wght@100;400;700&display=swap');
 @import "../styles/nav.css";
 @import "../styles/homepage.css";
-
 /* -----------------------------------
 UNIVERSAL (HOMEPAGE+)
 -------------------------------------*/
@@ -10,33 +9,26 @@ UNIVERSAL (HOMEPAGE+)
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    line-height: 1.414;
 }
 
 html, body {
     height: 100%;
-    font-size: 13px;
+    max-width: 100vw;
     font-family: 'Public Sans', sans-serif;
-}
-
-body {
-    height: 100%;
 }
 
 body.sidebar-navigation {
     display: grid;
-    grid-template-columns: 10em auto;
+    grid-template-columns: 13rem auto;
+}
+
+main {
+    max-width: 100%;
 }
 
 section.single-column {
     display: grid;
-    grid-template-columns: 1fr;
-}
-
-section.dual-column-one-third {
-    width: 100%;
-    display: grid;
-    grid-template-columns: 1fr 2fr;
+    grid-template-columns: auto;
 }
 
 /* -----------------------------------
@@ -46,32 +38,32 @@ RESPONSIVE CODE
 /* phones (portrait) */
 
 @media only screen and (max-width: 767px) and (orientation: portrait) {
-    html, body {
-        height: 100%;
-        font-size: 16px;
-        font-family: 'Public Sans', sans-serif;
-    }
-
     body.sidebar-navigation {
         display: grid;
         grid-template-columns: auto;
     }
+}
 
-    section.dual-column-one-third {
-        width: 100%;
+/* phones (landscape) */
+
+@media only screen and (max-width: 767px) and (orientation: landscape) {
+    body.sidebar-navigation {
         display: grid;
         grid-template-columns: auto;
     }
 }
 
-/* phones (normal) */
+/* tablets (portrait) */
 
-@media only screen and (max-width: 767px) and (orientation: landscape) {
-
+@media only screen and (min-width: 768px) and (max-width: 1024px) {
+    body.sidebar-navigation {
+        display: grid;
+        grid-template-columns: auto;
+    }
 }
 
-/* tablets and desktops */
+/* desktop and tablets (landscape) */
 
-@media only screen and (min-width: 768px) {
+@media only screen and (min-width: 1025px) {
 
 }
