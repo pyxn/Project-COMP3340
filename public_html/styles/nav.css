@@ -8,7 +8,8 @@ nav {
     border: 2px solid #e67300;
     width: 10rem;
     background-color: #e67300;
-    max-height: 2rem;
+    min-height: 2rem;
+    z-index: 1000;
 }
 
 nav ul {
@@ -44,15 +45,14 @@ RESPONSIVE CODE
 
 /* phones (portrait) */
 
-@media only screen and (max-width: 767px) and (orientation: portrait) {
+@media only screen 
+and (max-width: 767px) 
+and (orientation: portrait) {
     nav {
         width: 100vw;
-        font-size: 1.618rem;
         position: absolute;
         top: 0;
         left: 0;
-        z-index: 1000;
-        min-height: 2.618rem;
     }
 
     nav span {
@@ -60,14 +60,37 @@ RESPONSIVE CODE
     }
 }
 
-/* phones (normal) */
+/* phones (landscape) */
 
-@media only screen and (max-width: 767px) and (orientation: landscape) {
+@media only screen 
+and (max-width: 767px) 
+and (orientation: landscape) {
+    nav {
+        width: 100vw;
+        position: absolute;
+        top: 0;
+        left: 0;
+    }
 
+    nav span {
+        padding-left: 1rem;
+    }
 }
 
-/* tablets and desktops */
+/* tablets (portrait) */
 
-@media only screen and (min-width: 768px) {
+@media only screen 
+and (min-width: 768px) 
+and (max-width: 1024px) 
+and (orientation: portrait) {
+    nav {
+        width: 100vw;
+        position: absolute;
+        top: 0;
+        left: 0;
+    }
 
+    nav span {
+        padding-left: 1rem;
+    }
 }
