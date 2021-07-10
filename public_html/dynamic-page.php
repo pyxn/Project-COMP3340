@@ -48,28 +48,28 @@ final class City {
         $summary,
         $link
     ) {
-        $this->rank = $rank;
-        $this->city_town = $city_town;
-        $this->province = $province;
-        $this->population = $population;
-        $this->avg_home_price_2020 = $avg_home_price_2020;
-        $this->avg_mortgage_payment_20_down = $avg_mortgage_payment_20_down;
-        $this->min_income_required_20_down = $min_income_required_20_down;
-        $this->proximity_to_large_water_body = $proximity_to_large_water_body;
-        $this->proximity_to_mountains = $proximity_to_mountains;
-        $this->scenery_rating = $scenery_rating;
-        $this->nightlife_rating = $nightlife_rating;
-        $this->outdoor_activity_rating = $outdoor_activity_rating;
-        $this->climate_rating = $climate_rating;
-        $this->drive_to_commercial_airport_minutes = $drive_to_commercial_airport_minutes;
-        $this->summary = $summary;
-        $this->link = $link;
+        $this->rank                                 = $rank;
+        $this->city_town                            = $city_town;
+        $this->province                             = $province;
+        $this->population                           = $population;
+        $this->avg_home_price_2020                  = $avg_home_price_2020;
+        $this->avg_mortgage_payment_20_down         = $avg_mortgage_payment_20_down;
+        $this->min_income_required_20_down          = $min_income_required_20_down;
+        $this->proximity_to_large_water_body        = $proximity_to_large_water_body;
+        $this->proximity_to_mountains               = $proximity_to_mountains;
+        $this->scenery_rating                       = City::getStarsFrom($scenery_rating);
+        $this->nightlife_rating                     = City::getStarsFrom($nightlife_rating);
+        $this->outdoor_activity_rating              = City::getStarsFrom($outdoor_activity_rating);
+        $this->climate_rating                       = City::getStarsFrom($climate_rating);
+        $this->drive_to_commercial_airport_minutes  = $drive_to_commercial_airport_minutes;
+        $this->summary                              = $summary;
+        $this->link                                 = $link;
     }
 
     // ----------------------------------------------------------------
     // Creates a star rating string from an integer
     // ----------------------------------------------------------------
-    public static function getStarsFromRating($rating) {
+    public static function getStarsFrom($rating) {
         $star_string = "";
         for ($x = 1; $x <= $rating; $x++) {
             $star_string .= "★";
@@ -77,7 +77,6 @@ final class City {
         return $star_string;
     }
 }
-
 
 /**
  * ---------------------------------------------------------------------------------
@@ -174,19 +173,19 @@ $city = new City(
                 <table id="hero-table">
                     <tr>
                         <td>Scenery</td>
-                        <td><?php echo City::getStarsFromRating($city->scenery_rating); ?></td>
+                        <td><?php echo $city->scenery_rating; ?></td>
                     </tr>
                     <tr>
                         <td>Outdoor</td>
-                        <td><?php echo City::getStarsFromRating($city->outdoor_activity_rating); ?></td>
+                        <td><?php echo $city->outdoor_activity_rating; ?></td>
                     </tr>
                     <tr>
                         <td>Nightlife</td>
-                        <td><?php echo City::getStarsFromRating($city->nightlife_rating); ?></td>
+                        <td><?php echo $city->nightlife_rating; ?></td>
                     </tr>
                     <tr>
                         <td>Climate</td>
-                        <td><?php echo City::getStarsFromRating($city->climate_rating); ?></td>
+                        <td><?php echo $city->climate_rating; ?></td>
                     </tr>
                     <tfoot>
                         <tr>
