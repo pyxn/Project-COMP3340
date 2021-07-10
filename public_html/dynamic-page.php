@@ -247,10 +247,8 @@ $city = new City(
             // ---------------------------------------------------------------------------
             // Change the background image of the URL image using the City object
             // ---------------------------------------------------------------------------
-            $i = $city->rank;
-            $n = $city->city_town;
-            $p = $city->province;
-            echo "document.getElementById('hero-card').setAttribute('style', 'background-image: url(./images/city-$i-$n-$p.jpg')";
+            $url_filename = strtolower('./images/city-' . $city->rank . '-' . $city->city_town . '-' . $city->province . '.jpg');
+            echo "document.getElementById('hero-card').setAttribute('style', 'background-image: url($url_filename)')";
             ?>
         </script>
     </footer>
