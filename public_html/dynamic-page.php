@@ -94,8 +94,32 @@ final class City {
 // Grab the city rank from the URL (through a GET request)
 // ---------------------------------------------------------------
 if (isset($_GET['city'])) {
+
     $city_rank = $_GET['city'];
-    // MYSQLI CODE goes here
+
+    // ---------------------------------------------------------------
+    // STEP 1: Connect to SQL Database
+    // ---------------------------------------------------------------
+    $sql_connection = mysqli_connect('localhost', 'qiao6', 'Woshishen@2021');
+    if (!$sql_connection) {
+        die("connection fail: " . mysqli_connect_error());
+    }
+    mysqli_select_db($sql_connection, 'qiao6_comp3340');
+
+    // ---------------------------------------------------------------
+    // STEP 2: Create SQL Query
+    // ---------------------------------------------------------------
+    $sql_query = "SELECT * from cities where rank = $city_rank;";
+
+    // ---------------------------------------------------------------
+    // Step 3: Get Query Record Result
+    // ---------------------------------------------------------------
+    $sql_query_result = mysqli_query($sql_connection, $sql_query);
+
+    // ---------------------------------------------------------------
+    // Step 4: Convert SQL Result Object to Associative Array
+    // ---------------------------------------------------------------
+    $sql_query_result_array = mysqli_fetch_assoc($sql_query_result);
 }
 
 // ---------------------------------------------------------------
@@ -104,22 +128,22 @@ if (isset($_GET['city'])) {
 // Test data for now.
 // ---------------------------------------------------------------
 
-$rank                                = "1";
-$city_town                           = "Langford";
-$province                            = "BC";
-$population                          = "42653";
-$avg_home_price_2020                 = "725300";
-$avg_mortgage_payment_20_down        = "3024";
-$min_income_required_20_down         = "107604";
-$proximity_to_large_water_body       = "1";
-$proximity_to_mountains              = "1";
-$scenery_rating                      = "4";
-$nightlife_rating                    = "3";
-$outdoor_activity_rating             = "4";
-$climate_rating                      = "4";
-$drive_to_commercial_airport_minutes = "30";
-$summary                             = "A fast-growing city with endless green spaces";
-$link                                = "NULL";
+$rank                                = $sql_query_result_array['rank'];
+$city_town                           = $sql_query_result_array['city_town'];
+$province                            = $sql_query_result_array['province'];
+$population                          = $sql_query_result_array['population'];
+$avg_home_price_2020                 = $sql_query_result_array['avg_home_price_2020'];
+$avg_mortgage_payment_20_down        = $sql_query_result_array['avg_mortgage_payment_20_down'];
+$min_income_required_20_down         = $sql_query_result_array['min_income_required_20_down'];
+$proximity_to_large_water_body       = $sql_query_result_array['proximity_to_large_water_body'];
+$proximity_to_mountains              = $sql_query_result_array['proximity_to_mountains'];
+$scenery_rating                      = $sql_query_result_array['scenery_rating'];
+$nightlife_rating                    = $sql_query_result_array['nightlife_rating'];
+$outdoor_activity_rating             = $sql_query_result_array['outdoor_activity_rating'];
+$climate_rating                      = $sql_query_result_array['climate_rating'];
+$drive_to_commercial_airport_minutes = $sql_query_result_array['drive_to_commercial_airport_minutes'];
+$summary                             = $sql_query_result_array['summary'];
+$link                                = $sql_query_result_array['link'];
 
 // ---------------------------------------------------------------
 // Create a new City object that will be used throughout the page.
@@ -239,7 +263,17 @@ $city = new City(
                 </div>
             </div>
         </section>
+
     </main>
+
+    <!-- DEBUG AREA
+    <aside>
+        <pre>
+            <?php var_dump($sql_query_result_array) ?>
+        </pre>
+    </aside>
+    -->
+
     <footer>
         <script>
             <?php
