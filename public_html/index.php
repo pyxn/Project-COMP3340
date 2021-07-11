@@ -8,10 +8,10 @@ if(!isset($_SESSION['username'])){
 function map_shortcode_function() {
 	
 	// WordPress database access abstraction class
-	global $con=mysql_connect("","","");
+	global $con=mysqli_connect("host","username","password");
     if (!$con)
       {
-      die('Could not connect: ' . mysql_error());
+      die('Could not connect: ' . mysqli_connect_error());
       }
 	
 	// calling get_results function from $wpdb class to connect to database to get map pop up data
