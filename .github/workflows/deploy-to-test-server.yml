@@ -5,12 +5,24 @@
 # - a commit is merged through a pull request on the 'main' branch
 # --------------------------------------------------------------------------
 
+# The name of the workflow
 name: Deploy to Test Server
+
+# The workflow will only execute when a push is made on main branch
 on:
   push:
     branches:
       - main
+      
+# Run only the most recent workflow and cancel current ones
+concurrency:
+  group: ${{ github.workflow }}
+  cancel-in-progress: true
+
+# Run specific jobs for the workflow
 jobs:
+  
+  # Mirror files from GitHub repository to a remote server using SFTP
   SFTP-Mirror:
     name: SFTP Mirror
     runs-on: ubuntu-latest
