@@ -13,11 +13,10 @@ function map_shortcode_function() {
       die('Could not connect: ' . mysqli_connect_error());
       }
 	
-	// calling get_results function from $wpdb class to connect to database to get map pop up data
-	$result = $con->get_results("SELECT * FROM `provinces`");
 	
-	// converting php array to json to use it based on value/key in js code
-	$json_cache=json_encode($result);
+    $result = $con->get_results("SELECT * FROM `provinces`");
+	
+    $json_cache=json_encode($result);
 	
 }
 
