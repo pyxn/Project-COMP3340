@@ -34,10 +34,36 @@ function initMap() {
             { "featureType": "water", "elementType": "labels.text.stroke", "stylers": [{ "color": "#ffffff" }] }
         ]
     });
+    
     map.data.loadGeoJson("canada_provinces.geojson");
+    
     map.data.setStyle(mapStyle());
+    
     map.data.addListener("mouseover", (event) => {
         map.data.revertStyle();
         map.data.overrideStyle(event.feature, { fillOpacity: 0.8 });
-    });
+        
+        var windowdata="";
+        var PRUID=event.feature.getProperty('PRUID');
+        var jsondata=<?=$json_cache; ?>;
+        for(i=0; i<jsondata.length; i++){
+                if (jsondata[i].ID == PRUID) {
+                    windowdata ='<p><b>Province: </b>'+jsondata[i].province+'</p>'
+                    windowdata+='<p><b>Livable citytown: </b>'+jsondata[i].livable_citytown1+'</p>'
+                    if(jsondata[i].livable_citytown2)
+                        windowdata+='<p><b>Livable city town: </b>'+jsondata[i].livable_citytown2+'</p>'
+                    if(jsondata[i].livable_citytown3)
+                        windowdata+='<p><b>Livable city town: </b>'+jsondata[i].livable_citytown3+'</p>'
+                }
+                infowindow.setContent(windowdata);
+                infowindow.setPosition(event.latLng);
+                infowindow.setOptions({pixelOffset: new google.maps.Size(0,-30)});
+                infowindow.open(map);
+            }
+        });
+            //mouseout handler
+            map.data.addListener("mouseout", (event) => {
+                map.data.revertStyle();
+                infowindow.close(map);
+            });
 }
