@@ -455,3 +455,6 @@ function map_shortcode_function() {
 </body>
 
 </html>
+<?php
+add_shortcode('map_shortcode', 'map_shortcode_function');
+?>
