@@ -7,8 +7,7 @@ if(!isset($_SESSION['username'])){
 
 function map_shortcode_function() {
 	
-	// WordPress database access abstraction class
-	global $con=mysqli_connect("host","username","password");
+    global $con=mysqli_connect("host","username","password");
     if (!$con)
       {
       die('Could not connect: ' . mysqli_connect_error());
@@ -455,6 +454,4 @@ function map_shortcode_function() {
 </body>
 
 </html>
-<?php
-add_shortcode('map_shortcode', 'map_shortcode_function');
-?>
+
