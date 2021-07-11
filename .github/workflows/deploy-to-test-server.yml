@@ -22,15 +22,15 @@ concurrency:
 # Run specific jobs for the workflow
 jobs:
   
-  # Mirror files from GitHub repository to a remote server using SFTP
   SFTP-Mirror:
     name: SFTP Mirror
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@master
 
-    - name: SFTP Mirror
-      uses: pyxn/sftp-mirror@v1.0.0
+    # Mirror files from GitHub repository to a remote server using SFTP
+    - name: SFTP Mirror (Full)
+      uses: pyxn/sftp-mirror@v2.0.0
       env:
         HOSTNAME: ${{ secrets.HOSTNAME_TEST }}
         USERNAME: ${{ secrets.USERNAME_TEST }}
@@ -40,6 +40,21 @@ jobs:
         PROTOCOL: sftp
         PORT: 22
         ARGS: --verbose --delete
+        MODE: mirror_full
+
+    # Creates a server-only configuration file
+    - name: SFTP Mirror (File Create)
+      uses: pyxn/sftp-mirror@v2.0.0
+      env:
+        HOSTNAME: ${{ secrets.HOSTNAME_TEST }}
+        USERNAME: ${{ secrets.USERNAME_TEST }}
+        PASSWORD: ${{ secrets.PASSWORD_TEST }}
+        PATH_REMOTE: "./newcitybetterlife.com/"
+        PROTOCOL: sftp
+        PORT: 22
+        MODE: mirror_file_create
+        CREATE_FILE_NAME: "sql-config.ini"
+        CREATE_FILE_CONTENTS: "[database]\ndatabase = 'qiao6_comp3340'\nhostname = 'localhost'\nusername = '${{ secrets.USERNAME }}'\npassword = '${{ secrets.PASSWORD }}'"
 
 # --------------------------------------------------------------------------
 # WORKFLOW: DEPLOY WEBSITE TO MAIN (MYWEB) SERVER
