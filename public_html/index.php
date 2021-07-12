@@ -1,5 +1,18 @@
 <?php
 
+/**
+ * ---------------------------------------------------------------------------------
+ * SQL CONNECTION CREDENTIALS
+ * ---------------------------------------------------------------------------------
+ * Configure SQL Connection using configuration file in server
+ * ---------------------------------------------------------------------------------
+ */
+$sql_configuration_array    = parse_ini_file("../sql-config.ini", true);
+$db_name                    = $sql_configuration_array['database']['database'];
+$db_hostname                = $sql_configuration_array['database']['hostname'];
+$db_username                = $sql_configuration_array['database']['username'];
+$db_password                = $sql_configuration_array['database']['password'];
+
 session_start();
 if(!isset($_SESSION['username'])){
     header('location:login.php');
@@ -7,7 +20,7 @@ if(!isset($_SESSION['username'])){
 
 function map_shortcode_function() {
 	
-    global $con=mysqli_connect("host","username","password");
+    global $con=mysqli_connect($db_hostname, $db_username, $db_password);
     if (!$con)
       {
       die('Could not connect: ' . mysqli_connect_error());
