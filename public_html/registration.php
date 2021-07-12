@@ -1,14 +1,27 @@
 <?php
 
+/**
+ * ---------------------------------------------------------------------------------
+ * SQL CONNECTION CREDENTIALS
+ * ---------------------------------------------------------------------------------
+ * Configure SQL Connection using configuration file in server
+ * ---------------------------------------------------------------------------------
+ */
+$sql_configuration_array    = parse_ini_file("../sql-config.ini", true);
+$db_name                    = $sql_configuration_array['database']['database'];
+$db_hostname                = $sql_configuration_array['database']['hostname'];
+$db_username                = $sql_configuration_array['database']['username'];
+$db_password                = $sql_configuration_array['database']['password'];
+
 session_start();
 # header('location:login.php');
 
-$con = mysqli_connect('localhost', 'USERNAME', 'PASSWOED');
+$con = mysqli_connect($db_hostname, $db_username, $db_password);
 if(!$con){
     die("connection fail: ". mysqli_connect_error());
 }
 
-mysqli_select_db($con, 'DATABASE_NAME');
+mysqli_select_db($con, $db_name);
 
 $name = $_POST['user'];
 $pass = $_POST['password'];
@@ -24,5 +37,3 @@ if($num ==1){
     mysqli_query($con, $reg);
     echo "Registration is done.";
 }
-
-?>
