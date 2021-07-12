@@ -197,7 +197,7 @@ $city = new City(
                 <hgroup id="hero-card-header">
                     <div>
                         <h1 id="hero-card-title"><?php echo $city->city_town . ", " . $city->province; ?></h1>
-                        <p id="hero-card-subtitle"><?php echo $city->population; ?> 👤</p>
+                        <p id="hero-card-subtitle"><?php echo number_format($city->population, 0, ".", ","); ?> 👤</p>
                     </div>
                     <div>
                         <p id="hero-card-rank">
@@ -253,15 +253,15 @@ $city = new City(
                         </tr>
                         <tr class="table-row-vertical">
                             <td class="table-data-vertical-label">Population</td>
-                            <td class="table-data-vertical-value"><?php echo $city->population; ?></td>
+                            <td class="table-data-vertical-value"><?php echo number_format($city->population, 0, ".", ","); ?></td>
                         </tr>
                         <tr class="table-row-vertical">
                             <td class="table-data-vertical-label">Average Home Price (2020)</td>
-                            <td class="table-data-vertical-value"><?php echo $city->avg_home_price_2020; ?></td>
+                            <td class="table-data-vertical-value"><?php echo "$" . number_format($city->avg_home_price_2020, 0, ".", ","); ?></td>
                         </tr>
                         <tr class="table-row-vertical">
                             <td class="table-data-vertical-label">Average Mortgage Payment (2020)</td>
-                            <td class="table-data-vertical-value"><?php echo $city->avg_mortgage_payment_20_down; ?></td>
+                            <td class="table-data-vertical-value"><?php echo "$" . number_format($city->avg_mortgage_payment_20_down, 0, ".", ","); ?></td>
                         </tr>
                         <tr class="table-row-vertical">
                             <td class="table-data-vertical-label">Drive to Commercial Airport (minutes)</td>
