@@ -2,6 +2,19 @@
 
 /**
  * ---------------------------------------------------------------------------------
+ * SQL CONNECTION CREDENTIALS
+ * ---------------------------------------------------------------------------------
+ * Configure SQL Connection using configuration file in server
+ * ---------------------------------------------------------------------------------
+ */
+$sql_configuration_array    = parse_ini_file("../sql-config.ini", true);
+$db_name                    = $sql_configuration_array['database']['database'];
+$db_hostname                = $sql_configuration_array['database']['hostname'];
+$db_username                = $sql_configuration_array['database']['username'];
+$db_password                = $sql_configuration_array['database']['password'];
+
+/**
+ * ---------------------------------------------------------------------------------
  * CLASS: CITY
  * ---------------------------------------------------------------------------------
  * A data type that represents a City Object, with fields obtained from a MySQL record
@@ -100,11 +113,11 @@ if (isset($_GET['city'])) {
     // ---------------------------------------------------------------
     // STEP 1: Connect to SQL Database
     // ---------------------------------------------------------------
-    $sql_connection = mysqli_connect('localhost', 'USERNAME', 'PASSWORD');
+    $sql_connection = mysqli_connect($db_hostname, $db_username, $db_password);
     if (!$sql_connection) {
         die("connection fail: " . mysqli_connect_error());
     }
-    mysqli_select_db($sql_connection, 'qiao6_comp3340');
+    mysqli_select_db($sql_connection, $db_name);
 
     // ---------------------------------------------------------------
     // STEP 2: Create SQL Query
@@ -123,9 +136,7 @@ if (isset($_GET['city'])) {
 }
 
 // ---------------------------------------------------------------
-// Using the city rank, obtain SQL record. mySQL results go here.
-// Strings can be replaced with the query results. 
-// Test data for now.
+// Using the city rank, obtain SQL record array items
 // ---------------------------------------------------------------
 
 $rank                                = $sql_query_result_array['rank'];
