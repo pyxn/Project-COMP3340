@@ -291,8 +291,27 @@ $city = new City(
             // ---------------------------------------------------------------------------
             // Change the background image of the URL image using the City object
             // ---------------------------------------------------------------------------
-            $url_filename = strtolower('./images/city-' . $city->rank . '-' . $city->city_town . '-' . $city->province . '.jpg');
-            echo "document.getElementById('hero-card').setAttribute('style', 'background-image: url($url_filename)')";
+            $filename_id            = trim($city->rank);
+            $filename_city          = trim($city->city_town);
+            $filename_province      = trim($city->province);
+            $url_filename           = strtolower('./images/city-' . $filename_id . '-' . $filename_city . '-' . $filename_province . '.jpg');
+            $url_filename_cleansed  = get_clean_url_from($url_filename);
+            echo "document.getElementById('hero-card').setAttribute('style', 'background-image: url($url_filename_cleansed)')";
+            // ---------------------------------------------------------------------------
+
+            // ---------------------------------------------------------------------------
+            // Function to clean URLS
+            // ---------------------------------------------------------------------------
+            function get_clean_url_from($string) {
+                $string = trim(strtolower($string));
+                $string = str_replace(' ', '-', $string);                     // Remove dashes ("-")
+                $string = str_replace('.-', '-', $string);                    // Remove dot followed by a dash (".-")
+                $string = preg_replace('/[^\/A-Za-z0-9\-\.]/', '', $string);  // Remove all special characters (except letters, numbers, dashes, "." and "/")
+                $string = preg_replace('/-+/', '-', $string);                 // Remove double dashes ("--")
+                return $string;
+            }
+            // ---------------------------------------------------------------------------
+
             ?>
         </script>
     </footer>
