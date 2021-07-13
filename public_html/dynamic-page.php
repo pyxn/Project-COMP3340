@@ -308,6 +308,9 @@ $city = new City(
                 $string = str_replace('.-', '-', $string);                    // Remove dot followed by a dash (".-")
                 $string = preg_replace('/[^\/A-Za-z0-9\-\.]/', '', $string);  // Remove all special characters (except letters, numbers, dashes, "." and "/")
                 $string = preg_replace('/-+/', '-', $string);                 // Remove double dashes ("--")
+
+                // SPECIAL CASES
+                $string = str_replace('city-69-carignan/chambly-qc.jpg', 'city-69-carignan-chambly-qc.jpg', $string);
                 return $string;
             }
             // ---------------------------------------------------------------------------
