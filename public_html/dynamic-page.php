@@ -311,6 +311,7 @@ $city = new City(
 
                 // SPECIAL CASES
                 $string = str_replace('city-69-carignan/chambly-qc.jpg', 'city-69-carignan-chambly-qc.jpg', $string);
+                $string = str_replace('city-86-kleinburg/nashville-on.jpg', 'city-86-kleinburg-nashville-on.jpg', $string);
                 return $string;
             }
             // ---------------------------------------------------------------------------
