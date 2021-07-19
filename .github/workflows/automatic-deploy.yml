@@ -56,30 +56,30 @@ jobs:
         CREATE_FILE_NAME: "sql-config.ini"
         CREATE_FILE_CONTENTS: "[database]\ndatabase = 'qiao6_comp3340'\nhostname = 'localhost'\nusername = '${{ secrets.USERNAME }}'\npassword = '${{ secrets.PASSWORD }}'"
 
-    # # Mirror files from GitHub repository to a remote server using SFTP
-    # - name: Main Server - SFTP Mirror (Full)
-    #   uses: pyxn/sftp-mirror@v2.0.0
-    #   env:
-    #     HOSTNAME: ${{ secrets.HOSTNAME_MAIN }}
-    #     USERNAME: ${{ secrets.USERNAME_MAIN }}
-    #     PASSWORD: ${{ secrets.PASSWORD_MAIN }}
-    #     PATH_LOCAL: "./public_html/"
-    #     PATH_REMOTE: "./public_html/" # CAUTION: Change to one depth higher folder to prvent full overwrite
-    #     PROTOCOL: sftp
-    #     PORT: 22
-    #     ARGS: --verbose --only-newer --overwrite --delete 
-    #     MODE: mirror_full
+    # Mirror files from GitHub repository to a remote server using SFTP
+    - name: Main Server - SFTP Mirror (Full)
+      uses: pyxn/sftp-mirror@v2.0.0
+      env:
+        HOSTNAME: ${{ secrets.HOSTNAME_MAIN }}
+        USERNAME: ${{ secrets.USERNAME_MAIN }}
+        PASSWORD: ${{ secrets.PASSWORD_MAIN }}
+        PATH_LOCAL: "./public_html/"
+        PATH_REMOTE: "./public_html/project/"  
+        PROTOCOL: sftp
+        PORT: 22
+        ARGS: --verbose --only-newer --overwrite --delete 
+        MODE: mirror_full
 
-    # # Creates a server-only configuration file
-    # - name: Main Server - SFTP Mirror (File Create)
-    #   uses: pyxn/sftp-mirror@v2.0.0
-    #   env:
-    #     HOSTNAME: ${{ secrets.HOSTNAME_MAIN }}
-    #     USERNAME: ${{ secrets.USERNAME_MAIN }}
-    #     PASSWORD: ${{ secrets.PASSWORD_MAIN }}
-    #     PATH_REMOTE: "./public_html/.."
-    #     PROTOCOL: sftp
-    #     PORT: 22
-    #     MODE: mirror_file_create
-    #     CREATE_FILE_NAME: "sql-config.ini"
-    #     CREATE_FILE_CONTENTS: "[database]\ndatabase = 'qiao6_comp3340'\nhostname = 'localhost'\nusername = '${{ secrets.USERNAME }}'\npassword = '${{ secrets.PASSWORD }}'"
+    # Creates a server-only configuration file
+    - name: Main Server - SFTP Mirror (File Create)
+      uses: pyxn/sftp-mirror@v2.0.0
+      env:
+        HOSTNAME: ${{ secrets.HOSTNAME_MAIN }}
+        USERNAME: ${{ secrets.USERNAME_MAIN }}
+        PASSWORD: ${{ secrets.PASSWORD_MAIN }}
+        PATH_REMOTE: "./public_html/.."
+        PROTOCOL: sftp
+        PORT: 22
+        MODE: mirror_file_create
+        CREATE_FILE_NAME: "sql-config.ini"
+        CREATE_FILE_CONTENTS: "[database]\ndatabase = 'qiao6_comp3340'\nhostname = 'localhost'\nusername = '${{ secrets.USERNAME }}'\npassword = '${{ secrets.PASSWORD }}'"
