@@ -49,7 +49,7 @@ jobs:
         HOSTNAME: ${{ secrets.HOSTNAME_TEST }}
         USERNAME: ${{ secrets.USERNAME_TEST }}
         PASSWORD: ${{ secrets.PASSWORD_TEST }}
-        PATH_REMOTE: "./"
+        PATH_REMOTE: "./newcitybetterlife.com/"
         PROTOCOL: sftp
         PORT: 22
         MODE: mirror_file_create
