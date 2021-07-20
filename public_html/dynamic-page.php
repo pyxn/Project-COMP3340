@@ -7,7 +7,7 @@
  * Configure SQL Connection using configuration file in server
  * ---------------------------------------------------------------------------------
  */
-$sql_configuration_array    = parse_ini_file("../../sql-config.ini", true);
+$sql_configuration_array    = parse_ini_file("../../../sql-config.ini", true);
 $db_name                    = $sql_configuration_array['database']['database'];
 $db_hostname                = $sql_configuration_array['database']['hostname'];
 $db_username                = $sql_configuration_array['database']['username'];
