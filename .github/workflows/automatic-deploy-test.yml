@@ -1,12 +1,12 @@
 # --------------------------------------------------------------------------
-# WORKFLOW: DEPLOY WEBSITE TO MAIN SERVER
+# WORKFLOW: DEPLOY WEBSITE TO TEST SERVER
 # --------------------------------------------------------------------------
-# This workflow will deploy the website to the main myweb server when:
+# This workflow will deploy the website to the backup test server when:
 # - a commit is pushed on the 'main' branch
 # --------------------------------------------------------------------------
 
 # The name of the workflow
-name: Automatic Deploy to Server (Main)
+name: Automatic Deploy to Server (Test)
 
 # The workflow will only execute when a push is made on main branch
 on:
@@ -29,26 +29,26 @@ jobs:
     - uses: actions/checkout@master
 
     # Mirror files from GitHub repository to a remote server using SFTP
-    - name: Main Server - SFTP Mirror (Full)
+    - name: Test Server - SFTP Mirror (Full)
       uses: pyxn/sftp-mirror@v2.0.0
       env:
-        HOSTNAME: ${{ secrets.HOSTNAME_MAIN }}
-        USERNAME: ${{ secrets.USERNAME_MAIN }}
-        PASSWORD: ${{ secrets.PASSWORD_MAIN }}
+        HOSTNAME: ${{ secrets.HOSTNAME_TEST }}
+        USERNAME: ${{ secrets.USERNAME_TEST }}
+        PASSWORD: ${{ secrets.PASSWORD_TEST }}
         PATH_LOCAL: "./public_html/"
-        PATH_REMOTE: "./public_html/project/"  
+        PATH_REMOTE: "./newcitybetterlife.com/public_html/"
         PROTOCOL: sftp
         PORT: 22
         ARGS: --verbose --only-newer --overwrite --delete 
         MODE: mirror_full
 
     # Creates a server-only configuration file
-    - name: Main Server - SFTP Mirror (File Create)
+    - name: Test Server - SFTP Mirror (File Create)
       uses: pyxn/sftp-mirror@v2.0.0
       env:
-        HOSTNAME: ${{ secrets.HOSTNAME_MAIN }}
-        USERNAME: ${{ secrets.USERNAME_MAIN }}
-        PASSWORD: ${{ secrets.PASSWORD_MAIN }}
+        HOSTNAME: ${{ secrets.HOSTNAME_TEST }}
+        USERNAME: ${{ secrets.USERNAME_TEST }}
+        PASSWORD: ${{ secrets.PASSWORD_TEST }}
         PATH_REMOTE: "./"
         PROTOCOL: sftp
         PORT: 22
