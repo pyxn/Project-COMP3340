@@ -341,7 +341,7 @@ $city = new City(
                 } else {
                     $login_code = <<<HTML_LOGIN_CODE
                     <form action="login.php">
-                        <input type="submit">Log In</input>
+                        <input class="universal-login-button" type="submit" value="Log In">
                     </form>
                     HTML_LOGIN_CODE;
                     echo $login_code;
@@ -361,7 +361,14 @@ $city = new City(
                         <form method="POST">
                             <input type="hidden" name='toggle-city-favorite' value='<?php echo $city->get_rank() ?>'>
                             <p id="hero-card-rank">
-                                <button id="indicator-favorite" type="submit">♥</button>
+                                <?php
+                                if (isset($_SESSION['username'])) {
+                                    $favorite_button_code = <<<HTML_FAVORITE_BUTTON_CODE
+                                    <button id="indicator-favorite" type="submit">♥</button>
+                                    HTML_FAVORITE_BUTTON_CODE;
+                                    echo $favorite_button_code;
+                                }
+                                ?>
                                 #<?php echo $city->rank; ?>
                             </p>
                         </form>
