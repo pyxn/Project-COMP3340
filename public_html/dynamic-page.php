@@ -316,19 +316,44 @@ $city = new City(
     <script src="https://cdn.apple-mapkit.com/mk/5.x.x/mapkit.js"></script>
 </head>
 
-<body>
+<body class="sidebar-navigation">
+    <aside>
+        <nav>
+            <span>
+                Menu
+            </span>
+            <ul>
+                <li><a href="#">Home Page</a></li>
+                <li><a href="logout.php">logout</a></li>
+                <li><a href="#">My Favorite</a></li>
+                <li><a href="#">Top 10 livable cities</a></li>
+                <li><a href="#">Find dream city</a></li>
+                <li><a href="#">About</a></li>
+            </ul>
+        </nav>
+    </aside>
     <main>
+        <section id="user-controls-section">
+            <div id="user-controls">
+                Logged in as USERNAME
+            </div>
+        </section>
         <section id="hero-section">
             <div id="hero-card">
                 <hgroup id="hero-card-header">
                     <div>
                         <h1 id="hero-card-title"><?php echo $city->get_city_town() . ", " . $city->get_province(); ?></h1>
-                        <p id="hero-card-subtitle"><?php echo number_format($city->get_population(), 0, ".", ","); ?> 👤</p>
+                        <p id="hero-card-subtitle">
+                            <?php echo number_format($city->get_population(), 0, ".", ","); ?> 👤</p>
                     </div>
                     <div>
-                        <p id="hero-card-rank">
-                            #<?php echo $city->rank; ?>
-                        </p>
+                        <form method="POST">
+                            <input type="hidden" name='toggle-city-favorite' value='<?php echo $city->get_rank() ?>'>
+                            <p id="hero-card-rank">
+                                <button id="indicator-favorite" type="submit">♥</button>
+                                #<?php echo $city->rank; ?>
+                            </p>
+                        </form>
                     </div>
                 </hgroup>
                 <table id="hero-table">
@@ -420,7 +445,7 @@ $city = new City(
             $filename_province      = trim($city->get_province());
             $url_filename           = strtolower('./images/city-' . $filename_id . '-' . $filename_city . '-' . $filename_province . '.jpg');
             $url_filename_cleansed  = get_clean_url_from($url_filename);
-            echo "document.getElementById('hero-card').setAttribute('style', 'background-image: url($url_filename_cleansed)')";
+            echo "document.getElementById('hero-card').setAttribute('style', 'background-image: url($url_filename_cleansed)');";
             // ---------------------------------------------------------------------------
 
             // ---------------------------------------------------------------------------
