@@ -18,21 +18,19 @@ if(!isset($_SESSION['username'])){
     header('location:login.php');
 }
 
- $con=mysqli_connect($db_hostname, $db_username, $db_password);
-    if (!$con)
-      {
-      die('Could not connect: ' . mysqli_connect_error());
-      }
-	else{
+$con=mysqli_connect($db_hostname, $db_username, $db_password);
+if (!$con){
+    die('Could not connect: ' . mysqli_connect_error());
+}
       //echo "connected successfully";
-    }
-	mysqli_select_db($con,"wu1ab_comp3340");
-    $sql = "SELECT * FROM `province`";
-    if($result=mysqli_query($con,$sql)){
-            $json_cache=json_encode($result);
-    }else{
-            echo "no result";
-    }
+mysqli_select_db($con,$db_name);
+$sql = "SELECT * FROM `provinces`";
+if($result=mysqli_query($con,$sql)){
+             //print_r($result);
+      $json_cache=json_encode($result);
+}else{
+      echo "no result";
+}
 
 ?>
 <html>
