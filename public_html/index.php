@@ -18,20 +18,21 @@ if(!isset($_SESSION['username'])){
     header('location:login.php');
 }
 
-function map_shortcode_function() {
-	
-    global $con=mysqli_connect($db_hostname, $db_username, $db_password);
+ $con=mysqli_connect($db_hostname, $db_username, $db_password);
     if (!$con)
       {
       die('Could not connect: ' . mysqli_connect_error());
       }
-	
-	
-    $result = mysqli_query($conn,"SELECT * FROM `provinces`");
-	
-    $json_cache=json_encode($result);
-	
-}
+	else{
+      //echo "connected successfully";
+    }
+	mysqli_select_db($conn,"wu1ab_comp3340");
+    $sql = "SELECT * FROM `province`";
+    if($result=mysqli_query($con,$sql)){
+            $json_cache=json_encode($result);
+    }else{
+            echo "no result";
+    }
 
 ?>
 <html>
