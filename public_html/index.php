@@ -27,7 +27,7 @@ function map_shortcode_function() {
       }
 	
 	
-    $result = $con->get_results("SELECT * FROM `provinces`");
+    $result = mysqli_query($conn,"SELECT * FROM `provinces`");
 	
     $json_cache=json_encode($result);
 	
