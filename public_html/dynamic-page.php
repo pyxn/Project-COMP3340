@@ -335,7 +335,18 @@ $city = new City(
     <main>
         <section id="user-controls-section">
             <div id="user-controls">
-                Logged in as USERNAME
+                <?php
+                if (isset($_SESSION['username'])) {
+                    echo "Logged in (" . $_SESSION['username'] . ")";
+                } else {
+                    $login_code = <<<HTML_LOGIN_CODE
+                    <form action="login.php">
+                        <input type="submit">Log In</input>
+                    </form>
+                    HTML_LOGIN_CODE;
+                    echo $login_code;
+                }
+                ?>
             </div>
         </section>
         <section id="hero-section">
