@@ -26,7 +26,7 @@ if(!isset($_SESSION['username'])){
 	else{
       //echo "connected successfully";
     }
-	mysqli_select_db($conn,"wu1ab_comp3340");
+	mysqli_select_db($con,"wu1ab_comp3340");
     $sql = "SELECT * FROM `province`";
     if($result=mysqli_query($con,$sql)){
             $json_cache=json_encode($result);
