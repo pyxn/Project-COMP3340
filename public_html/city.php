@@ -375,9 +375,10 @@ $city = new City(
                                 if (isset($_SESSION['username'])) {
 
                                     // Check if the user has favorited this city
-                                    $username = $_SESSION['username'];
-                                    $database_helper = new DatabaseHelper($db_hostname, $db_name, $db_username, $db_password);
-                                    $records = $database_helper->get("SELECT * FROM favorites WHERE username = '$username' AND favorite_city_rank = $city->get_rank()");
+                                    $selected_username  = $_SESSION['username'];
+                                    $selected_city_rank = $city->get_rank();
+                                    $database_helper    = new DatabaseHelper($db_hostname, $db_name, $db_username, $db_password);
+                                    $records            = $database_helper->get("SELECT * FROM favorites WHERE username = '$selected_username' AND favorite_city_rank = $selected_city_rank");
 
                                     if (count($records) == 0) {
                                         echo "<button id='indicator-favorite' style='color: white;' formaction='favorite.php' type='submit'>♥</button>";
