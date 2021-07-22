@@ -242,9 +242,9 @@ final class City {
 // ---------------------------------------------------------------
 // Grab the city rank from the URL (through a GET request)
 // ---------------------------------------------------------------
-if (isset($_GET['rank'])) {
+if (isset($_GET['rk'])) {
 
-    $city_rank = $_GET['rank'];
+    $city_rank = $_GET['rk'];
 
     // ---------------------------------------------------------------
     // STEP 1: Connect to SQL Database
