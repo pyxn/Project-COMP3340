@@ -365,7 +365,7 @@ $city = new City(
                             <p id="hero-card-rank">
                                 <?php
                                 if (isset($_SESSION['username'])) {
-                                    echo "<button id='indicator-favorite' type='submit'>♥</button>";
+                                    echo "<button id='indicator-favorite' formaction='favorite.php' type='submit'>♥</button>";
                                 }
                                 ?>
                                 #<?php echo $city->get_rank(); ?>
