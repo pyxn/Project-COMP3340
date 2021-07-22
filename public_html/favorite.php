@@ -55,7 +55,20 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['toggle-city-favorite']
     } else {
         echo "There is already a favorite record for this user: <br>";
         print_r($user_favorite_record);
-    }
 
+        if (isset($_POST['undo-favorite'])) {
+            $database_helper->set("DELETE FROM favorites WHERE username = '$selected_username' AND favorite_city_rank = $selected_city_rank");
+            echo "The record has been deleted.<br>";
+        }
+    }
     echo "</pre>";
+
+    // Auto-return on successful register
+    echo "<form id='form-favorite-return method='GET' action='city.php'>";
+    echo "    <input type='hidden' name='rank' value='$selected_city_rank' hidden>";
+    echo "<button type='submit'>Return to City Page</button>";
+    echo "</form>";
+    // echo "<script type='text/javascript'>";
+    // echo "    document.getElementById('form-favorite-return').submit();";
+    // echo "</script>";
 }
