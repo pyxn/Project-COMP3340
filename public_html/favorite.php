@@ -43,7 +43,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['toggle-city-favorite']
 
     // If the result returns zero rows, create a new favorite record for the user
     if (count($user_favorite_record) == 0) {
-        $database_helper->set("INSERT INTO favorites(username, favorite_city_rank, favorite_city_name) VALUES ('$selected_username', 1, '$selected_city_name');");
+        $database_helper->set("INSERT INTO favorites(username, favorite_city_rank, favorite_city_name) VALUES ('$selected_username', $selected_city_rank, '$selected_city_name');");
         echo "A new favorite record has been created for ($selected_username) -> (RANK: $selected_city_rank, NAME: $selected_city_name)<br>";
         $new_user_favorite_record = $database_helper->get("SELECT * FROM favorites WHERE username = '$selected_username' AND favorite_city_rank = $selected_city_rank");
         print_r($new_user_favorite_record);
