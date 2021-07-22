@@ -346,12 +346,7 @@ $city = new City(
                 if (isset($_SESSION['username'])) {
                     echo "Logged in (" . $_SESSION['username'] . ")";
                 } else {
-                    $login_code = <<<HTML_LOGIN_CODE
-                    <form action="login.php">
-                        <input class="universal-login-button" type="submit" value="Log In">
-                    </form>
-                    HTML_LOGIN_CODE;
-                    echo $login_code;
+                    echo "<form action='login.php'><input class='universal-login-button' type='submit' value='Log In'></form>";
                 }
                 ?>
             </div>
@@ -370,10 +365,7 @@ $city = new City(
                             <p id="hero-card-rank">
                                 <?php
                                 if (isset($_SESSION['username'])) {
-                                    $favorite_button_code = <<<HTML_FAVORITE_BUTTON_CODE
-                                    <button id="indicator-favorite" type="submit">♥</button>
-                                    HTML_FAVORITE_BUTTON_CODE;
-                                    echo $favorite_button_code;
+                                    echo "<button id='indicator-favorite' type='submit'>♥</button>";
                                 }
                                 ?>
                                 #<?php echo $city->get_rank(); ?>
