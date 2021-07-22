@@ -31,9 +31,11 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['toggle-city-favorite']
     echo "<br>";
 
     if ($database_helper->is_this_table_created("favorites") == false) {
-        echo "The 'favorites' table is present.<br>";
-    } else {
         echo "The 'favorites' table is not present.<br>";
+        $database_helper->set("CREATE TABLE `favorites` (`username` VARCHAR(255) NOT NULL, `favorite_city_rank` INT, `favorite_city_name` VARCHAR(255))");
+        echo "The 'favorites' table has been created.<br>";
+    } else {
+        echo "The 'favorites' table is present.<br>";
     }
 
     echo "</pre>";

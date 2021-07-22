@@ -42,4 +42,13 @@ if ($num == 1) {
     $reg = "insert into users(username, password) values ('$name', '$pass')";
     mysqli_query($con, $reg);
     echo "Registration is done.";
+
+    // Auto-login on successful register
+    echo "<form id='form-registration-login' method='POST' action='validate.php' hidden>";
+    echo "    <input type='hidden' name='user' value='$name' hidden>";
+    echo "    <input type='hidden' name='password' value='$pass' hidden>";
+    echo "</form>";
+    echo "<script type='text/javascript'>";
+    echo "    document.getElementById('form-registration-login').submit();";
+    echo "</script>";
 }
