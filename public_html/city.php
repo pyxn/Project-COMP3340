@@ -219,8 +219,8 @@ final class City {
  * HOW IT WORKS:
  * ---------------------------------------------------------------------------------
  * The dynamic pages are generated using a custom URL that includes a query string:
- *      "./dynamic-page.php?city=1"
- * The "city=1" is a parameter that we place in the URL so we can land on the 
+ *      "./city.php?rank=1"
+ * The "rank=1" is a parameter that we place in the URL so we can land on the 
  * dynamic page file with this ID. In this example, we can use the key "1" to 
  * obtain the mySQL city record with the primary key == 1;
  * ---------------------------------------------------------------------------------
@@ -229,9 +229,9 @@ final class City {
 // ---------------------------------------------------------------
 // Grab the city rank from the URL (through a GET request)
 // ---------------------------------------------------------------
-if (isset($_GET['city'])) {
+if (isset($_GET['rank'])) {
 
-    $city_rank = $_GET['city'];
+    $city_rank = $_GET['rank'];
 
     // ---------------------------------------------------------------
     // STEP 1: Connect to SQL Database
@@ -313,7 +313,7 @@ $city = new City(
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>New City Better Life | <?php echo $city->city_town . ", " . $city->province; ?></title>
+    <title>New City Better Life | <?php echo $city->get_city_town() . ", " . $city->get_province(); ?></title>
     <link rel="stylesheet" href="./styles/main.css">
     <script src="https://cdn.apple-mapkit.com/mk/5.x.x/mapkit.js"></script>
 </head>
@@ -377,7 +377,7 @@ $city = new City(
                                     echo $favorite_button_code;
                                 }
                                 ?>
-                                #<?php echo $city->rank; ?>
+                                #<?php echo $city->get_rank(); ?>
                             </p>
                         </form>
                     </div>
