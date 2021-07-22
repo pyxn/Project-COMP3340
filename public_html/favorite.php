@@ -21,15 +21,15 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['toggle-city-favorite']
 
     // Use the ULTIMATE PAO shortcut for making database changes
     $database_helper = new DatabaseHelper($db_hostname, $db_name, $db_username, $db_password);
-    $selected_city_record_associative_array = $database_helper->get("SELECT * FROM cities WHERE rank = $selected_city_rank");
-    $selected_city_name = $selected_city_record_associative_array['city_town'] . ", " . $selected_city_record_associative_array['province'];
+    $selected_city_record_array = $database_helper->get("SELECT * FROM cities WHERE rank = $selected_city_rank");
+    $selected_city_name = $selected_city_record_array[0]['city_town'] . ", " . $selected_city_record_array[0]['province'];
 
     echo "<pre>";
     echo "Working with USERNAME           : " . $selected_username  . "<br>";
     echo "Working with SELECTED_CITY_RANK : " . $selected_city_rank . "<br>";
     echo "Working with SELECTED_CITY_NAME : " . $selected_city_name . "<br>";
-    echo "Working with ASSOCIATIVE ARRAY  : "                       . "<br>";
-    echo print_r($selected_city_record_associative_array);
+    echo "Working with ARRAY  : "                       . "<br>";
+    echo print_r($selected_city_record_array);
     echo "<br>";
 
     if ($database_helper->is_this_table_created("favorites") == false) {
