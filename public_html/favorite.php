@@ -63,12 +63,11 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['toggle-city-favorite']
     }
     echo "</pre>";
 
-    // Auto-return on successful register
+    // Auto-return on successful database update
     echo "<form id='form-favorite-return method='GET' action='city.php'>";
     echo "    <input type='hidden' name='rank' value='$selected_city_rank' hidden>";
-    echo "<button type='submit'>Return to City Page</button>";
     echo "</form>";
-    // echo "<script type='text/javascript'>";
-    // echo "    document.getElementById('form-favorite-return').submit();";
-    // echo "</script>";
+    echo "<script type='text/javascript'>";
+    echo "    document.getElementById('form-favorite-return').submit();";
+    echo "</script>";
 }

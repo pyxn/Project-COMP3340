@@ -213,6 +213,18 @@ final class City {
             return $this->link;
         }
     }
+
+    public function proximity_to_mountains() {
+        if ($this->proximity_to_mountains == 1) {
+            return "⛰️";
+        }
+    }
+
+    public function proximity_to_water() {
+        if ($this->proximity_to_large_water_body == 1) {
+            return "🌊";
+        }
+    }
 }
 
 /**
@@ -359,7 +371,10 @@ $city = new City(
                     <div>
                         <h1 id="hero-card-title"><?php echo $city->get_city_town() . ", " . $city->get_province(); ?></h1>
                         <p id="hero-card-subtitle">
-                            <?php echo number_format($city->get_population(), 0, ".", ","); ?> 👤</p>
+                            <?php echo number_format($city->get_population(), 0, ".", ","); ?> 👤
+                            <?php echo " " . $city->proximity_to_mountains(); ?>
+                            <?php echo " " . $city->proximity_to_water(); ?>
+                        </p>
                     </div>
                     <div>
                         <form method="POST">
