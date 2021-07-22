@@ -74,7 +74,7 @@ if ($result = mysqli_query($con, $sql)) {
                 ?>
                 <li><a href="#">My Favorite</a></li>
                 <li><a href="#">Top 10 livable cities</a></li>
-                <li><a href="#">Find dream city</a></li>
+                <li><a href="dreamcity.php">Find dream city</a></li>
                 <li><a href="#">About</a></li>
             </ul>
         </nav>
