@@ -22,10 +22,12 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['toggle-city-favorite']
     // Use the ULTIMATE PAO shortcut for making database changes
     $database_helper = new DatabaseHelper($db_hostname, $db_name, $db_username, $db_password);
     $selected_city_record_associative_array = $database_helper->get("SELECT * FROM cities WHERE rank = $selected_city_rank");
+    $selected_city_name = $selected_city_record_associative_array['city_town'] . ", " . $selected_city_record_associative_array['province'];
 
     echo "<pre>";
     echo "Working with USERNAME           : " . $selected_username  . "<br>";
     echo "Working with SELECTED_CITY_RANK : " . $selected_city_rank . "<br>";
+    echo "Working with SELECTED_CITY_NAME : " . $selected_city_name . "<br>";
     echo "Working with ASSOCIATIVE ARRAY  : "                       . "<br>";
     echo print_r($selected_city_record_associative_array);
     echo "<br>";
@@ -34,8 +36,20 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['toggle-city-favorite']
         echo "The 'favorites' table is not present.<br>";
         $database_helper->set("CREATE TABLE `favorites` (`username` VARCHAR(255) NOT NULL, `favorite_city_rank` INT, `favorite_city_name` VARCHAR(255))");
         echo "The 'favorites' table has been created.<br>";
+    }
+
+    // Check if user already has a record of making this city a favorite
+    $user_favorite_record = $database_helper->get("SELECT * FROM favorites WHERE username = '$selected_username' AND favorite_city_rank = $selected_city_rank");
+
+    // If the result returns zero rows, create a new favorite record for the user
+    if (count($user_favorite_record) == 0) {
+        $database_helper->set("INSERT INTO favorites(username, favorite_city_rank, favorite_city_name) VALUES ('$selected_username', 1, '$selected_city_name');");
+        echo "A new favorite record has been created for ($selected_username) -> (RANK: $selected_city_rank, NAME: $selected_city_name)<br>";
+        $new_user_favorite_record = $database_helper->get("SELECT * FROM favorites WHERE username = '$selected_username' AND favorite_city_rank = $selected_city_rank");
+        print_r($new_user_favorite_record);
     } else {
-        echo "The 'favorites' table is present.<br>";
+        echo "There is already a favorite record for this user: <br>";
+        print_r($user_favorite_record);
     }
 
     echo "</pre>";
