@@ -39,7 +39,7 @@ jobs:
         PATH_REMOTE: "./newcitybetterlife.com/public_html/project/"
         PROTOCOL: sftp
         PORT: 22
-        ARGS: --verbose --only-newer --overwrite --delete 
+        ARGS: --verbose --overwrite --delete 
         MODE: mirror_full
 
     # Creates a server-only configuration file
