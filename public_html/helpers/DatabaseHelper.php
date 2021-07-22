@@ -64,4 +64,14 @@ class DatabaseHelper {
 
         $sql_connection = null;
     }
+
+    public function is_this_table_created($table_name) {
+        $result_rows = $this->get("SHOW TABLES LIKE '%$table_name%'; ");
+        $count = count($result_rows);
+        if ($count == 0) {
+            return false;
+        } else {
+            return true;
+        }
+    }
 }

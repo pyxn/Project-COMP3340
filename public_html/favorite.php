@@ -26,7 +26,15 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['toggle-city-favorite']
     echo "<pre>";
     echo "Working with USERNAME           : " . $selected_username  . "<br>";
     echo "Working with SELECTED_CITY_RANK : " . $selected_city_rank . "<br>";
-    echo "Working with ASSOCIATIVE ARRAY  : " . $selected_city_rank . "<br>";
+    echo "Working with ASSOCIATIVE ARRAY  : "                       . "<br>";
     echo print_r($selected_city_record_associative_array);
+    echo "<br>";
+
+    if ($database_helper->is_this_table_created("favorites") == false) {
+        echo "The 'favorites' table is present.<br>";
+    } else {
+        echo "The 'favorites' table is not present.<br>";
+    }
+
     echo "</pre>";
 }
