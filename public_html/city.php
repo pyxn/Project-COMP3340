@@ -361,6 +361,12 @@ $city = new City(
                     </div>
                     <div>
                         <form method="POST">
+                            <?php
+                            if (isset($_SESSION['username'])) {
+                                $username = $_SESSION['username'];
+                                echo "<input type='hidden' name='username' value='$username'>";
+                            }
+                            ?>
                             <input type="hidden" name='toggle-city-favorite' value='<?php echo $city->get_rank() ?>'>
                             <p id="hero-card-rank">
                                 <?php
