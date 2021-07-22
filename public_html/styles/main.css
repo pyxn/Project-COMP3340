@@ -63,8 +63,9 @@ button#indicator-favorite {
 a.profile-link {
     color: white;
     font-weight: bold;
-    text-decoration: underline;
+    text-decoration: none;
 }
+
 /* -----------------------------------
 RESPONSIVE CODE
 -------------------------------------*/

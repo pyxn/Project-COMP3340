@@ -358,7 +358,7 @@ $city = new City(
             <div id="user-controls">
                 <?php
                 if (isset($_SESSION['username'])) {
-                    echo "Logged in (<a class='profile-link' href='profile.php'>" . $_SESSION['username'] . "</a>)";
+                    echo "Logged in as <a class='profile-link' href='profile.php'>" . $_SESSION['username'] . "</a>";
                 } else {
                     echo "<form action='login.php'><input class='universal-login-button' type='submit' value='Log In'></form>";
                 }
