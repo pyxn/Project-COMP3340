@@ -33,6 +33,34 @@ section.single-column {
     grid-template-columns: auto;
 }
 
+/** ------------------------------------------------
+* SECTION: USER CONTROLS
+* -------------------------------------------------*/
+
+section#user-controls-section {
+    display: grid;
+    justify-items: center;
+    align-items: center;
+    width: 100%;
+    background-color: #e67300;
+}
+
+div#user-controls {
+    width: 100%;
+    height: 2.618rem;
+    padding: 0.618rem;
+    background-color: #e67300;
+    color: white;
+}
+
+button#indicator-favorite {
+    text-shadow: none;
+    color: white;
+    background-color: transparent;
+    font-size: 2.618rem;
+    border: 1px solid transparent;
+}
+
 /* -----------------------------------
 RESPONSIVE CODE
 -------------------------------------*/

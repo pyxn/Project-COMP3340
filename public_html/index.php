@@ -81,9 +81,16 @@ if ($result = mysqli_query($con, $sql)) {
     </aside>
 
     <main>
-
-        <section class="single-column" style="color: #e67300;">
-            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Welcome, <?php echo $_SESSION['username']; ?>
+        <section id="user-controls-section">
+            <div id="user-controls">
+                <?php
+                if (isset($_SESSION['username'])) {
+                    echo "Logged in (" . $_SESSION['username'] . ")";
+                } else {
+                    echo "<form action='login.php'><input class='universal-login-button' type='submit' value='Log In'></form>";
+                }
+                ?>
+            </div>
         </section>
 
         <section class="single-column">
