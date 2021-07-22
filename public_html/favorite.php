@@ -24,23 +24,8 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['toggle-city-favorite']
     $selected_city_record_array = $database_helper->get("SELECT * FROM cities WHERE rank = $selected_city_rank");
     $selected_city_name = $selected_city_record_array[0]['city_town'] . ", " . $selected_city_record_array[0]['province'];
 
-    echo "<pre>";
-
-    if (isset($_POST['undo-favorite'])) {
-        echo "DETECTED MODE: UNDO FAVORITE<br>";
-    }
-
-    echo "Working with USERNAME           : " . $selected_username  . "<br>";
-    echo "Working with SELECTED_CITY_RANK : " . $selected_city_rank . "<br>";
-    echo "Working with SELECTED_CITY_NAME : " . $selected_city_name . "<br>";
-    echo "Working with ARRAY  : "                       . "<br>";
-    echo print_r($selected_city_record_array);
-    echo "<br>";
-
     if ($database_helper->is_this_table_created("favorites") == false) {
-        echo "The 'favorites' table is not present.<br>";
         $database_helper->set("CREATE TABLE `favorites` (`username` VARCHAR(255) NOT NULL, `favorite_city_rank` INT, `favorite_city_name` VARCHAR(255))");
-        echo "The 'favorites' table has been created.<br>";
     }
 
     // Check if user already has a record of making this city a favorite
@@ -49,22 +34,16 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['toggle-city-favorite']
     // If the result returns zero rows, create a new favorite record for the user
     if (count($user_favorite_record) == 0) {
         $database_helper->set("INSERT INTO favorites(username, favorite_city_rank, favorite_city_name) VALUES ('$selected_username', $selected_city_rank, '$selected_city_name');");
-        echo "A new favorite record has been created for ($selected_username) -> (RANK: $selected_city_rank, NAME: $selected_city_name)<br>";
         $new_user_favorite_record = $database_helper->get("SELECT * FROM favorites WHERE username = '$selected_username' AND favorite_city_rank = $selected_city_rank");
-        print_r($new_user_favorite_record);
     } else {
-        echo "There is already a favorite record for this user: <br>";
-        print_r($user_favorite_record);
-
+        // Else, delete the record if delete mode was detected from the city.php page)
         if (isset($_POST['undo-favorite'])) {
             $database_helper->set("DELETE FROM favorites WHERE username = '$selected_username' AND favorite_city_rank = $selected_city_rank");
-            echo "The record has been deleted.<br>";
         }
     }
-    echo "</pre>";
 
     // Auto-return on successful database update
-    echo "<form id='form-favorite-return' method='GET' action='city.php'>";
+    echo "<form id='form-favorite-return' method='GET' action='city.php' hidden>";
     echo "    <input type='hidden' name='rank' value='$selected_city_rank' hidden>";
     echo "</form>";
     echo "<script type='text/javascript'>";
