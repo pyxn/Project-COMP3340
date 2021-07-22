@@ -2,9 +2,6 @@
 <head>
     <title>Find Dream City</title>
     <link rel="stylesheet" type="text/css" href="styles/bootstrap.css">
-    <link rel="stylesheet" type="text/css" href="styles/jquery-ui.css">
-	<script type="text/javascript" src="scripts/jquery-1.12.4.js"></script>
-  	<script type="text/javascript" src="scripts/jquery-ui.js"></script>
 </head>
 <body>
     <nav class="navbar navbar-inverse">
@@ -56,42 +53,42 @@
             <div class="form-group">
 				<label class="col-lg-2 control-label">Min Population</label>
 				<div class="col-lg-4">
-				    <input type="number" min=920 max= 6555205 name="from_pop" class="form-control">
+				    <input type="number" min=920 max= 6555205 name="from_pop" class="form-control" placeholder="920 - 6555205">
 				</div>
 			</div>
 
             <div class="form-group">
 				<label class="col-lg-2 control-label">Max Population</label>
 				<div class="col-lg-4">
-				    <input type="number" min=920 max= 6555205 name="to_pop" class="form-control">
+				    <input type="number" min=920 max= 6555205 name="to_pop" class="form-control" placeholder="920 - 6555205">
 				</div>
 			</div>
 
             <div class="form-group">
 				<label class="col-lg-2 control-label">Min Avg Home Price</label>
 				<div class="col-lg-4">
-				    <input type="number" min=101213 max= 2100000 name="from_price" class="form-control">
+				    <input type="number" min=101213 max= 2100000 name="from_price" class="form-control" placeholder="101213 - 2100000">
 				</div>
 			</div>
 
             <div class="form-group">
 				<label class="col-lg-2 control-label">Max Avg Home Price</label>
 				<div class="col-lg-4">
-				    <input type="number" min=101213 max= 2100000 name="to_price" class="form-control">
+				    <input type="number" min=101213 max= 2100000 name="to_price" class="form-control" placeholder="101213 - 2100000">
 				</div>
 			</div>
 
             <div class="form-group">
 				<label class="col-lg-2 control-label">Lowest Min Income</label>
 				<div class="col-lg-4">
-				    <input type="number" min=32328 max= 287597 name="from_income" class="form-control">
+				    <input type="number" min=32328 max= 287597 name="from_income" class="form-control" placeholder="32328 - 287597">
 				</div>
 			</div>
 
             <div class="form-group">
 				<label class="col-lg-2 control-label">Highest Min Income</label>
 				<div class="col-lg-4">
-				    <input type="number" min=32328 max= 287597 name="to_income" class="form-control">
+				    <input type="number" min=32328 max= 287597 name="to_income" class="form-control" placeholder="32328 - 287597">
 				</div>
 			</div>
 
@@ -183,7 +180,7 @@
                                 }
                                 $query = $query." min_income_required_20_down<=$to_income";
                             }
-                            echo $query;
+                            
                             $data = mysqli_query($conn, $query);
                             if(mysqli_num_rows($data)>0){
                                 while($row = mysqli_fetch_assoc($data)){
@@ -195,8 +192,8 @@
                                     $min_income = $row["min_income_required_20_down"];
                                     $rating = $row["scenery_rating"];
                             
+                            echo "<tr onclick=\"window.location='city.php?rk=$row[rank]'\" >";
                             ?>
-                            <tr>
                                 <td><?php echo $rank; ?></td>
                                 <td><?php echo $city; ?></td>
                                 <td><?php echo $province; ?></td>
