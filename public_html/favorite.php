@@ -25,6 +25,11 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['toggle-city-favorite']
     $selected_city_name = $selected_city_record_array[0]['city_town'] . ", " . $selected_city_record_array[0]['province'];
 
     echo "<pre>";
+
+    if (isset($_POST['undo-favorite'])) {
+        echo "DETECTED MODE: UNDO FAVORITE<br>";
+    }
+
     echo "Working with USERNAME           : " . $selected_username  . "<br>";
     echo "Working with SELECTED_CITY_RANK : " . $selected_city_rank . "<br>";
     echo "Working with SELECTED_CITY_NAME : " . $selected_city_name . "<br>";

@@ -2,6 +2,8 @@
 
 session_start();
 
+require_once('./helpers/DatabaseHelper.php');
+
 /**
  * ---------------------------------------------------------------------------------
  * SQL CONNECTION CREDENTIALS
@@ -371,7 +373,18 @@ $city = new City(
                             <p id="hero-card-rank">
                                 <?php
                                 if (isset($_SESSION['username'])) {
-                                    echo "<button id='indicator-favorite' formaction='favorite.php' type='submit'>♥</button>";
+
+                                    // Check if the user has favorited this city
+                                    $username = $_SESSION['username'];
+                                    $database_helper = new DatabaseHelper($db_hostname, $db_name, $db_username, $db_password);
+                                    $records = $database_helper->get("SELECT * FROM favorites WHERE username = '$username' AND favorite_city_rank = $city->get_rank()");
+
+                                    if (count($records) == 0) {
+                                        echo "<button id='indicator-favorite' style='color: white;' formaction='favorite.php' type='submit'>♥</button>";
+                                    } else {
+                                        echo "<input type='hidden' name='undo-favorite' value='1'>";
+                                        echo "<button id='indicator-favorite' style='color: red;' formaction='favorite.php' type='submit'>♥</button>";
+                                    }
                                 }
                                 ?>
                                 #<?php echo $city->get_rank(); ?>
