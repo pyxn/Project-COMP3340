@@ -60,6 +60,11 @@ button#indicator-favorite {
     border: 1px solid transparent;
 }
 
+a.profile-link {
+    color: white;
+    font-weight: bold;
+    text-decoration: underline;
+}
 /* -----------------------------------
 RESPONSIVE CODE
 -------------------------------------*/

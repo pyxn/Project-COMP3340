@@ -85,7 +85,7 @@ if ($result = mysqli_query($con, $sql)) {
             <div id="user-controls">
                 <?php
                 if (isset($_SESSION['username'])) {
-                    echo "Welcome, <a href='profile.php'>" . $_SESSION['username'] . "</a>";
+                    echo "Welcome, <a class='profile-link' href='profile.php'>" . $_SESSION['username'] . "</a>";
                 } else {
                     echo "<form action='login.php'><input class='universal-login-button' type='submit' value='Log In'></form>";
                 }
