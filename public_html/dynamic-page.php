@@ -326,7 +326,13 @@ $city = new City(
             </span>
             <ul>
                 <li><a href="#">Home Page</a></li>
-                <li><a href="logout.php">logout</a></li>
+                <?php
+                if (isset($_SESSION['username'])) {
+                    echo "<li><a href='logout.php'>Log Out</a></li>";
+                } else {
+                    echo "<li><a href='login.php'>Log In</a></li>";
+                }
+                ?>
                 <li><a href="#">My Favorite</a></li>
                 <li><a href="#">Top 10 livable cities</a></li>
                 <li><a href="#">Find dream city</a></li>

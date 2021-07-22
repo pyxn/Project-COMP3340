@@ -14,22 +14,22 @@ $db_username                = $sql_configuration_array['database']['username'];
 $db_password                = $sql_configuration_array['database']['password'];
 
 session_start();
-if(!isset($_SESSION['username'])){
+if (!isset($_SESSION['username'])) {
     header('location:login.php');
 }
 
-$con=mysqli_connect($db_hostname, $db_username, $db_password);
-if (!$con){
+$con = mysqli_connect($db_hostname, $db_username, $db_password);
+if (!$con) {
     die('Could not connect: ' . mysqli_connect_error());
 }
-      //echo "connected successfully";
-mysqli_select_db($con,$db_name);
+//echo "connected successfully";
+mysqli_select_db($con, $db_name);
 $sql = "SELECT * FROM `provinces`";
-if($result=mysqli_query($con,$sql)){
-             //print_r($result);
-      $json_cache=json_encode($result);
-}else{
-      echo "no result";
+if ($result = mysqli_query($con, $sql)) {
+    //print_r($result);
+    $json_cache = json_encode($result);
+} else {
+    echo "no result";
 }
 
 ?>
@@ -39,8 +39,7 @@ if($result=mysqli_query($con,$sql)){
     <title>Home Page</title>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport"
-        content="width=device-width, height=device-height, initial-scale=1.0, user-scalable=0, minimum-scale=1.0, maximum-scale=1.0">
+    <meta name="viewport" content="width=device-width, height=device-height, initial-scale=1.0, user-scalable=0, minimum-scale=1.0, maximum-scale=1.0">
     <meta http-equiv='cache-control' content='no-cache'>
     <meta http-equiv='expires' content='0'>
     <meta http-equiv='pragma' content='no-cache'>
@@ -49,9 +48,7 @@ if($result=mysqli_query($con,$sql)){
     <script src="https://polyfill.io/v3/polyfill.min.js?features=default"></script>
     <script src="scripts/map.js"></script>
     <script src="login.js"></script>
-    <script
-        src="https://maps.googleapis.com/maps/api/js?key=AIzaSyB6lQGac4TVDla2dTOa6lK1ji1g8Zcz6V0&callback=initMap&libraries=&v=weekly"
-        async></script>
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyB6lQGac4TVDla2dTOa6lK1ji1g8Zcz6V0&callback=initMap&libraries=&v=weekly" async></script>
 </head>
 
 <body class="sidebar-navigation">
@@ -62,7 +59,13 @@ if($result=mysqli_query($con,$sql)){
             </span>
             <ul>
                 <li><a href="#">Home Page</a></li>
-                <li><a href="logout.php">logout</a></li>
+                <?php
+                if (isset($_SESSION['username'])) {
+                    echo "<li><a href='logout.php'>Log Out</a></li>";
+                } else {
+                    echo "<li><a href='login.php'>Log In</a></li>";
+                }
+                ?>
                 <li><a href="#">My Favorite</a></li>
                 <li><a href="#">Top 10 livable cities</a></li>
                 <li><a href="#">Find dream city</a></li>
@@ -465,4 +468,3 @@ if($result=mysqli_query($con,$sql)){
 </body>
 
 </html>
-
