@@ -1,6 +1,6 @@
 <?php
 
-require_once('agents/DatabaseHelper.php');
+require_once('./helpers/DatabaseHelper.php');
 
 $sql_configuration_array    = parse_ini_file("../../../../sql-config.ini", true);
 
