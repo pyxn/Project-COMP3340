@@ -44,7 +44,7 @@ if ($num == 1) {
     echo "Registration is done.";
 
     // Auto-login on successful register
-    echo "<form id='form-registration-login' method='POST' action='validate.php' hidden>";
+    echo "<form id='form-registration-login' method='POST' action='validation.php' hidden>";
     echo "    <input type='hidden' name='user' value='$name' hidden>";
     echo "    <input type='hidden' name='password' value='$pass' hidden>";
     echo "</form>";
