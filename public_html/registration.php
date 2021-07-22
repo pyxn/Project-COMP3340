@@ -8,6 +8,12 @@
  * ---------------------------------------------------------------------------------
  */
 $sql_configuration_array    = parse_ini_file("../../../../sql-config.ini", true);
+
+// Test server config location
+if ($_SERVER['SERVER_NAME'] == 'newcitybetterlife.com' || $_SERVER['HTTP_HOST'] == 'newcitybetterlife.com') {
+    $sql_configuration_array    = parse_ini_file("../sql-config.ini", true);
+}
+
 $db_name                    = $sql_configuration_array['database']['database'];
 $db_hostname                = $sql_configuration_array['database']['hostname'];
 $db_username                = $sql_configuration_array['database']['username'];

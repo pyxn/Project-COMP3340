@@ -9,12 +9,11 @@ session_start();
  * Configure SQL Connection using configuration file in server
  * ---------------------------------------------------------------------------------
  */
-$sql_configuration_array = "";
+$sql_configuration_array    = parse_ini_file("../../../../sql-config.ini", true);
 
+// Test server config location
 if ($_SERVER['SERVER_NAME'] == 'newcitybetterlife.com' || $_SERVER['HTTP_HOST'] == 'newcitybetterlife.com') {
     $sql_configuration_array    = parse_ini_file("../sql-config.ini", true);
-} else {
-    $sql_configuration_array    = parse_ini_file("../../../../sql-config.ini", true);
 }
 
 $db_name                    = $sql_configuration_array['database']['database'];
