@@ -19,7 +19,6 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['toggle-city-favorite']
     $selected_city_rank     = $_POST['toggle-city-favorite'];
     $selected_username      = $_POST['username'];
 
-    // Use the ULTIMATE PAO shortcut for making database changes
     $database_helper = new DatabaseHelper($db_hostname, $db_name, $db_username, $db_password);
     $selected_city_record_array = $database_helper->get("SELECT * FROM cities WHERE rank = $selected_city_rank");
     $selected_city_name = $selected_city_record_array[0]['city_town'] . ", " . $selected_city_record_array[0]['province'];
@@ -28,10 +27,8 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['toggle-city-favorite']
         $database_helper->set("CREATE TABLE `favorites` (`username` VARCHAR(255) NOT NULL, `favorite_city_rank` INT, `favorite_city_name` VARCHAR(255))");
     }
 
-    // Check if user already has a record of making this city a favorite
     $user_favorite_record = $database_helper->get("SELECT * FROM favorites WHERE username = '$selected_username' AND favorite_city_rank = $selected_city_rank");
 
-    // If the result returns zero rows, create a new favorite record for the user
     if (count($user_favorite_record) == 0) {
         $database_helper->set("INSERT INTO favorites(username, favorite_city_rank, favorite_city_name) VALUES ('$selected_username', $selected_city_rank, '$selected_city_name');");
         $new_user_favorite_record = $database_helper->get("SELECT * FROM favorites WHERE username = '$selected_username' AND favorite_city_rank = $selected_city_rank");
@@ -42,9 +39,8 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['toggle-city-favorite']
         }
     }
 
-    // Auto-return on successful database update
     echo "<form id='form-favorite-return' method='GET' action='city.php' hidden>";
-    echo "    <input type='hidden' name='rank' value='$selected_city_rank' hidden>";
+    echo "    <input type='hidden' name='rk' value='$selected_city_rank' hidden>";
     echo "</form>";
     echo "<script type='text/javascript'>";
     echo "    document.getElementById('form-favorite-return').submit();";
