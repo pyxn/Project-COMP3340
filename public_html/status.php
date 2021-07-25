@@ -2,6 +2,14 @@
 
 session_start();
 
+require_once('./helpers/DatabaseHelper.php');
+
+if (isset($_SESSION['admin_username'])) {
+    $admin_username = $_SESSION['admin_username'];
+} else {
+    $admin_username = "";
+}
+
 /**
  * ---------------------------------------------------------------------------------
  * SQL CONNECTION CREDENTIALS
@@ -20,10 +28,16 @@ $db_name                    = $sql_configuration_array['database']['database'];
 $db_hostname                = $sql_configuration_array['database']['hostname'];
 $db_username                = $sql_configuration_array['database']['username'];
 $db_password                = $sql_configuration_array['database']['password'];
+$database_helper = new DatabaseHelper($db_hostname, $db_name, $db_username, $db_password);
+$posts = array();
 
-// echo "<pre>";
-// print_r(NULL);
-// echo "</pre>";
+if ($database_helper->is_this_table_created("posts") == true) {
+    $posts = $database_helper->get("SELECT * FROM posts ORDER BY timestamp DESC;");
+}
+
+echo "<!-- <pre>";
+print_r($posts);
+echo "</pre> -->";
 
 $timeout = "1";
 
@@ -35,6 +49,7 @@ $services = array(
     array("port" => "3306", "name" => "MySQL Database", "host" => "localhost"),
     array("port" => "80", "name" => "Internet Connection", "host" => "google.com")
 );
+
 
 ?>
 
@@ -60,8 +75,8 @@ $services = array(
                     <h6 class='align-items-center my-1'>New City Better Life | System Status</h6>
                 </a>
                 <div class="text-end">
-                    <button type="button" class="btn btn-outline-light me-2">Admin Login</button>
-                    <button type="button" class="btn btn-warning">Admin Register</button>
+                    <!-- <button type="button" class="btn btn-outline-light me-2">Admin Login</button>
+                    <button type="button" class="btn btn-warning">Admin Register</button> -->
                 </div>
             </section>
         </div>
@@ -78,18 +93,18 @@ $services = array(
                         <div class="card border-0 mb-3">
                             <div class="card-body">
                                 <h4 class="card-title">Post System Notification</h4>
-                                <h6 class="card-subtitle mb-2 text-muted mb-4">Administrator (username)</h6>
-                                <form>
-                                    <input type='hidden' name='system-notification-post-author' value='admin_username'>
-                                    <div class="form-group mt-3">
+                                <h6 class="card-subtitle mb-2 text-muted mb-4">Administrator (<?php echo $admin_username; ?>)</h6>
+                                <form method="POST" action='post.php'>
+                                    <input type='hidden' name='system-notification-post-author' value="<?php echo $admin_username; ?>">
+                                    <div class=" form-group mt-3">
                                         <label for="system-notification-post-title" class="mb-2">Notification Title</label>
-                                        <input type="text" class="form-control" id="system-notification-post-title">
+                                        <input type="text" class="form-control" name='system-notification-post-title'>
                                     </div>
                                     <div class="form-group mt-3">
                                         <label for="system-notification-post-content" class="mb-2">Notification Content</label>
-                                        <textarea class="form-control" id="system-notification-post-content" rows="5"></textarea>
+                                        <textarea class="form-control" name='system-notification-post-content' id='system-notification-post-content' rows='5'></textarea>
                                     </div>
-                                    <button type="submit" formaction="post.php" class="btn btn-primary my-4">Post Notification</button>
+                                    <button type=" submit" class="btn btn-primary my-4">Post Notification</button>
                                 </form>
                             </div>
                             <div class="dropdown-divider"></div>
@@ -98,20 +113,32 @@ $services = array(
                         <!-- --------------------------------------------------------
                             AUTO-GENERATE POSTS FROM DATABASE
                         ------------------------------------------------------------>
-                        <div class="card border-0 mb-3">
-                            <div class="card-body">
-                                <h5 class="card-title">Light card title</h5>
-                                <h6 class="card-subtitle mb-2 text-muted">Card subtitle</h6>
-                                <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.Some quick example text to build on the card title and make up the bulk of the card's content.Some quick example text to build on the card title and make up the bulk of the card's content.Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                                <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
-                            </div>
-                            <div class="dropdown-divider"></div>
-                        </div>
 
-                        <nav class="blog-pagination mt-4">
-                            <a class="btn btn-outline-primary" href="#">Older</a>
+                        <?php
+                        foreach ($posts as &$post) {
+                            $system_post_author = $post['username'];
+                            $system_post_title = $post['post_title'];
+                            $system_post_content = $post['post_content'];
+                            $system_post_timestamp = $post['timestamp'];
+
+                            echo "
+                            <div class='card border-0 mb-3'>
+                            <div class='card-body'>
+                                <h5 class='card-title'>$system_post_title</h5>
+                                <h6 class='card-subtitle mb-2 text-muted'>Posted by $system_post_author</h6>
+                                <p class='card-text'>$system_post_content</p>
+                                <p class='card-text'><small class='text-muted'>$system_post_timestamp</small></p>
+                            </div>
+                            <div class='dropdown-divider'></div>
+                            </div>
+                            ";
+                        }
+                        ?>
+
+                        <!-- <nav class="blog-pagination mt-4">
                             <a class="btn btn-outline-secondary disabled" href="#">Newer</a>
-                        </nav>
+                            <a class="btn btn-outline-primary" href="#">Older</a>
+                        </nav> -->
 
                     </div>
                 </article>
