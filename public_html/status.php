@@ -4,8 +4,9 @@ session_start();
 
 require_once('./helpers/DatabaseHelper.php');
 
-if (isset($_SESSION['admin_username'])) {
-    $admin_username = $_SESSION['admin_username'];
+// gotta change this to admin username
+if (isset($_SESSION['username'])) {
+    $admin_username = $_SESSION['username'];
 } else {
     $admin_username = "";
 }
@@ -81,29 +82,36 @@ $services = array(
                     <h5 class="card-header">System Notifications</h5>
                     <div class="card-body">
 
-                        <!-- --------------------------------------------------------
+                        <?php
+                        if (!empty($admin_username)) {
+                            echo "
+                            <!-- --------------------------------------------------------
                             ADMIN-ONLY FORM
-                        ------------------------------------------------------------>
-                        <div class="card border-0 mb-3">
-                            <div class="card-body">
-                                <h4 class="card-title">Post System Notification</h4>
-                                <h6 class="card-subtitle mb-2 text-muted mb-4">Administrator (<?php echo $admin_username; ?>)</h6>
-                                <form method="POST" action='post.php'>
-                                    <input type='hidden' name='system-notification-create' value="1">
-                                    <input type='hidden' name='system-notification-post-author' value="<?php echo $admin_username; ?>">
-                                    <div class=" form-group mt-3">
-                                        <label for="system-notification-post-title" class="mb-2">Notification Title</label>
-                                        <input type="text" class="form-control" name='system-notification-post-title'>
-                                    </div>
-                                    <div class="form-group mt-3">
-                                        <label for="system-notification-post-content" class="mb-2">Notification Content</label>
-                                        <textarea class="form-control" name='system-notification-post-content' id='system-notification-post-content' rows='5'></textarea>
-                                    </div>
-                                    <button type=" submit" class="btn btn-primary my-4">Post Notification</button>
-                                </form>
+                            ------------------------------------------------------------>
+                            <div class='card border-0 mb-3'>
+                                <div class='card-body'>
+                                    <h4 class='card-title'>Post System Notification</h4>
+                                    <h6 class='card-subtitle mb-2 text-muted mb-4'>Administrator ($admin_username)</h6>
+                                    <form method='POST' action='post.php'>
+                                        <input type='hidden' name='system-notification-create' value='1'>
+                                        <input type='hidden' name='system-notification-post-author' value='$admin_username'>
+                                        <div class=' form-group mt-3'>
+                                            <label for='system-notification-post-title' class='mb-2'>Notification Title</label>
+                                            <input type='text' class='form-control' name='system-notification-post-title'>
+                                        </div>
+                                        <div class='form-group mt-3'>
+                                            <label for='system-notification-post-content' class='mb-2'>Notification Content</label>
+                                            <textarea class='form-control' name='system-notification-post-content' id='system-notification-post-content' rows='5'></textarea>
+                                        </div>
+                                        <button type=' submit' class='btn btn-primary my-4'>Post Notification</button>
+                                    </form>
+                                </div>
+                                <div class='dropdown-divider'></div>
                             </div>
-                            <div class="dropdown-divider"></div>
-                        </div>
+                            ";
+                        }
+                        ?>
+
 
                         <!-- --------------------------------------------------------
                             AUTO-GENERATE POSTS FROM DATABASE
@@ -118,6 +126,12 @@ $services = array(
                             $system_post_content = $post['post_content'];
                             $system_post_timestamp = $post['timestamp'];
 
+                            if (!empty($admin_username)) {
+                                $system_post_delete_button = "<input type='submit' value='Delete'>";
+                            } else {
+                                $system_post_delete_button = "";
+                            }
+
                             echo "
                             <div class='card border-0 mb-3'>
                             <div class='card-body'>
@@ -131,7 +145,7 @@ $services = array(
                                             <input type='hidden' name='system-notification-delete'>
                                             <input type='hidden' name='system-notification-delete-admin' value='$admin_username'>
                                             <input type='hidden' name='system-notification-delete-id' value='$system_post_id'>
-                                            <input type='submit' value='Delete'>
+                                            $system_post_delete_button
                                         </form>
                                     </small>
                                 </p>
