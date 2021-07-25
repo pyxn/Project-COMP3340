@@ -63,7 +63,7 @@ $services = array(
     <header class="p-3 bg-dark text-white">
         <div class="container">
             <section class="d-flex flex-wrap align-items-center justify-content-center justify-content-lg-end">
-                <a href="/" class="d-flex align-items-center mb-3 mb-md-0 me-md-auto text-decoration-none" style='color: white;'>
+                <a href="./index.php" class="d-flex align-items-center mb-3 mb-md-0 me-md-auto text-decoration-none" style='color: white;'>
                     <h6 class='align-items-center my-1'>New City Better Life | System Status</h6>
                 </a>
                 <div class="text-end">
