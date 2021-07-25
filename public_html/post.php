@@ -64,7 +64,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
         // CHANGE TO > 0 once admins are implemented
         if (count($admin_presence) >= 0) {
-            $database_helper->set("DELETE * FROM posts WHERE id=$post_id;");
+            $database_helper->set("DELETE FROM posts WHERE id=$post_id;");
         }
     }
 
