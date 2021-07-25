@@ -108,7 +108,7 @@ $services = array(
 
                         <?php
                         foreach ($posts as &$post) {
-
+                            $system_post_id = $post['id'];
                             $system_post_author = $post['username'];
                             $system_post_title = $post['post_title'];
                             $system_post_content = $post['post_content'];
@@ -122,12 +122,12 @@ $services = array(
                                 <p class='card-text'>$system_post_content</p>
                                 <p class='card-text'>
                                     <small class='text-muted'>
-                                        $system_post_timestamp
-                                        <form method='POST' action='post.php'>
+                                        <form method='POST' action='post.php' id='system-notification-$system_post_id'>
+                                            $system_post_timestamp
                                             <input type='hidden' name='system-notification-delete'>
-                                            <button style='background-color: transparent; border: 1px solid transparent' type='submit'>
+                                            <a href='javascript:{}' onclick='document.getElementById('system-notification-$system_post_id').submit()>
                                                 <span style='color: red;' class='fas fa-trash'></span>
-                                            </button>
+                                            </a>
                                         </form>
                                     </small>
                                 </p>

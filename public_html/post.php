@@ -20,6 +20,9 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $database_helper = new DatabaseHelper($db_hostname, $db_name, $db_username, $db_password);
 
     if (isset($_POST['system-notification-create'])) {
+        /// --------------------------------
+        /// DETECT A POST CREATION REQUEST
+        /// --------------------------------
         echo "CREATE DETECTED!";
         $admin_username = filter_var($_POST['system-notification-post-author'], FILTER_SANITIZE_STRING);
         $post_title = filter_var($_POST['system-notification-post-title'], FILTER_SANITIZE_STRING);
@@ -45,6 +48,9 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             $database_helper->set("INSERT INTO posts (`id`, `username`, `post_title`, `post_content`, `timestamp`) VALUES (DEFAULT, '$admin_username', '$post_title', '$post_content', DEFAULT);");
         }
     } else if (isset($_POST['system-notification-delete'])) {
+        /// --------------------------------
+        /// DETECT A POST DELETION REQUEST
+        /// --------------------------------
         echo "DELETE DETECTED!";
     }
 
