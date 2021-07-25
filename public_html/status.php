@@ -117,7 +117,6 @@ $services = array(
                             $system_post_title = $post['post_title'];
                             $system_post_content = $post['post_content'];
                             $system_post_timestamp = $post['timestamp'];
-                            $system_post_form_id = "system-notification-" . $system_post_id;
 
                             echo "
                             <div class='card border-0 mb-3'>
@@ -132,9 +131,7 @@ $services = array(
                                             <input type='hidden' name='system-notification-delete'>
                                             <input type='hidden' name='system-notification-delete-admin' value='$admin_username'>
                                             <input type='hidden' name='system-notification-delete-id' value='$system_post_id'>
-                                            <a href='#' onclick='this.form.submit()'>
-                                                <span style='color: gray;' class='fas fa-trash mx-1'></span>
-                                            </a>
+                                            <input type='submit' value='Delete'>
                                         </form>
                                     </small>
                                 </p>
