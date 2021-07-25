@@ -10,7 +10,7 @@ session_start();
     <ul>
         <li><a href="index.php">Home Page</a></li>
         <?php
-        if (!isset($_SESSION['username'])) {
+        if (isset($_SESSION['username'])) {
             echo "<li><a href='logout.php'>Log Out</a></li>";
             echo "<li><a href='profile.php'>My Favorites</a></li>";
         } else {
