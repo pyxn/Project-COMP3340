@@ -75,9 +75,9 @@ class DatabaseHelper {
         }
     }
 
-    public function debug($variable) {
+    public static function debug($variable) {
         echo "<pre>";
-        echo print_r($variable);
+        print_r($variable);
         echo "</pre>";
     }
 }
