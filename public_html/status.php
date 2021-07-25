@@ -117,7 +117,7 @@ $services = array(
                             $system_post_title = $post['post_title'];
                             $system_post_content = $post['post_content'];
                             $system_post_timestamp = $post['timestamp'];
-                            $system_post_form_id = "'system-notification-" . $system_post_id . "'";
+                            $system_post_form_id = "\'system-notification-" . $system_post_id . "\'";
 
                             echo "
                             <div class='card border-0 mb-3'>
