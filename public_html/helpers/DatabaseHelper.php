@@ -74,4 +74,10 @@ class DatabaseHelper {
             return true;
         }
     }
+
+    public function debug($variable) {
+        echo "<pre>";
+        echo print_r($variable);
+        echo "</pre>";
+    }
 }
