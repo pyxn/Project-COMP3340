@@ -67,8 +67,13 @@ $services = array(
                     <h6 class='align-items-center my-1'>New City Better Life | System Status</h6>
                 </a>
                 <div class="text-end">
-                    <!-- <button type="button" class="btn btn-outline-light me-2">Admin Login</button>
-                    <button type="button" class="btn btn-warning">Admin Register</button> -->
+                    <?php
+                    if (!empty($admin_username)) {
+                        echo "<button type='button' class='btn btn-outline-light me-2'>Admin Logout ($admin_username)</button>";
+                    } else {
+                        echo "<button type='button' class='btn btn-warning' onclick='window.location.href='login.php''>Admin Login</button>";
+                    }
+                    ?>
                 </div>
             </section>
         </div>
@@ -112,7 +117,6 @@ $services = array(
                         }
                         ?>
 
-
                         <!-- --------------------------------------------------------
                             AUTO-GENERATE POSTS FROM DATABASE
                         ------------------------------------------------------------>
@@ -155,7 +159,6 @@ $services = array(
                             ";
                         }
                         ?>
-
                         <!-- <nav class="blog-pagination mt-4">
                             <a class="btn btn-outline-secondary disabled" href="#">Newer</a>
                             <a class="btn btn-outline-primary" href="#">Older</a>
