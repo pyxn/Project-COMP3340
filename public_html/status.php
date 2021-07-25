@@ -81,6 +81,9 @@ $services = array(
                     <h5 class="card-header">System Notifications</h5>
                     <div class="card-body">
 
+                        <!-- --------------------------------------------------------
+                            ADMIN-ONLY FORM
+                        ------------------------------------------------------------>
                         <div class="card border-0 mb-3">
                             <div class="card-body">
                                 <h4 class="card-title">Post System Notification</h4>
@@ -114,7 +117,7 @@ $services = array(
                             $system_post_title = $post['post_title'];
                             $system_post_content = $post['post_content'];
                             $system_post_timestamp = $post['timestamp'];
-                            $system_post_form_id = "system-notification-" . $system_post_id;
+                            $system_post_form_id = "'system-notification-" . $system_post_id . "'";
 
                             echo "
                             <div class='card border-0 mb-3'>
@@ -124,12 +127,12 @@ $services = array(
                                 <p class='card-text'>$system_post_content</p>
                                 <p class='card-text'>
                                     <small class='text-muted'>
-                                        <form method='POST' action='post.php' id='$system_post_form_id'>
+                                        <form method='POST' action='post.php' id=$system_post_form_id>
                                             $system_post_timestamp
                                             <input type='hidden' name='system-notification-delete'>
                                             <input type='hidden' name='system-notification-delete-admin' value='$admin_username'>
                                             <input type='hidden' name='system-notification-delete-id' value='$system_post_id'>
-                                            <a href='#' onclick='document.getElementById('$system_post_form_id').submit()>
+                                            <a href='#' onclick='document.getElementById($system_post_form_id).submit()>
                                                 <span style='color: gray;' class='fas fa-trash mx-1'></span>
                                             </a>
                                         </form>
