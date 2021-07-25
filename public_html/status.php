@@ -127,7 +127,7 @@ $services = array(
                                             <input type='hidden' name='system-notification-delete'>
                                             <input type='hidden' name='system-notification-delete-admin' value='$admin_username'>
                                             <input type='hidden' name='system-notification-delete-id' value='$system_post_id'>
-                                            <a href='javascript:{}' onclick='document.getElementById('system-notification-$system_post_id').submit()>
+                                            <a href='#' onclick='document.getElementById('system-notification-$system_post_id').submit()>
                                                 <span style='class='fas fa-trash mx-3'></span>
                                             </a>
                                         </form>
