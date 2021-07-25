@@ -2,6 +2,7 @@
 
 require_once('./helpers/DatabaseHelper.php');
 
+// Main server config location
 $sql_configuration_array    = parse_ini_file("../../../../sql-config.ini", true);
 
 // Test server config location
@@ -33,16 +34,11 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['toggle-city-favorite']
         $database_helper->set("INSERT INTO favorites(username, favorite_city_rank, favorite_city_name) VALUES ('$selected_username', $selected_city_rank, '$selected_city_name');");
         $new_user_favorite_record = $database_helper->get("SELECT * FROM favorites WHERE username = '$selected_username' AND favorite_city_rank = $selected_city_rank");
     } else {
-        // Else, delete the record if delete mode was detected from the city.php page)
         if (isset($_POST['undo-favorite'])) {
             $database_helper->set("DELETE FROM favorites WHERE username = '$selected_username' AND favorite_city_rank = $selected_city_rank");
         }
     }
 
-    echo "<form id='form-favorite-return' method='GET' action='city.php' hidden>";
-    echo "    <input type='hidden' name='rk' value='$selected_city_rank' hidden>";
-    echo "</form>";
-    echo "<script type='text/javascript'>";
-    echo "    document.getElementById('form-favorite-return').submit();";
-    echo "</script>";
+    header("Location: city.php?rk=" . $selected_city_rank);
+    exit(0);
 }
