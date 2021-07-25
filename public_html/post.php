@@ -4,6 +4,12 @@ session_start();
 
 require_once('./helpers/DatabaseHelper.php');
 
+if (isset($_SESSION['admin_username'])) {
+    $admin_username = $_SESSION['admin_username'];
+} else {
+    $admin_username = "";
+}
+
 $sql_configuration_array    = parse_ini_file("../../../../sql-config.ini", true);
 
 if ($_SERVER['SERVER_NAME'] == 'newcitybetterlife.com' || $_SERVER['HTTP_HOST'] == 'newcitybetterlife.com') {
@@ -41,8 +47,9 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             $database_helper->set("CREATE TABLE `admins` (username VARCHAR(50) NOT NULL PRIMARY KEY, password VARCHAR(50) NOT NULL);");
         }
 
-        $admin_presence = $database_helper->get("SELECT * FROM `admins` WHERE username = '$admin_username;");
+        $admin_presence = $database_helper->get("SELECT * FROM admins WHERE username = '$admin_username';");
 
+        // CHANGE TO > 0 once admins are implemented
         if (count($admin_presence) >= 0) {
             $database_helper->set("INSERT INTO posts (`id`, `username`, `post_title`, `post_content`, `timestamp`) VALUES (DEFAULT, '$admin_username', '$post_title', '$post_content', DEFAULT);");
         }
@@ -50,13 +57,17 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         /// --------------------------------
         /// DETECT A POST DELETION REQUEST
         /// --------------------------------
+
         $admin_username = filter_var($_POST['system-notification-delete-admin'], FILTER_SANITIZE_STRING);
         $post_id = filter_var($_POST['system-notification-delete-id'], FILTER_SANITIZE_STRING);
+        $admin_presence = $database_helper->get("SELECT * FROM admins WHERE username = '$admin_username';");
 
-        $to_be_deleted = $database_helper->get("SELECT * FROM posts WHERE id=$post_id;");
-        $database_helper->debug($to_be_deleted);
+        // CHANGE TO > 0 once admins are implemented
+        if (count($admin_presence) >= 0) {
+            $database_helper->set("DELETE * FROM posts WHERE id=$post_id;");
+        }
     }
 
-    // header('Location: status.php', true, 301);
-    // exit();
+    header('Location: status.php', true, 301);
+    exit();
 }
