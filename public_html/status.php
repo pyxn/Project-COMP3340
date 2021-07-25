@@ -127,7 +127,7 @@ $services = array(
                                 <p class='card-text'>
                                     <small class='text-muted'>
                                         <form method='POST' action='post.php'>
-                                            $system_post_timestamp
+                                            $system_post_timestamp 
                                             <input type='hidden' name='system-notification-delete'>
                                             <input type='hidden' name='system-notification-delete-admin' value='$admin_username'>
                                             <input type='hidden' name='system-notification-delete-id' value='$system_post_id'>
