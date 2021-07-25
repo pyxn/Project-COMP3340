@@ -69,9 +69,9 @@ $services = array(
                 <div class="text-end">
                     <?php
                     if (!empty($admin_username)) {
-                        echo "<button type='button' class='btn btn-outline-light me-2'>Admin Logout ($admin_username)</button>";
+                        echo "<a href='logout.php' class='btn btn-outline-light me-2'>Admin Logout ($admin_username)</a>";
                     } else {
-                        echo "<button type='button' class='btn btn-warning' onclick='window.location.href='login.php''>Admin Login</button>";
+                        echo "<a href='login.php'  class='btn btn-warning' >Admin Login</a>";
                     }
                     ?>
                 </div>
