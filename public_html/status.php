@@ -127,12 +127,12 @@ $services = array(
                                 <p class='card-text'>$system_post_content</p>
                                 <p class='card-text'>
                                     <small class='text-muted'>
-                                        <form method='POST' action='post.php' id=$system_post_form_id>
+                                        <form method='POST' action='post.php'>
                                             $system_post_timestamp
                                             <input type='hidden' name='system-notification-delete'>
                                             <input type='hidden' name='system-notification-delete-admin' value='$admin_username'>
                                             <input type='hidden' name='system-notification-delete-id' value='$system_post_id'>
-                                            <a href='#' onclick='document.getElementById('$system_post_form_id').submit()'>
+                                            <a href='#' onclick='this.form.submit()'>
                                                 <span style='color: gray;' class='fas fa-trash mx-1'></span>
                                             </a>
                                         </form>
