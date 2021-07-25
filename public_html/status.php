@@ -10,16 +10,10 @@ if (isset($_SESSION['admin_username'])) {
     $admin_username = "";
 }
 
-/**
- * ---------------------------------------------------------------------------------
- * SQL CONNECTION CREDENTIALS
- * ---------------------------------------------------------------------------------
- * Configure SQL Connection using configuration file in server
- * ---------------------------------------------------------------------------------
- */
+// Main Server
 $sql_configuration_array    = parse_ini_file("../../../../sql-config.ini", true);
 
-// Test server config location
+// Test Server
 if ($_SERVER['SERVER_NAME'] == 'newcitybetterlife.com' || $_SERVER['HTTP_HOST'] == 'newcitybetterlife.com') {
     $sql_configuration_array    = parse_ini_file("../sql-config.ini", true);
 }
@@ -36,10 +30,8 @@ if ($database_helper->is_this_table_created("posts") == true) {
 }
 
 echo "<!-- <pre>";
-print_r($posts);
+print_r(NULL);
 echo "</pre> -->";
-
-$timeout = "1";
 
 $services = array(
     array("port" => "80", "name" => "Apache (HTTP)", "host" => "localhost"),
@@ -49,7 +41,6 @@ $services = array(
     array("port" => "3306", "name" => "MySQL Database", "host" => "localhost"),
     array("port" => "80", "name" => "Internet Connection", "host" => "google.com")
 );
-
 
 ?>
 
@@ -90,11 +81,15 @@ $services = array(
                     <h5 class="card-header">System Notifications</h5>
                     <div class="card-body">
 
+                        <!-- --------------------------------------------------------
+                            ADMIN-ONLY FORM
+                        ------------------------------------------------------------>
                         <div class="card border-0 mb-3">
                             <div class="card-body">
                                 <h4 class="card-title">Post System Notification</h4>
                                 <h6 class="card-subtitle mb-2 text-muted mb-4">Administrator (<?php echo $admin_username; ?>)</h6>
                                 <form method="POST" action='post.php'>
+                                    <input type='hidden' name='system-notification-create' value="1">
                                     <input type='hidden' name='system-notification-post-author' value="<?php echo $admin_username; ?>">
                                     <div class=" form-group mt-3">
                                         <label for="system-notification-post-title" class="mb-2">Notification Title</label>
@@ -116,6 +111,8 @@ $services = array(
 
                         <?php
                         foreach ($posts as &$post) {
+
+                            $system_post_id = $post['id'];
                             $system_post_author = $post['username'];
                             $system_post_title = $post['post_title'];
                             $system_post_content = $post['post_content'];
@@ -127,7 +124,17 @@ $services = array(
                                 <h5 class='card-title'>$system_post_title</h5>
                                 <h6 class='card-subtitle mb-2 text-muted'>Posted by $system_post_author</h6>
                                 <p class='card-text'>$system_post_content</p>
-                                <p class='card-text'><small class='text-muted'>$system_post_timestamp</small></p>
+                                <p class='card-text'>
+                                    <small class='text-muted'>
+                                        <form method='POST' action='post.php'>
+                                            $system_post_timestamp 
+                                            <input type='hidden' name='system-notification-delete'>
+                                            <input type='hidden' name='system-notification-delete-admin' value='$admin_username'>
+                                            <input type='hidden' name='system-notification-delete-id' value='$system_post_id'>
+                                            <input type='submit' value='Delete'>
+                                        </form>
+                                    </small>
+                                </p>
                             </div>
                             <div class='dropdown-divider'></div>
                             </div>
@@ -178,7 +185,7 @@ $services = array(
                                             $service_online = true;
                                         }
                                     } else {
-                                        $socket_connected = @fsockopen($service['host'], $service['port'], $error_code, $error_message, $timeout);
+                                        $socket_connected = @fsockopen($service['host'], $service['port'], $error_code, $error_message, 1);
                                         if ($socket_connected != false) {
                                             $service_online = true;
                                         }
