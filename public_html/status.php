@@ -108,11 +108,13 @@ $services = array(
 
                         <?php
                         foreach ($posts as &$post) {
+
                             $system_post_id = $post['id'];
                             $system_post_author = $post['username'];
                             $system_post_title = $post['post_title'];
                             $system_post_content = $post['post_content'];
                             $system_post_timestamp = $post['timestamp'];
+                            $system_post_form_id = "system-notification-" . $system_post_id;
 
                             echo "
                             <div class='card border-0 mb-3'>
@@ -122,13 +124,13 @@ $services = array(
                                 <p class='card-text'>$system_post_content</p>
                                 <p class='card-text'>
                                     <small class='text-muted'>
-                                        <form method='POST' action='post.php' id='system-notification-$system_post_id'>
+                                        <form method='POST' action='post.php' id='$system_post_form_id'>
                                             $system_post_timestamp
                                             <input type='hidden' name='system-notification-delete'>
                                             <input type='hidden' name='system-notification-delete-admin' value='$admin_username'>
                                             <input type='hidden' name='system-notification-delete-id' value='$system_post_id'>
-                                            <a href='#' onclick='document.getElementById('system-notification-$system_post_id').submit()>
-                                                <span style='color: gray;' class='fas fa-trash mx-3'></span>
+                                            <a href='#' onclick='document.getElementById($system_post_form_id).submit()>
+                                                <span style='color: gray;' class='fas fa-trash mx-1'></span>
                                             </a>
                                         </form>
                                     </small>
