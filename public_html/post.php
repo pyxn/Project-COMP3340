@@ -4,12 +4,6 @@ session_start();
 
 require_once('./helpers/DatabaseHelper.php');
 
-if (isset($_SESSION['admin_username'])) {
-    $admin_username = $_SESSION['admin_username'];
-} else {
-    $admin_username = "";
-}
-
 $sql_configuration_array    = parse_ini_file("../../../../sql-config.ini", true);
 
 if ($_SERVER['SERVER_NAME'] == 'newcitybetterlife.com' || $_SERVER['HTTP_HOST'] == 'newcitybetterlife.com') {
@@ -50,9 +44,9 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         $admin_presence = $database_helper->get("SELECT * FROM admins WHERE username = '$admin_username';");
 
         // CHANGE TO > 0 once admins are implemented
-        if (count($admin_presence) >= 0) {
-            $database_helper->set("INSERT INTO posts (`id`, `username`, `post_title`, `post_content`, `timestamp`) VALUES (DEFAULT, '$admin_username', '$post_title', '$post_content', DEFAULT);");
-        }
+        // if (count($admin_presence) >= 0) {
+        $database_helper->set("INSERT INTO posts (`id`, `username`, `post_title`, `post_content`, `timestamp`) VALUES (DEFAULT, '$admin_username', '$post_title', '$post_content', DEFAULT);");
+        // }
     } else if (isset($_POST['system-notification-delete'])) {
         /// --------------------------------
         /// DETECT A POST DELETION REQUEST
@@ -63,9 +57,9 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         $admin_presence = $database_helper->get("SELECT * FROM admins WHERE username = '$admin_username';");
 
         // CHANGE TO > 0 once admins are implemented
-        if (count($admin_presence) >= 0) {
-            $database_helper->set("DELETE FROM posts WHERE id=$post_id;");
-        }
+        // if (count($admin_presence) >= 0) {
+        $database_helper->set("DELETE FROM posts WHERE id=$post_id;");
+        // }
     }
 
     header('Location: status.php', true, 301);
