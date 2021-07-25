@@ -86,7 +86,7 @@ $services = array(
                                 <h4 class="card-title">Post System Notification</h4>
                                 <h6 class="card-subtitle mb-2 text-muted mb-4">Administrator (<?php echo $admin_username; ?>)</h6>
                                 <form method="POST" action='post.php'>
-                                    <input type='hidden' name='system-notification-post' value="1">
+                                    <input type='hidden' name='system-notification-create' value="1">
                                     <input type='hidden' name='system-notification-post-author' value="<?php echo $admin_username; ?>">
                                     <div class=" form-group mt-3">
                                         <label for="system-notification-post-title" class="mb-2">Notification Title</label>
@@ -125,9 +125,9 @@ $services = array(
                                         $system_post_timestamp
                                         <form method='POST' action='post.php'>
                                             <input type='hidden' name='system-notification-delete'>
-                                            <input type='submit'>
+                                            <button style='background-color: transparent; border: 1px solid transparent' type='submit'>
                                                 <span style='color: red;' class='fas fa-trash'></span>
-                                            </input>
+                                            </button>
                                         </form>
                                     </small>
                                 </p>

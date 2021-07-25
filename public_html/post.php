@@ -19,7 +19,8 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
     $database_helper = new DatabaseHelper($db_hostname, $db_name, $db_username, $db_password);
 
-    if (isset($_POST['system-notification-post'])) {
+    if (isset($_POST['system-notification-create'])) {
+        echo "CREATE DETECTED!";
         $admin_username = filter_var($_POST['system-notification-post-author'], FILTER_SANITIZE_STRING);
         $post_title = filter_var($_POST['system-notification-post-title'], FILTER_SANITIZE_STRING);
         $post_content = filter_var($_POST['system-notification-post-content'], FILTER_SANITIZE_STRING);
