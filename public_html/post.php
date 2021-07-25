@@ -53,7 +53,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         $admin_username = filter_var($_POST['system-notification-delete-admin'], FILTER_SANITIZE_STRING);
         $post_id = filter_var($_POST['system-notification-delete-id'], FILTER_SANITIZE_STRING);
 
-        $to_be_deleted = $database_helper->get("SELECT * FROM posts WHERE post_id=$post_id;");
+        $to_be_deleted = $database_helper->get("SELECT * FROM posts WHERE id=$post_id;");
         $database_helper->debug($to_be_deleted);
     }
 
