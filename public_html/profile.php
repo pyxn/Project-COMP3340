@@ -4,12 +4,13 @@
     die("connection fail: ". mysqli_connect_error());
   }
   $myUsername = $_POST['username'];
+  echo $row;
   $sql = "SELECT * FROM favorites WHERE username = $myUsername";
   $result = mysqli_query($conn, $sql);
   $resultCheck = mysqli_num_rows($result);
   if($resultCheck > 0) {
     while ($row = mysqli_fetch_assoc($result)) {
-      echo $row["favorite_city_rank"].$row["favorite_city_name"]."<br>" ;
+      echo $row['favorite_city_rank']." "$row['favorite_city_name']."<br>" ;
     }
   }
   else {
