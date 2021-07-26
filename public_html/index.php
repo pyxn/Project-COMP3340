@@ -110,7 +110,7 @@ if (!isset($_SESSION['username'])) {
                             </tr>
                         </thead>
                         <tbody>
-                            <tr>
+                            <tr onclick="window.location='city.php?rk=1' ">
                                 <td>
                                     1
                                 </td>
@@ -143,7 +143,7 @@ if (!isset($_SESSION['username'])) {
                                     ****
                                 </td>
                             </tr>
-                            <tr>
+                            <tr onclick="window.location='city.php?rk=2' ">
                                 <td>
                                     2
                                 </td>
@@ -176,7 +176,7 @@ if (!isset($_SESSION['username'])) {
                                     ****
                                 </td>
                             </tr>
-                            <tr>
+                            <tr onclick="window.location='city.php?rk=3' ">
                                 <td>
                                     3
                                 </td>
@@ -208,7 +208,7 @@ if (!isset($_SESSION['username'])) {
                                     ***
                                 </td>
                             </tr>
-                            <tr>
+                            <tr onclick="window.location='city.php?rk=4' ">
                                 <td>
                                     4
                                 </td>
@@ -241,7 +241,7 @@ if (!isset($_SESSION['username'])) {
                                     ****
                                 </td>
                             </tr>
-                            <tr>
+                            <tr onclick="window.location='city.php?rk=5' ">
                                 <td>
                                     5
                                 </td>
@@ -274,7 +274,7 @@ if (!isset($_SESSION['username'])) {
                                     ****
                                 </td>
                             </tr>
-                            <tr>
+                            <tr onclick="window.location='city.php?rk=6' ">
                                 <td>
                                     6
                                 </td>
@@ -306,7 +306,7 @@ if (!isset($_SESSION['username'])) {
                                     *****
                                 </td>
                             </tr>
-                            <tr>
+                            <tr onclick="window.location='city.php?rk=7' ">
                                 <td>
                                     7
                                 </td>
@@ -339,7 +339,7 @@ if (!isset($_SESSION['username'])) {
                                     *****
                                 </td>
                             </tr>
-                            <tr>
+                            <tr onclick="window.location='city.php?rk=8' ">
                                 <td>
                                     8
                                 </td>
@@ -371,7 +371,7 @@ if (!isset($_SESSION['username'])) {
                                     ***
                                 </td>
                             </tr>
-                            <tr>
+                            <tr onclick="window.location='city.php?rk=9' ">
                                 <td>
                                     9
                                 </td>
@@ -403,7 +403,7 @@ if (!isset($_SESSION['username'])) {
                                     ****
                                 </td>
                             </tr>
-                            <tr>
+                            <tr onclick="window.location='city.php?rk=10' ">
                                 <td>
                                     10
                                 </td>
