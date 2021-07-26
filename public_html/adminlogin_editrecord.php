@@ -19,7 +19,7 @@
             <input type="text" name="username"><br>
             <label>Password:</label>&nbsp;
             <input type="text" name="password"><br><br>
-            <input type="submit" name="submit" class="button" value="SUBMIT">
+            <input type="submit" name="submit" class="button" value="LOGIN">
         </form>
         <br>
     </section>
