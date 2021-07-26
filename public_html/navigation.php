@@ -19,7 +19,7 @@ session_start();
         ?>
         <li><a href="dreamcity.php">Find dream city</a></li>
         <li><a href="status.php">Server Status</a></li>
-        <li><a href="documentation.php">Get Help</a></li>
+        <li><a href="documentation.html">Get Help</a></li>
         <li><a href="#">About</a></li>
     </ul>
 </nav>
