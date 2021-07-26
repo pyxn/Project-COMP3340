@@ -17,17 +17,24 @@ if(!isset($_SESSION['user'])){
     <meta name="description" content="This webpage is for editing user records.">
     <!-- include external style sheet -->
     <?php 
-    $style="styles/admin.css";
+    $blue = $_POST["blue"];
     $yellow = $_POST["yellow"];
     $pink = $_POST["pink"];
+    if($blue){
+        $_SESSION['color']="styles/admin.css";
+    }
     if($yellow){
-        $style="styles/admin_yellow.css";
+        $_SESSION['color']="styles/admin_yellow.css";
     }
     if($pink){
-        $style="styles/admin_pink.css";
+        $_SESSION['color']="styles/admin_pink.css";
     }
+    if(!isset($_SESSION['color'])){
+        $_SESSION['color']="styles/admin.css";
+    }
+    
     ?>
-    <link rel="stylesheet" href=<?php echo $style; ?>>
+    <link rel="stylesheet" href=<?php echo $_SESSION['color']; ?>>
 </head>
 
 <body>
@@ -89,6 +96,11 @@ if(!isset($_SESSION['user'])){
     $conn->close();
     ?>
 
+    <!-- link to Edit User -->
+	<span style = 'color: #333A56;'>Edit User</span>&nbsp;&nbsp;  
+    <!-- link to Edit Record -->
+	<a href="editrecord.php" >Edit Record</a>&nbsp;&nbsp; 
+
     <br><br>
     <section>
         <br>
@@ -138,13 +150,14 @@ if(!isset($_SESSION['user'])){
     <br>
 
     <p>Choose Scheme</p>
-    <form method="post" action="edituser.php"><input type="submit" name="blue" class="button" value="BLUE">
+    <form method="post" action="edituser.php">
+    <input type="submit" name="blue" class="button" value="BLUE">
     <input type="submit" name="yellow" class="button" value="YELLOW">
-    <input type="submit" name="pink" class="button" value="PINK"></form>
+    <input type="submit" name="pink" class="button" value="PINK">
+    </form>
+    
 
     <a href='adminlogout.php'>Log Out</a>
-
     
-  
 </body>
 </html>
