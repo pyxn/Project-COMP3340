@@ -3,27 +3,19 @@
   if(!$conn){
     die("connection fail: ". mysqli_connect_error());
   }
-?>
 
-<html>
-  <head>
-    <meta charset="utf-8">
-    <title>User Profile</title>
-  </head>
-  <body>
-
-  <?php
-    //$selected_username      = $_POST['username'];
-    $sql = "SELECT * FROM favorites";
-    $result = mysqli_query($conn, $sql);
-    $resultCheck = mysqli_num_rows($result);
-
-    if($resultCheck > 0) {
-      while ($row = mysqli_fetch_assoc($result)) {
-        echo $row['favorite_city_rank'].$row['favorite_city_name']"<br>" ;
-      }
+  $sql = "SELECT * FROM favorites";
+  $result = mysqli_query($conn, $sql);
+  $resultCheck = mysqli_num_rows($result);
+  if($resultCheck > 0) {
+    while ($row = mysqli_fetch_assoc($result)) {
+      echo $row['favorite_city_rank'].$row['favorite_city_name']."<br>" ;
     }
-  ?>
+  }
+  else {
+    echo "You have not favorite any cities!"
+  }
 
-  </body>
-</html>
+  mysqli_close($conn);
+  
+?>
