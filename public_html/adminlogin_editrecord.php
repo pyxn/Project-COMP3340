@@ -13,7 +13,7 @@
 <br><br>
     <section>
         <br>
-        <h4> Login </h4>
+        <h4> Admin Login </h4>
         <form method="post" action="validation_editrecord.php">
             <label>Username:</label>
             <input type="text" name="username"><br>
