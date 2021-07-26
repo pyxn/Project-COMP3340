@@ -1,20 +1,18 @@
+<?php
+  $conn = mysqli_connect('localhost', 'qiao6', 'Woshishen@2021');
+  if(!$conn){
+    die("connection fail: ". mysqli_connect_error());
+  }
+?>
 
-
-<!DOCTYPE html>
-<html lang="en" dir="ltr">
+<html>
   <head>
     <meta charset="utf-8">
     <title>User Profile</title>
   </head>
   <body>
-    
-  <h1>My Favorites</h1>
-    
+
   <?php
-    $conn = mysqli_connect('localhost', 'qiao6', 'Woshishen@2021');
-    if(!$conn){
-      die("connection fail: ". mysqli_connect_error());
-    }
     //$selected_username      = $_POST['username'];
     $sql = "SELECT * FROM favorites";
     $result = mysqli_query($conn, $sql);
@@ -26,7 +24,6 @@
       }
     }
   ?>
-
 
   </body>
 </html>
