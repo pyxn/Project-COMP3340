@@ -3,8 +3,8 @@
   if(!$conn){
     die("connection fail: ". mysqli_connect_error());
   }
-
-  $sql = "SELECT * FROM favorites";
+  $myUsername = $_POST['username'];
+  $sql = "SELECT * FROM favorites WHERE username = $myUsername";
   $result = mysqli_query($conn, $sql);
   $resultCheck = mysqli_num_rows($result);
   if($resultCheck > 0) {
@@ -17,5 +17,5 @@
   }
 
   mysqli_close($conn);
-  
+
 ?>
