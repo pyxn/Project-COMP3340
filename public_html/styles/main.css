@@ -102,3 +102,7 @@ RESPONSIVE CODE
 @media only screen and (min-width: 1025px) {
 
 }
+
+.table tr td{
+    cursor: pointer;
+}
