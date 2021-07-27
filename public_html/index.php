@@ -20,9 +20,7 @@ $db_username                = $sql_configuration_array['database']['username'];
 $db_password                = $sql_configuration_array['database']['password'];
 
 session_start();
-if (!isset($_SESSION['username'])) {
-    header('location:login.php');
-}
+
 
 
 
