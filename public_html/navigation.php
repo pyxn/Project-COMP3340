@@ -17,7 +17,7 @@ session_start();
             echo "<li><a href='login.php'>Log In</a></li>";
         }
         ?>
-        <li><a href="dreamcity.php">Find dream city</a></li>
+        <li><a href="dreamcity.php">Find Dream City</a></li>
         <li><a href="status.php">Server Status</a></li>
         <li><a href="documentation.html">Get Help</a></li>
         <li><a href="#">About</a></li>
