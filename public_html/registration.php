@@ -36,17 +36,14 @@ $s = "select * from users where username = '$name' ";
 $result = mysqli_query($con, $s);
 $num = mysqli_num_rows($result);
 
-if ($num == 1) {
-    echo '<script>alert("Username already exist!")</script>';
-    header('location:login.php');
+if ($num > 0) {
+    echo '<script>if(!alert("Username already exist!")) document.location = "login.php";</script>';
 } 
 else if($name==""){
-    echo '<script>alert("Please fill in username!")</script>';
-    header('location:login.php');
+    echo '<script>if(!alert("Please fill in username!")) document.location = "login.php";</script>';
 }
 else if($pass==""){
-    echo '<script>alert("Please fill in password!")</script>';
-    header('location:login.php');
+    echo '<script>if(!alert("Please fill in password!")) document.location = "login.php";</script>';
 }
 else {
     $reg = "insert into users(username, password) values ('$name', '$pass')";
