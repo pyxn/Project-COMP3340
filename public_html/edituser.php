@@ -82,7 +82,13 @@ if(!isset($_SESSION['user'])){
             $result = $conn->query($s);
 
             if($result->num_rows>0 && $inputName!=$_POST["id"]){
-            echo '<script>alert("This username is not available.")</script>';
+                echo '<script>alert("This username is not available.")</script>';
+            }
+	    else if($inputName==""){
+                echo '<script>alert("Please fill in username.")</script>';
+            }
+            else if($inputPass==""){
+                echo '<script>alert("Please fill in password.")</script>';
             }
             else{
                 $prName=$_POST["id"];
