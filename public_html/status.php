@@ -72,11 +72,11 @@ $services = array(
                         echo "<a href='edituser.php' class='btn btn-outline-light me-2'>Edit Users</a>";
                         echo "<a href='editrecord.php' class='btn btn-outline-light me-2'>Edit Records</a>";
                         echo "<a href='adminlogout.php' class='btn btn-outline-light me-2'>Admin Logout ($admin_username)</a>";
-                        echo "<a href='index.php' class='btn btn-light me-2'>Home</a>";
                     } else {
                         echo "<a href='adminlogin_status.php'  class='btn btn-warning me-2' >Admin Login</a>";
                     }
                     ?>
+                    <a href='index.php' class='btn btn-light me-2'>Home</a>
                 </div>
             </section>
         </div>
