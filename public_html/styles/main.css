@@ -66,6 +66,15 @@ a.profile-link {
     text-decoration: none;
 }
 
+input.universal-login-button {
+    padding: 0.618rem 1.618rem;
+    background-color: whitesmoke;
+    border: 1px solid transparent;
+    border-radius: 0.342rem;
+    color: #333;
+    font-weight: bold;
+}
+
 /* -----------------------------------
 RESPONSIVE CODE
 -------------------------------------*/
