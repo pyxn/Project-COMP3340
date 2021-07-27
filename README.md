@@ -16,4 +16,4 @@ On our website, you may get information of 166 most livable cities/towns in Cana
 
 **Documentation**
 
-- [Official _New City, Better Life_ Documentation](https://project-comp3340.gitbook.io/project/)
+- [Official New City, Better Life Documentation](https://project-comp3340.gitbook.io/project/)
