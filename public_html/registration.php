@@ -37,20 +37,18 @@ $result = mysqli_query($con, $s);
 $num = mysqli_num_rows($result);
 
 if ($num == 1) {
-    echo "Username already exist!";
+    echo '<script>alert("Username already exist!")</script>';
 } 
 else if($name==""){
-    echo"Please fill in username! <br>";
-    echo"<a href='login.php'> Try again </a>";
+    echo '<script>alert("Please fill in username!")</script>';
 }
 else if($pass==""){
-    echo"Please fill in password! <br>";
-    echo"<a href='login.php'> Try again </a>";
+    echo '<script>alert("Please fill in password!")</script>';
 }
 else {
     $reg = "insert into users(username, password) values ('$name', '$pass')";
     mysqli_query($con, $reg);
-    echo "Registration is done.";
+    echo '<script>alert("Thank you for your registration!")</script>';
 
     // Auto-login on successful register
     echo "<form id='form-registration-login' method='POST' action='validation.php' hidden>";
