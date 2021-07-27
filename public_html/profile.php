@@ -15,7 +15,8 @@ if(!isset($_SESSION['username'])){
 <body>
     <nav class="navbar navbar-inverse">
     <div class="container-fluid">
-        <h3 style="color: #fff;">My Favorite Cities</h3>
+        <h3 style="color: #fff;">My Favorite Cities
+	<a class="btn btn-primary" href="index.php" role="button" style="float: right; color: black; background-color: white;">Home</a></h3>
     </div>
     </nav>
 
