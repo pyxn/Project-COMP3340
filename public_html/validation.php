@@ -40,4 +40,5 @@ if ($num == 1) {
     header('location:index.php');
 } else {
     echo "incorrect username/password";
+    echo"<a href='login.php'> Try again </a>";
 }
