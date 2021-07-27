@@ -5,7 +5,7 @@ session_start();
 require_once('./helpers/DatabaseHelper.php');
 
 // gotta change this to admin username
-if (isset($_SESSION['username'])) {
+if (isset($_SESSION['user'])) {
     $admin_username = $_SESSION['username'];
 } else {
     $admin_username = "";
@@ -69,9 +69,12 @@ $services = array(
                 <div class="text-end">
                     <?php
                     if (!empty($admin_username)) {
-                        echo "<a href='logout.php' class='btn btn-outline-light me-2'>Admin Logout ($admin_username)</a>";
+                        echo "<a href='edituser.php' class='btn btn-outline-light me-2'>Edit Users</a>";
+                        echo "<a href='editrecord.php' class='btn btn-outline-light me-2'>Edit Records</a>";
+                        echo "<a href='adminlogout.php' class='btn btn-outline-light me-2'>Admin Logout ($admin_username)</a>";
+                        echo "<a href='index.php' class='btn btn-outline-light me-2'>Home</a>";
                     } else {
-                        echo "<a href='login.php'  class='btn btn-warning' >Admin Login</a>";
+                        echo "<a href='adminlogin_status.php'  class='btn btn-warning' >Admin Login</a>";
                     }
                     ?>
                 </div>
@@ -230,31 +233,42 @@ $services = array(
                             <tbody>
                                 <tr>
                                     <td>Server Name</td>
-                                    <td><?php echo $_SERVER['SERVER_NAME']; ?></td>
+                                    <td>
+                                        <small>
+                                            <?php
+                                            if ($_SERVER['SERVER_NAME'] == 'qiao6.myweb.cs.uwindsor.ca') {
+                                                echo $_SERVER['SERVER_NAME'] . '/project';
+                                            } else {
+                                                echo $_SERVER['SERVER_NAME'];
+                                            }
+
+                                            ?>
+                                        </small>
+                                    </td>
                                 </tr>
                                 <tr>
-                                    <td>Server Software</td>
-                                    <td><?php echo $_SERVER['SERVER_SOFTWARE']; ?></td>
+                                    <td>Software</td>
+                                    <td><small><?php echo $_SERVER['SERVER_SOFTWARE']; ?></small></td>
                                 </tr>
                                 <tr>
                                     <td>Server Protocol</td>
-                                    <td><?php echo $_SERVER['SERVER_PROTOCOL']; ?></td>
+                                    <td><small><?php echo $_SERVER['SERVER_PROTOCOL']; ?></small></td>
                                 </tr>
                                 <tr>
-                                    <td>Server IP Address</td>
-                                    <td><?php echo $_SERVER['SERVER_ADDR']; ?></td>
+                                    <td>Server IP</td>
+                                    <td><small><?php echo $_SERVER['SERVER_ADDR']; ?></small></td>
                                 </tr>
                                 <tr>
                                     <td>Port Accessed</td>
-                                    <td><?php echo $_SERVER['SERVER_PORT']; ?></td>
+                                    <td><small><?php echo $_SERVER['SERVER_PORT']; ?></small></td>
                                 </tr>
                                 <tr>
-                                    <td>Gateway Interface</td>
-                                    <td><?php echo $_SERVER['GATEWAY_INTERFACE']; ?></td>
+                                    <td>CGI Ver.</td>
+                                    <td><small><?php echo $_SERVER['GATEWAY_INTERFACE']; ?></small></td>
                                 </tr>
                                 <tr>
-                                    <td>HTTP Language</td>
-                                    <td><?php echo $_SERVER['HTTP_ACCEPT_LANGUAGE']; ?></td>
+                                    <td>HTTP Lang.</td>
+                                    <td><small><?php echo $_SERVER['HTTP_ACCEPT_LANGUAGE']; ?></small></td>
                                 </tr>
                             </tbody>
                         </table>
