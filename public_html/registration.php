@@ -38,12 +38,15 @@ $num = mysqli_num_rows($result);
 
 if ($num == 1) {
     echo '<script>alert("Username already exist!")</script>';
+    header('location:login.php');
 } 
 else if($name==""){
     echo '<script>alert("Please fill in username!")</script>';
+    header('location:login.php');
 }
 else if($pass==""){
     echo '<script>alert("Please fill in password!")</script>';
+    header('location:login.php');
 }
 else {
     $reg = "insert into users(username, password) values ('$name', '$pass')";
