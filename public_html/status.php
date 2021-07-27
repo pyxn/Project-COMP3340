@@ -6,7 +6,7 @@ require_once('./helpers/DatabaseHelper.php');
 
 // gotta change this to admin username
 if (isset($_SESSION['user'])) {
-    $admin_username = $_SESSION['username'];
+    $admin_username = $_SESSION['user'];
 } else {
     $admin_username = "";
 }
@@ -71,8 +71,8 @@ $services = array(
                     if (!empty($admin_username)) {
                         echo "<a href='edituser.php' class='btn btn-outline-light me-2'>Edit Users</a>";
                         echo "<a href='editrecord.php' class='btn btn-outline-light me-2'>Edit Records</a>";
-                        echo "<a href='adminlogout.php' class='btn btn-outline-light me-2'>Admin Logout ($admin_username)</a>";
-                        echo "<a href='index.php' class='btn btn-outline-light me-2'>Home</a>";
+                        echo "<a href='adminlogout.php' class='btn btn-secondary'>Admin Logout ($admin_username)</a>";
+                        echo "<a href='index.php' class='btn btn-primary'>Home</a>";
                     } else {
                         echo "<a href='adminlogin_status.php'  class='btn btn-warning' >Admin Login</a>";
                     }
