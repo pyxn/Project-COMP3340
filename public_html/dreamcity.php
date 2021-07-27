@@ -208,7 +208,7 @@
                             else{
                             ?>
                             <tr>
-                                <td colspan="2">Records not found.</td>
+                                <td colspan="7">Records not found.</td>
                             </tr>
 
                             <?php  
