@@ -6,7 +6,8 @@
 <body>
     <nav class="navbar navbar-inverse">
     <div class="container-fluid">
-        <h3 style="color: #fff;">Find Dream City</h3>
+        <h3 style="color: #fff;">Find Dream City
+	<a class="btn btn-primary" href="index.php" role="button" style="float: right; color: black; background-color: white;">Home</a></h3>
     </div>
     </nav>
     <div class="container">
