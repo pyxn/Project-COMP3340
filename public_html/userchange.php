@@ -28,7 +28,7 @@ if(!isset($_SESSION['username'])){
     $row = mysqli_fetch_assoc($data);
     $pass=$row["password"];
 
-    if(isset($_POST["submit"])){
+    if(isset($_POST["edit"])){
         $inputName=$_POST["name"];
         $inputPass=$_POST["pass"];
 
@@ -37,6 +37,12 @@ if(!isset($_SESSION['username'])){
         
         if($result->num_rows>0 && $inputName!=$_SESSION['username']){
             echo '<script>alert("This username is not available.")</script>';
+        }
+        else if($inputName==""){
+            echo '<script>alert("Please fill in username.")</script>';
+        }
+        else if($inputPass==""){
+            echo '<script>alert("Please fill in password.")</script>';
         }
         else{
             $prName=$_SESSION['username'];
@@ -59,21 +65,21 @@ if(!isset($_SESSION['username'])){
                 <div class="form-group">
 				<label class="col-lg-2 control-label">Username</label>
 				<div class="col-lg-4">
-				    <input type="text" name="name" class="form-control" value=<?php echo $name; ?>>
+				    <input type="text" name="name" class="form-control" placeholder=<?php echo $name; ?>>
 				</div>
 			    </div>
 
                 <div class="form-group">
 				<label class="col-lg-2 control-label">Password</label>
 				<div class="col-lg-4">
-				    <input type="text" name="pass" class="form-control" value=<?php echo $pass; ?>>
+				    <input type="text" name="pass" class="form-control" placeholder=<?php echo $pass; ?>>
 				</div>
 			    </div>
 
                 <div class="form-group">
 				<label class="col-lg-2 control-label"></label>
 				<div class="col-lg-4">
-				    <input type="submit" class="btn btn-primary" name="submit" id="submit">
+				    <input type="submit" class="btn btn-primary" name="edit">
 				</div>
 			    </div>
             </form>
