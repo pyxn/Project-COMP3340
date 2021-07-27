@@ -79,9 +79,10 @@ if(!isset($_SESSION['username'])){
                         }
                     }
                     else{
+                        echo "<tr onclick=\"window.location='dreamcity.php?rk=$rank'\" >";
                         ?>
-                        <tr>
-                            <td colspan="2">No records.</td>
+                        
+                            <td colspan="7">You haven't added any city yet. Click here to find your dream city!</td>
                         </tr>
                         <?php
                     }
