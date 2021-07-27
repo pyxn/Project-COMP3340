@@ -38,7 +38,16 @@ $num = mysqli_num_rows($result);
 
 if ($num == 1) {
     echo "Username already exist!";
-} else {
+} 
+else if($name==""){
+    echo"Please fill in username! <br>";
+    echo"<a href='login.php'> Try again </a>";
+}
+else if($pass==""){
+    echo"Please fill in password! <br>";
+    echo"<a href='login.php'> Try again </a>";
+}
+else {
     $reg = "insert into users(username, password) values ('$name', '$pass')";
     mysqli_query($con, $reg);
     echo "Registration is done.";
