@@ -108,7 +108,7 @@ session_start();
                             </tr>
                         </thead>
                         <tbody>
-                            <tr onclick="window.location='city.php?rk=1' ">
+                            <tr onclick="window.location='city.php?rk=1' " style="cursor: pointer;" onMouseOver="this.style.backgroundColor='#E8E8E8'" onMouseOut="this.style.backgroundColor='#FFFFFF'">
                                 <td>
                                     1
                                 </td>
@@ -141,7 +141,7 @@ session_start();
                                     ****
                                 </td>
                             </tr>
-                            <tr onclick="window.location='city.php?rk=2' ">
+                            <tr onclick="window.location='city.php?rk=2' " style="cursor: pointer;" onMouseOver="this.style.backgroundColor='#E8E8E8'" onMouseOut="this.style.backgroundColor='#FFFFFF'">
                                 <td>
                                     2
                                 </td>
@@ -174,7 +174,7 @@ session_start();
                                     ****
                                 </td>
                             </tr>
-                            <tr onclick="window.location='city.php?rk=3' ">
+                            <tr onclick="window.location='city.php?rk=3' " style="cursor: pointer;" onMouseOver="this.style.backgroundColor='#E8E8E8'" onMouseOut="this.style.backgroundColor='#FFFFFF'">
                                 <td>
                                     3
                                 </td>
@@ -206,7 +206,7 @@ session_start();
                                     ***
                                 </td>
                             </tr>
-                            <tr onclick="window.location='city.php?rk=4' ">
+                            <tr onclick="window.location='city.php?rk=4' " style="cursor: pointer;" onMouseOver="this.style.backgroundColor='#E8E8E8'" onMouseOut="this.style.backgroundColor='#FFFFFF'">
                                 <td>
                                     4
                                 </td>
@@ -239,7 +239,7 @@ session_start();
                                     ****
                                 </td>
                             </tr>
-                            <tr onclick="window.location='city.php?rk=5' ">
+                            <tr onclick="window.location='city.php?rk=5' " style="cursor: pointer;" onMouseOver="this.style.backgroundColor='#E8E8E8'" onMouseOut="this.style.backgroundColor='#FFFFFF'">
                                 <td>
                                     5
                                 </td>
@@ -272,7 +272,7 @@ session_start();
                                     ****
                                 </td>
                             </tr>
-                            <tr onclick="window.location='city.php?rk=6' ">
+                            <tr onclick="window.location='city.php?rk=6' " style="cursor: pointer;" onMouseOver="this.style.backgroundColor='#E8E8E8'" onMouseOut="this.style.backgroundColor='#FFFFFF'">
                                 <td>
                                     6
                                 </td>
@@ -304,7 +304,7 @@ session_start();
                                     *****
                                 </td>
                             </tr>
-                            <tr onclick="window.location='city.php?rk=7' ">
+                            <tr onclick="window.location='city.php?rk=7' " style="cursor: pointer;" onMouseOver="this.style.backgroundColor='#E8E8E8'" onMouseOut="this.style.backgroundColor='#FFFFFF'">
                                 <td>
                                     7
                                 </td>
@@ -337,7 +337,7 @@ session_start();
                                     *****
                                 </td>
                             </tr>
-                            <tr onclick="window.location='city.php?rk=8' ">
+                            <tr onclick="window.location='city.php?rk=8' " style="cursor: pointer;" onMouseOver="this.style.backgroundColor='#E8E8E8'" onMouseOut="this.style.backgroundColor='#FFFFFF'">
                                 <td>
                                     8
                                 </td>
@@ -369,7 +369,7 @@ session_start();
                                     ***
                                 </td>
                             </tr>
-                            <tr onclick="window.location='city.php?rk=9' ">
+                            <tr onclick="window.location='city.php?rk=9' " style="cursor: pointer;" onMouseOver="this.style.backgroundColor='#E8E8E8'" onMouseOut="this.style.backgroundColor='#FFFFFF'">
                                 <td>
                                     9
                                 </td>
@@ -401,7 +401,7 @@ session_start();
                                     ****
                                 </td>
                             </tr>
-                            <tr onclick="window.location='city.php?rk=10' ">
+                            <tr onclick="window.location='city.php?rk=10' " style="cursor: pointer;" onMouseOver="this.style.backgroundColor='#E8E8E8'" onMouseOut="this.style.backgroundColor='#FFFFFF'">
                                 <td>
                                     10
                                 </td>
