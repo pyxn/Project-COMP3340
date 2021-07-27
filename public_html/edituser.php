@@ -94,6 +94,8 @@ if(!isset($_SESSION['user'])){
                 $prName=$_POST["id"];
                 $r="UPDATE users SET username = '$inputName', password = '$inputPass' WHERE username='$prName' ";
                 mysqli_query($conn, $r);
+		$r="UPDATE favorites SET username = '$inputName' WHERE username='$prName' ";
+                mysqli_query($conn, $r);    
             }
   
         }
