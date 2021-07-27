@@ -39,6 +39,5 @@ if ($num == 1) {
     $_SESSION['username'] = $name;
     header('location:index.php');
 } else {
-    echo "incorrect username/password";
-    echo"<a href='login.php'> Try again </a>";
+    '<script>alert("Incorrect username or password!")</script>'
 }
