@@ -17,6 +17,9 @@ Almost one quarter of Canadians moved or plan to move since April 2020 cited COV
 
 - [New City Better Life Documentation (GitBook)](https://project-comp3340.gitbook.io/project/)
 
+** Continuous Integration (CI) / Package Interface for Automatic Deployment 
+- [SFTP-Mirror](https://github.com/pyxn/sftp-mirror)
+
 ### Technologies
 
 - LAMP Stack (Linux, Apache, MySQL, PHP)
