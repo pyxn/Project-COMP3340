@@ -378,10 +378,10 @@ $city = new City(
                                     $records            = $database_helper->get("SELECT * FROM favorites WHERE username = '$selected_username' AND favorite_city_rank = $selected_city_rank");
 
                                     if (count($records) == 0) {
-                                        echo "<button id='indicator-favorite' style='color: white;' formaction='favorite.php' type='submit'>♥</button>";
+                                        echo "<button id='indicator-favorite' style='color: white; cursor: pointer;' formaction='favorite.php' type='submit'>♥</button>";
                                     } else {
                                         echo "<input type='hidden' name='undo-favorite' value='1'>";
-                                        echo "<button id='indicator-favorite' style='color: red;' formaction='favorite.php' type='submit'>♥</button>";
+                                        echo "<button id='indicator-favorite' style='color: red; cursor: pointer;' formaction='favorite.php' type='submit'>♥</button>";
                                     }
                                 }
                                 ?>
