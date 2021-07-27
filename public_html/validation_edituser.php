@@ -20,7 +20,7 @@ if($num ==1){
     $_SESSION['user'] = $name;
     header('location:edituser.php');
 }else{
-    echo"incorrect username/password";
+    echo '<script>if(!alert("Incorrect username or password. Try again!")) document.location = "adminlogin_edituser.php";</script>';
 }
 
 ?>
