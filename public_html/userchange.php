@@ -56,7 +56,10 @@ if(!isset($_SESSION['username'])){
 ?>
     <nav class="navbar navbar-inverse">
     <div class="container-fluid">
-        <h3 style="color: #fff;">Change Username|Password</h3>
+        <h3 style="color: #fff;">Change Username|Password
+	<a class="btn btn-primary" href="index.php" role="button" style="float: right; color: black; background-color: white;">Home</a>
+        <a class="btn btn-primary" href="profile.php" role="button" style="float: right; color: black; background-color: white;">Back</a>
+	</h3>
     </div>
     </nav>
 
