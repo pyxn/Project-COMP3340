@@ -21,7 +21,7 @@ session_start();
         } 
         ?>
         <li><a href="status.php">Server Status</a></li>
-        <li><a href="documentation.html">Get Help</a></li>
+        <li><a href="https://project-comp3340.gitbook.io/project/">Documentation</a></li>
         <li><a href="#">About</a></li>
         <?php
         if (isset($_SESSION['username'])) {
