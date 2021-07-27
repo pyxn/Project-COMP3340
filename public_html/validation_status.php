@@ -21,7 +21,7 @@ if ($num == 1) {
     $_SESSION['user'] = $name;
     header('location:status.php');
 } else {
-    echo "incorrect username/password";
+   echo '<script>if(!alert("Incorrect username or password. Try again!")) document.location = "adminlogin_status.php";</script>';
 }
 
 ?>
