@@ -34,6 +34,7 @@ if(!isset($_SESSION['user'])){
     }
     ?>
     <link rel="stylesheet" href=<?php echo $_SESSION['color']; ?>>
+    <link rel="stylesheet" type="text/css" href="styles/bootstrap.css">
 </head>
 
 <body>
@@ -101,6 +102,8 @@ if(!isset($_SESSION['user'])){
 	<a href="edituser.php" >Edit User</a>&nbsp;&nbsp;  
     <!-- link to Edit Record -->
 	<span style = 'color: #333A56;'>Edit Record</span>
+    <!-- link to Status Page -->
+	<a class="btn btn-primary" href="status.php" role="button" style="float: right; color: black; background-color: white;">Back</a>
 
     <br><br>
     <section>
