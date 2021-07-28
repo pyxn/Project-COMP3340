@@ -109,6 +109,8 @@ if(!isset($_SESSION['user'])){
 	<span style = 'color: #333A56;'>Edit User</span>&nbsp;&nbsp;  
     <!-- link to Edit Record -->
 	<a href="editrecord.php" >Edit Record</a>&nbsp;&nbsp; 
+    <!-- link to Status Page -->
+	<a href="status.php" style="float: right;">Back</a>
 
     <br><br>
     <section>
