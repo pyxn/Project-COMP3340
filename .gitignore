@@ -1,3 +1,11 @@
 **.DS_Store
 **.map-config.js
 **.sql-config.ini
+**.fls
+**.log
+**.spl
+**.gz
+**.toc
+**.aux
+**.fdb*
+**__latexindent_temp.tex
