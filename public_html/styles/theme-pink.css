@@ -1,3 +1,7 @@
 html {
-    background-color: rgba(247, 245, 230, 0.34) !important;
+    background-color: rgba(247, 245, 230, 0.1) !important;
+}
+
+nav, #user-controls {
+    background-color: rgba(247, 245, 230, 1.0) !important;
 }
