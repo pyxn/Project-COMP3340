@@ -26,16 +26,22 @@ class ThemeHelper {
             $next_color = 'yellow';
         } else if ($theme_color == 'yellow') {
             $background_color = 'background-color: rgba(82, 101, 143, 1.0);';  // blue next
+            $next_color = 'black';
+        } else if ($theme_color == 'black') {
+            $background_color = 'background-color: rgba(0, 0, 0, 1.0);';  // blue next
             $next_color = 'blue';
         } else {
             return '';
         }
 
         $html_code = "
+
+        <style>
+        </style>
         <div>
         <form method='POST' action='switchtheme.php'>
         <input type='hidden' value='$next_color' name='next-theme'>
-        <input style='position: fixed; bottom: 1.618rem; right: 1.618rem; $background_color color: white !important; padding: 1rem; font-size: 1rem; border-radius: 0.618rem; color: white; z-index: 9999; border: 1px solid white; font-weight: bold;' value='Switch Theme ⟳' type='submit'>
+        <input style='position: fixed; bottom: 21px; right: 21px; $background_color color: white !important; padding: 16px; font-size: 16px !important; border-radius: 13px; color: white; z-index: 9999; border: 1px solid white; font-weight: bold !important;' value='Switch Theme ⟳' type='submit'>
         </form>
         </div>
         ";
