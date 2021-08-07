@@ -4,6 +4,9 @@ session_start();
 
 require_once('./helpers/ThemeHelper.php');
 $theme_color = 'blue';
+if (isset($_SESSION['theme'])) {
+    $theme_color = $_SESSION['theme'];
+}
 
 /**
  * ---------------------------------------------------------------------------------

@@ -1,6 +1,13 @@
 <?php
 
 session_start();
+
+require_once('./helpers/ThemeHelper.php');
+$theme_color = 'blue';
+if (isset($_SESSION['theme'])) {
+    $theme_color = $_SESSION['theme'];
+}
+
 if (!isset($_SESSION['username'])) {
     header('location:login.php');
 }
@@ -11,6 +18,7 @@ if (!isset($_SESSION['username'])) {
 <head>
     <title>My Favorite Cities</title>
     <link rel="stylesheet" type="text/css" href="styles/bootstrap.css">
+    <?php echo ThemeHelper::get_css_theme($theme_color); ?>
 </head>
 
 <body>
