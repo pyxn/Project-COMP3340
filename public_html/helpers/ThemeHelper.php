@@ -8,6 +8,8 @@ class ThemeHelper {
             return '<link rel="stylesheet" href="styles/theme-pink.css" />';
         } else if ($theme_color == 'yellow') {
             return '<link rel="stylesheet" href="styles/theme-yellow.css" />';
+        } else if ($theme_color == 'black') {
+            return '';
         } else {
             return '';
         }
@@ -19,7 +21,7 @@ class ThemeHelper {
         $next_color = '';
         $font_color = '';
 
-        if ($theme_color == 'blue') {
+        if ($theme_color == 'black') {
             $background_color = 'background-color: rgba(232, 206, 191, 1.0);'; // pink next
             $next_color = 'pink';
             $font_color = 'color: black !important;';
