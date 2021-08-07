@@ -22,7 +22,7 @@ class ThemeHelper {
         if ($theme_color == 'blue') {
             $background_color = 'background-color: rgba(232, 206, 191, 1.0);'; // pink next
             $next_color = 'pink';
-            $font_color = 'color: white !important;';
+            $font_color = 'color: black !important;';
         } else if ($theme_color == 'pink') {
             $background_color = 'background-color: rgba(255, 223, 108, 1.0);'; // yellow next
             $next_color = 'yellow';
@@ -30,7 +30,7 @@ class ThemeHelper {
         } else if ($theme_color == 'yellow') {
             $background_color = 'background-color: rgba(82, 101, 143, 1.0);';  // blue next
             $next_color = 'black';
-            $font_color = 'color: black !important;';
+            $font_color = 'color: white !important;';
         } else if ($theme_color == 'black') {
             $background_color = 'background-color: rgba(0, 0, 0, 1.0);';  // blue next
             $next_color = 'blue';
