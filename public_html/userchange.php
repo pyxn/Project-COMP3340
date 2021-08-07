@@ -96,4 +96,8 @@ if (!isset($_SESSION['username'])) {
             </form>
         </div>
     </div>
+
+    <footer>
+        <?php echo ThemeHelper::get_theme_switcher($theme_color); ?>
+    </footer>
 </body>

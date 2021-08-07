@@ -47,8 +47,6 @@ $db_password                = $sql_configuration_array['database']['password'];
     <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyB6lQGac4TVDla2dTOa6lK1ji1g8Zcz6V0&callback=initMap&libraries=&v=weekly" async></script>
 </head>
 
-<?php echo ThemeHelper::get_theme_switcher($theme_color); ?>
-
 <body class="sidebar-navigation">
     <aside>
         <?php require('navigation.php'); ?>
@@ -450,6 +448,7 @@ $db_password                = $sql_configuration_array['database']['password'];
 
     <footer>
         <script src="scripts/graph.js"></script>
+        <?php echo ThemeHelper::get_theme_switcher($theme_color); ?>
     </footer>
 </body>
 

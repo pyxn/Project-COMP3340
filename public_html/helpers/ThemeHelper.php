@@ -32,10 +32,12 @@ class ThemeHelper {
         }
 
         $html_code = "
+        <div>
         <form method='POST' action='switchtheme.php'>
         <input type='hidden' value='$next_color' name='next-theme'>
         <input style='position: fixed; bottom: 1.618rem; right: 1.618rem; $background_color color: white !important; padding: 1rem; font-size: 1rem; border-radius: 0.618rem; color: white; z-index: 9999; border: 1px solid white; font-weight: bold;' value='Switch Theme ⟳' type='submit'>
         </form>
+        </div>
         ";
         return $html_code;
     }
