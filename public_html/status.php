@@ -60,7 +60,7 @@ $services = array(
 
 <body>
 
-    <header class="p-3 bg-dark text-white">
+    <header id='theme-control-dark' class="p-3 bg-dark text-white">
         <div class="container">
             <section class="d-flex flex-wrap align-items-center justify-content-center justify-content-lg-end">
                 <a href="./index.php" class="d-flex align-items-center mb-3 mb-md-0 me-md-auto text-decoration-none" style='color: white;'>
