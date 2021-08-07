@@ -1,0 +1,9 @@
+html, body {
+    background-color: rgba(232, 206, 191, 0.1) !important;
+}
+
+nav, #theme-control-dark, #user-controls, .navbar, .navbar-inverse, .bg-dark, .profile-link {
+    background-color: rgba(232, 206, 191, 1.0) !important;
+    border: 0px solid transparent !important;
+    color: black !important;
+}

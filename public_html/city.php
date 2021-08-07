@@ -2,6 +2,12 @@
 
 session_start();
 
+require_once('./helpers/ThemeHelper.php');
+$theme_color = 'blue';
+if (isset($_SESSION['theme'])) {
+    $theme_color = $_SESSION['theme'];
+}
+
 require_once('./helpers/DatabaseHelper.php');
 
 /**
@@ -328,6 +334,7 @@ $city = new City(
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>New City Better Life | <?php echo $city->get_city_town() . ", " . $city->get_province(); ?></title>
     <link rel="stylesheet" href="./styles/main.css">
+    <?php echo ThemeHelper::get_css_theme($theme_color); ?>
     <script src="https://cdn.apple-mapkit.com/mk/5.x.x/mapkit.js"></script>
 </head>
 
@@ -520,6 +527,7 @@ $city = new City(
             let map = new mapkit.Map("city-map");
             map.region = city;
         </script>
+        <?php echo ThemeHelper::get_theme_switcher($theme_color); ?>
     </footer>
 </body>
 

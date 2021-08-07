@@ -1,5 +1,13 @@
 <?php
 
+session_start();
+
+require_once('./helpers/ThemeHelper.php');
+$theme_color = 'blue';
+if (isset($_SESSION['theme'])) {
+    $theme_color = $_SESSION['theme'];
+}
+
 /**
  * ---------------------------------------------------------------------------------
  * SQL CONNECTION CREDENTIALS
@@ -19,11 +27,6 @@ $db_hostname                = $sql_configuration_array['database']['hostname'];
 $db_username                = $sql_configuration_array['database']['username'];
 $db_password                = $sql_configuration_array['database']['password'];
 
-session_start();
-
-
-
-
 ?>
 <html>
 
@@ -36,6 +39,7 @@ session_start();
     <meta http-equiv='expires' content='0'>
     <meta http-equiv='pragma' content='no-cache'>
     <link rel="stylesheet" href="styles/main.css" />
+    <?php echo ThemeHelper::get_css_theme($theme_color); ?>
     <script src="https://cdn.plot.ly/plotly-2.1.0.min.js"></script>
     <script src="https://polyfill.io/v3/polyfill.min.js?features=default"></script>
     <script src="scripts/map.js"></script>
@@ -47,7 +51,6 @@ session_start();
     <aside>
         <?php require('navigation.php'); ?>
     </aside>
-
     <main>
         <section id="user-controls-section">
             <div id="user-controls">
@@ -445,6 +448,7 @@ session_start();
 
     <footer>
         <script src="scripts/graph.js"></script>
+        <?php echo ThemeHelper::get_theme_switcher($theme_color); ?>
     </footer>
 </body>
 
