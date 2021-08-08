@@ -21,7 +21,7 @@ xleftmargin=0.55cm
 }
 
 \title{COMP3340: Final Project Submission \\{New City Better Life | Project Team 9}}
-\author{Pao Yu | Chen Qiao | Weichong Wu | Yijiu Xu}
+\author{Yijiu Xu | Weichong Wu | Chen Qiao | Pao Yu}
 \date{University of Windsor | 13/08/2021}
 \begin{document}
 \maketitle
@@ -754,16 +754,46 @@ For our mark-up validation testing, we ran the site on: \url{https://validator.w
 %   28. TESTING
 % =====================================================================
 \section{Testing}
-used selenium to test for broken links and a bug reporting tool on redmine. (testing tool not required; but any form of testing is expected, at least one)
 
-In your report, for each item using the corresponding section number from the table above to present/expand on the work you have done. You can include code segments, screenshots and charts as needed for each individual section. You will receive points as indicated above for each section. There is no page limit. Keep the screenshots readable.
+\subsection*{Testing Strategy: AWS Test Server}
+For testing, we utilized a custom AWS (Amazon Web Services) Lightsail Instance server. Using this custom test server, we are able to modify the development environment (such as using various versions of Linux, PHP, and MySQL) to test code compatibility for other server environments that other developers might use instead of the environment configuration we currently have on the main (MyWeb) server.
 
-up to 5 pts for a testing strategy
+\subsubsection*{About AWS Lightsail}
+AWS Lightsail is a light-weight virtual server instance service built on top of the popular AWS Elastic Compute (EC2) service. Using Lightsail, developers are able to deploy virtual servers in a few clicks and have full control of the development environment.
+
+\subsubsection*{Lightsail Test Server Instance}
+The following screenshot displays the test server instance that is currently running (\lstinline{yu-server-ubuntu-1}), as well as the publicly accessibly IP address where you can visit the test server. For convenience, we have also implemented a test domain name to test HTTPS/SSL compatibility with our project (\url{https://www.newcitybetterlife.com}).
 
 \begin{figure}[htbp]
 	\centering
-	\includegraphics[width=3in]{images/placeholder.jpg}
-	\caption{Caption Goes Here}
+	\includegraphics[width=\textwidth]{images/28-lightsail-instance.png}
+	\caption{Our official AWS Lightsail Test Server Instance}
+ \end{figure}
+
+\subsection*{Testing Strategy: External Test Fork}
+In addition to our test server, we also utilized a separate fork of the original repository to introduce new features that could potentially be site-breaking. While the main repository can deploy to both main and test servers, this external fork can only deploy to the test server for testing.
+
+\begin{figure}[htbp]
+	\centering
+	\includegraphics[width=\textwidth]{images/28-external-fork.png}
+	\caption{External fork to test possibly site-breaking features}
+ \end{figure}
+
+ \subsection*{Sample Development and Testing Workflows}
+ The following screenshots display sample workflows using both the test server and the external fork. Using this strategy, we are able to mix and match the appropriate, universally-compatible code that is able to work on different environments. 
+ 
+ The non-working features are abandoned after they are deployed and tested on the test server alone, while the working and completed features are merged into the main repository and then finally deployed to both main and test servers.
+
+ \begin{figure}[htbp]
+	\centering
+	\includegraphics[width=\textwidth]{images/28-feature-abandon.png}
+	\caption{Abandoning a non-working feature from the test fork}
+ \end{figure}
+
+ \begin{figure}[htbp]
+	\centering
+	\includegraphics[width=\textwidth]{images/28-feature-merge.png}
+	\caption{Merge successful, working features into the main repository}
  \end{figure}
 
  \newpage
