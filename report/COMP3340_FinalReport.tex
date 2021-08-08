@@ -596,7 +596,7 @@ The first framework is PlotlyJS, which is a graphing framework used to visualize
 \section{Software Repository}
 We used GitHub to host our official repository. The repository can be found at \url{https://github.com/ChenQiao310/Project-COMP3340}. 
 
-\subsection*{Repository Public Access}
+\subsection*{Open-Source Access}
 The repository is currently public and open-source, which means it is open to all users for cloning, forking and also contributing through fork pull requests (but not direct push access).
 
 \begin{figure}[htbp]
@@ -611,17 +611,69 @@ The repository is currently public and open-source, which means it is open to al
 %   25. INSTALLATION AND DEPLOYMENT
 % =====================================================================
 \section{Installation and Deployment}
-this site can be cloned from the github repository using the following branch, with instructions to configure the db manually found here: url here
 
-In your report, for each item using the corresponding section number from the table above to present/expand on the work you have done. You can include code segments, screenshots and charts as needed for each individual section. You will receive points as indicated above for each section. There is no page limit. Keep the screenshots readable.
+\subsection*{Open-Source Access}
+Since the project's repository is currently public and open-source, the site can be cloned, downloaded, or forked by any third party. The parameters for the database and other website elements themselves can be modified by the third-party developers.
 
-up to 2 pts for installation instructions
+\subsection*{Official Release Download}
+Alternatively, developers can download the official release packages, such as the one displayed below. These releases can be accessed through the open-source repository.
 
 \begin{figure}[htbp]
 	\centering
-	\includegraphics[width=3in]{images/placeholder.jpg}
-	\caption{Caption Goes Here}
+	\includegraphics[width=\textwidth]{images/25-release.png}
+	\caption{New City, Better Life Official Release}
  \end{figure}
+
+\subsection*{Installation and Deployment}
+Once the project is cloned or forked into the third-pary developer's account, it can then be installed and deployed using our proprietary deployment tool, \lstinline{SFTP-Mirror}. It is a custom continous integration tool that can be used to instantly deploy any web-based project to a server from any GitHub repository. The custom deployment tool can be accessed at \url{https://github.com/pyxn/sftp-mirror}
+
+\begin{figure}[htbp]
+	\centering
+	\includegraphics[width=\textwidth]{images/25-sftp-mirror.png}
+	\caption{SFTP-Mirror: Custom Deployment Tool}
+ \end{figure}
+
+\newpage
+\subsection*{Usage}
+The tool's usage and implementation details can be accessed through the official instructions and readme file in the \lstinline{SFTP-Mirror} repository (\url{https://github.com/pyxn/sftp-mirror/blob/main/README.md})
+
+\begin{figure}[htbp]
+	\centering
+	\includegraphics[width=4.4in]{images/25-sftp-mirror-usage.png}
+	\caption{SFTP-Mirror: Usage Sample and Details}
+ \end{figure}
+
+\newpage
+\subsection*{Installation Instructions}
+The tool can be used by simply modifying the workflow files in the official repository, and input the new deployment location's configuration details on the workflow files directly or through GitHub secrets.
+
+\subsubsection*{Installation File Directory}
+The following screenshot displays where a developer might switch the configuration details of their own server to automatically deploy their own distributions.
+
+\begin{figure}[htbp]
+	\centering
+	\includegraphics[width=\textwidth]{images/25-workflows.png}
+	\caption{Location of Workflow Files}
+ \end{figure}
+
+ \subsubsection*{Installation Lines Sample}
+In this screenshot, we can see the lines which can be replaced with the appropriate details for custom installation and deployment by other developers.
+\begin{figure}[htbp]
+	\centering
+	\includegraphics[width=\textwidth]{images/25-sftp-mirror-modify.png}
+	\caption{Lines 35 to 39 can be replaced by developers with their own configuration details}
+ \end{figure}
+
+ \newpage
+ \subsection*{GitHub Secrets}
+To use GitHub secrets, developers can go to \lstinline{Settings}, then \lstinline{Secrets}, and then input their own secrets while using the same format as displayed in the official repository.
+
+\begin{figure}[htbp]
+	\centering
+	\includegraphics[width=\textwidth]{images/25-github-secrets.png}
+	\caption{The GitHub Secrets page can be accessed in the repo settings}
+ \end{figure}
+
 
  \newpage
 
