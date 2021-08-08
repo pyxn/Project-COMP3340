@@ -1,5 +1,7 @@
 <?php
 
+// This is a script to generate a dynamic city page
+
 session_start();
 
 require_once('./helpers/ThemeHelper.php');
