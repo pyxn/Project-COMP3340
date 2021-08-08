@@ -2,6 +2,23 @@
 \usepackage[utf8]{inputenc}
 \usepackage[margin=1in]{geometry}
 \usepackage{graphicx}
+\usepackage{xurl}
+\usepackage{courier} %% Sets font for listing as Courier.
+\usepackage{listings, xcolor}
+\lstset{
+basicstyle=\tiny ,
+tabsize = 4, %% set tab space width
+showstringspaces = false,
+numbers = left,
+commentstyle = \color{green},
+keywordstyle = \color{blue},
+stringstyle = \color{red},
+rulecolor = \color{black},
+basicstyle = \small \ttfamily ,
+breaklines = true,
+numberstyle = \tiny ,
+xleftmargin=0.55cm
+}
 
 \title{COMP3340: Final Project Submission \\{New City Better Life | Project Team 9}}
 \author{Pao Yu | Chen Qiao | Weichong Wu | Yijiu Xu}
@@ -407,17 +424,59 @@ up to 5 pts for at least 50 records overall in the db
 %   21. OPEN DATA SET
 % =====================================================================
 \section{Open Data Set}
-we used the weather data set located here url here and used the table bestcities
 
-In your report, for each item using the corresponding section number from the table above to present/expand on the work you have done. You can include code segments, screenshots and charts as needed for each individual section. You will receive points as indicated above for each section. There is no page limit. Keep the screenshots readable.
+\subsection*{Air Quality Data by Canadian Province}
+For our open dataset, we used one of the Government of Canada's official datasets. The data set is from \textit{Environment and Climate Change Canada} deparment, and describes air quality monitoring data gathered by the \textit{National Air Pollution Surveillance Program} (NAPS) from the years 1974 to 2020. To make this dataset more relevant to our audience, we opted to only include data from the most recent year available, 2020.
 
-up to 5 pts for using data from an open data source
+\subsection*{Dataset URL}
+The URL for the complete dataset can be found here \url{https://data-donnees.ec.gc.ca/data/air/monitor/national-air-pollution-surveillance-naps-program/Data-Donnees/?lang=en}.
 
 \begin{figure}[htbp]
 	\centering
-	\includegraphics[width=3in]{images/placeholder.jpg}
-	\caption{Caption Goes Here}
+	\includegraphics[width=\textwidth]{images/21-1-opendataset.png}
+	\caption{NAPS Program: Live Open Dataset}
  \end{figure}
+
+\newpage
+
+\subsection*{Code Implementation}
+The open dataset was provided in separate CSV files (by city) and was manually reorganized, cleansed and formatted into a single CSV table. The table was then summarized using an Excel pivot table and the data directly applied to a JavaScript data visualization framework (Plotly.js) displayed below to maximize data visualization speed and performance:
+
+\begin{lstlisting}[language=java]
+var trace1 = {
+	x: ['AB', 'BC', 'MB', 'NB', 'NL', 'NS', 'ON', 'PE', 'QC', 'SK', 'YU'],
+	y: [5.764, 4.922, 3.614, 5.668, 3.657, 3.674, 6.182, 3.321, 6.545, 4.722, 2.588],
+	type: 'bar',
+	text: ['5.764(micro)g/m3', '4.922(micro)g/m3', '3.614(micro)g/m3', '5.668(micro)g/m3', '3.657(micro)g/m3', '3.674(micro)g/m3', '6.182(micro)g/m3', '3.321(micro)g/m3', '6.545(micro)g/m3', '4.722(micro)g/m3', '2.588(micro)g/m3'],
+	marker: { color: '#ffcc99' }
+};
+
+var data = [trace1];
+
+var titleCode = `
+	<span id="airQualityTitle" style="font-family: 'Public Sans', sans-serif; font-size: 1.618rem; font-weight: bold;">
+		Statistic data of PM2.5 
+	</span>
+	<br>
+	<span id="airQualitySubtitle" style="font-family: 'Public Sans', sans-serif; font-size: 1rem;">
+		Based on National Air Pollution <br> Surveillance (NAPS) Program
+	</span>
+`;
+
+var layout = {
+	title: titleCode,
+	font: { family: 'Raleway, sans-serif' },
+	showlegend: false,
+	xaxis: { tickangle: -45 },
+	yaxis: {
+		zeroline: false,
+		gridwidth: 2
+	},
+	bargap: 0.5
+};
+
+Plotly.newPlot('airQuality', data, layout);
+\end{lstlisting}
 
  \newpage
 
@@ -425,6 +484,9 @@ up to 5 pts for using data from an open data source
 %   22. PHP
 % =====================================================================
 \section{PHP}
+
+
+
 we created 23 separate PHP scripts
 	
 In your report, for each item using the corresponding section number from the table above to present/expand on the work you have done. You can include code segments, screenshots and charts as needed for each individual section. You will receive points as indicated above for each section. There is no page limit. Keep the screenshots readable.
