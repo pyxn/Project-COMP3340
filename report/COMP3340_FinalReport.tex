@@ -35,7 +35,7 @@ xleftmargin=0.55cm
     The purpose of our website is to help people who have a plan to move in the future. We provide key livability statistics and information on almost all cities and towns in Canada that can be saved by users and help them make decisions regarding their relocation in the future.
    
     \textbf{Methodology}
-    This website was created using the standard LAMP-stack (Linux, Apache, MySQL, and PHP). The front-end is built with HTML, CSS and JavaScript. The project was initially created by carefully planning a sitemap using the project's purpose and background. From this sitemap, we implemented the most important pages by the predicted frequency of use by our potential users, with the index page being the highest priority page to have been implemented. After the most important pages were created (and connected through a working navigation system), we then turned our efforts to the heart of the website's functionality, which was to be able to display database records on dynamic PHP pages and a working login system for admins and clients. From here, we completed the rest of the website's core features prioritizing them by predicted user needs.
+    This website was created using the standard LAMP-stack (Linux, Apache, MySQL, and PHP). The front-end is built with HTML, CSS and JavaScript. The project was initially created by carefully planning a sitemap using the project's purpose and background. From this sitemap, we implemented the most important pages by the predicted frequency of use by our potential users, with the index page being the highest priority page to have been implemented. After the most important pages were created (and connected through a working navigation system), we then turned our efforts to the heart of the website's functionality, which was to be able to display database records on dynamic PHP pages and a working login system for admins and clients. From here, we completed the rest of the website's core features, prioritizing them by the level of predicted user need.
 
     \textbf{End Result}
     At the end of the semester, we completed an MVP website with the core functionalities and requirements that was needed to make the site operational. It is currently live and running, with users able to register, login and use the site to search for information related to their dream city, while being able to maintain a data-persistent, account-based list of their favorite cities through a logged-in account. The website is also highly-maintainable on the admin side, with high quality documentation for both end-users and admins. Finally, our website and code is open-source on GitHub and is ready to be cloned, deployed and installed by third-party developers who would like to implement our codebase to build similar projects in the future.
@@ -883,17 +883,318 @@ Once this task is created, each team member assigned a task or subtask is notifi
 %   30. OVERALL COMPLETENESS AND ERROR-FREE FUNCTIONALITY
 % =====================================================================
 \section{Overall Completeness \& Error Free Functionality}
-Site can be tested here, we completed 100 percent of the functionality here is the sitemap showing all the features
 
-In your report, for each item using the corresponding section number from the table above to present/expand on the work you have done. You can include code segments, screenshots and charts as needed for each individual section. You will receive points as indicated above for each section. There is no page limit. Keep the screenshots readable.
-
-up to 10 pts for overall impression of the site in terms of complete functionality and error free (aesthetics / look and feel are not given grades, but CSS use is expected).
+\subsection*{Sitemap}
+The following screenshot shows our sitemap at the time of this writing, displaying the complete features available to end users and administrators of the website.
 
 \begin{figure}[htbp]
 	\centering
-	\includegraphics[width=3in]{images/placeholder.jpg}
-	\caption{Caption Goes Here}
+	\includegraphics[width=\textwidth]{images/30-sitemap.png}
+	\caption{The Complete\textit{New City, Better Life} Sitemap}
  \end{figure}
 
+\subsection*{Testing Completeness and Error-Free Functionality}
+To test for the website's overall completeness and error-free functionality, we will go through test use cases of how an end user and administrator might navigate the website. 
+For each step of the end-user or admin journey, we will be able to tell if the website works as intended with 100\% of the functionality working perfectly.
+
+\newpage
+\subsection*{Journey: End-User}
+
+\subsubsection*{Visiting the Website}
+The first step is for the user to visit the website using the main server URL: \url{qiao6.myweb.cs.uwindsor.ca/project/}. Visiting the homepage works as intended.
+\begin{figure}[htbp]
+	\centering
+	\includegraphics[width=\textwidth]{images/30-journey-e01.png}
+	\caption{Visiting the Homepage}
+ \end{figure}
+
+\newpage
+\subsubsection*{Creating and Logging into an Account}
+Since the website can be used with no account, we will test the website with an account to take out unnecessary steps of showing the end-user journey.
+
+As displayed in the following screenshots, the login and authentication is working perfectly.
+
+\begin{figure}[htbp]
+	\centering
+	\includegraphics[width=\textwidth]{images/30-journey-e02a.png}
+	\caption{Creating an Account}
+ \end{figure}
+
+ \begin{figure}[htbp]
+	\centering
+	\includegraphics[width=\textwidth]{images/30-journey-e02b.png}
+	\caption{Logged In After Account Creation}
+ \end{figure}
+
+\subsubsection*{Using the Map}
+The map functionality works as intended in the homepage, with the most livable cities showing per province when a user hovers over a region.
+
+\begin{figure}[htbp]
+	\centering
+	\includegraphics[width=4in]{images/30-journey-e03.png}
+	\caption{Map Hover Works as Intended}
+ \end{figure}
+
+\newpage
+ \subsubsection*{Accessing a Dynamic Page (Through the Top 10 Cities Table)}
+A dynamic page is successfully generated and accessed when a record from the top 10 table in the homepage is clicked.
+
+\begin{figure}[htbp]
+	\centering
+	\includegraphics[width=\textwidth]{images/30-journey-e04a.png}
+	\caption{Clicking a Record}
+ \end{figure}
+
+ \begin{figure}[htbp]
+	\centering
+	\includegraphics[width=5in]{images/30-journey-e04b.png}
+	\caption{Successful Dynamic Page Generation}
+ \end{figure}
+
+\newpage
+ \subsubsection*{Accessing a Dynamic Page (Through the Dream City Page)}
+ A dynamic page is successfully generated and accessed when using the dream city page to look for cities based on a certain criteria. Searching correctly displays the right cities and clicking a record successfully takes the user to the right dynamic page.
+
+ \begin{figure}[htbp]
+	\centering
+	\includegraphics[width=5in]{images/30-journey-e05a.png}
+	\caption{Successful City Search by Criteria: 1 million minimum population}
+ \end{figure}
+
+ \begin{figure}[htbp]
+	\centering
+	\includegraphics[width=4in]{images/30-journey-e05b.png}
+	\caption{Successful Dynamic Page Generation}
+ \end{figure}
+
+ \newpage
+ \subsubsection*{Adding a city to favorites}
+Users can add cities to data-persistent list of favorites. In the following screenshot, we successfully click on the favorite heart to toggle it, and the favorited city then appears on the user's private profile page.
+
+\begin{figure}[htbp]
+	\centering
+	\includegraphics[width=\textwidth]{images/30-journey-e06a.png}
+	\caption{Toggling a city favorite}
+ \end{figure}
+
+ \begin{figure}[htbp]
+	\centering
+	\includegraphics[width=\textwidth]{images/30-journey-e06b.png}
+	\caption{The favorited city appears on the users profile page}
+ \end{figure}
+
+ \newpage
+ \subsubsection*{Changing User Details (End-user Side)}
+Users can modify their account data using the user edit button located in their private profile page. The following screenshots show a user's account before and after a successful change.
+
+\begin{figure}[htbp]
+	\centering
+	\includegraphics[width=\textwidth]{images/30-journey-e07a.png}
+	\caption{The data of the current account}
+ \end{figure}
+
+ \begin{figure}[htbp]
+	\centering
+	\includegraphics[width=\textwidth]{images/30-journey-e07b.png}
+	\caption{The updated data of the current account after change}
+ \end{figure}
+
+ \newpage
+ \subsubsection*{Switching Themes}
+If the user clicks the \lstinline{Switch Theme} button located on the bottom right of the page, the theme successfully switches to pink (from black earlier). The theme is applied to all pages the user can access, as shown with three (3) pages below.
+
+\begin{figure}[htbp]
+	\centering
+	\includegraphics[width=5in]{images/30-journey-e08a.png}
+	\caption{User Change Page}
+ \end{figure}
+
+ \begin{figure}[htbp]
+	\centering
+	\includegraphics[width=5in]{images/30-journey-e08b.png}
+	\caption{System Status Page}
+ \end{figure}
+
+ \begin{figure}[htbp]
+	\centering
+	\includegraphics[width=5in]{images/30-journey-e08c.png}
+	\caption{Home Page}
+ \end{figure}
+
+ \newpage
+ \subsubsection*{Checking Website System Status}
+Finally, the user can access the status page to check the status of the website. In the screenshot below, we can see that the website is fully operational, and the user can only see and access end-user features available to them.
+
+\begin{figure}[htbp]
+	\centering
+	\includegraphics[width=\textwidth]{images/30-journey-e09.png}
+	\caption{Website Status (End-User Perspective)}
+ \end{figure}
+
+ \newpage
+ \subsubsection*{Logging Out}
+Finally, let's go back to the homepage and try to logout. As you can see from the screenshot below, the navigation menu and the logged-in indicator reset to their original form. Logging out also removes access to account-only features such as the profile page and the favorites button. This indicates that our login and logout system is successfully working as intended.
+
+\begin{figure}[htbp]
+	\centering
+	\includegraphics[width=3.5in]{images/30-journey-e10a.png}
+	\caption{Website Status (End-User Perspective)}
+ \end{figure}
+
+\begin{figure}[htbp]
+\centering
+\includegraphics[width=3.5in]{images/30-journey-e10b.png}
+\caption{Website Status (End-User Perspective)}
+\end{figure}
+
+ \subsubsection*{Journey: End-User - Conclusion}
+This concludes our end-user test case, confirming that the complete end-user experience is working 100\% perfectly and as intended.
+
+ \newpage
+\subsection*{Journey: Administrator}
+\subsubsection*{Logging In}
+Next up, let's examine a test use-case of the Adminstrator journey. Let's go back to the status page to access the login system specifically for administrators. As shown in the screenshots below, the admin authentication and feature access elements work as intended.
+
+\begin{figure}[htbp]
+\centering
+\includegraphics[width=4in]{images/30-journey-a01a.png}
+\end{figure}
+
+\begin{figure}[htbp]
+\centering
+\includegraphics[width=4in]{images/30-journey-a01b.png}
+\caption{Logging in with an Admin Account}
+\end{figure}
+
+\begin{figure}[htbp]
+\centering
+\includegraphics[width=4.8in]{images/30-journey-a01c.png}
+\caption{Status Page with Full Admin Feature Access}
+\end{figure}
+
+\newpage
+\subsubsection*{Editing Users}
+An adminstrator account can edit current user records, as you can see from the screenshots below, this functionality works as intended, showing how we  modify the test account we created earlier. To access editing functionality, a user must first be selected from the dropdown, and the admin must click the \textit{Edit} button. This is a security measure to prevent accidental changes.
+
+\begin{figure}[htbp]
+\centering
+\includegraphics[width=4in]{images/30-journey-a02a.png}
+\caption{Admin-Only Feature: Before User Edit}
+\end{figure}
+
+\begin{figure}[htbp]
+\centering
+\includegraphics[width=4in]{images/30-journey-a02b.png}
+\caption{Admin-Only Feature: After User Edit}
+\end{figure}
+
+\newpage
+\subsubsection*{Switching Admin Themes}
+Admins also have access to an internal, administrator-area only theme switcher. From the screenshots below, we can see that switching to the other two themes (pink and yellow) work as intended.
+
+\begin{figure}[htbp]
+\centering
+\includegraphics[width=2in]{images/30-journey-a03a.png}
+\caption{Admin Internal UI: Yellow Theme}
+\end{figure}
+
+\begin{figure}[htbp]
+\centering
+\includegraphics[width=2in]{images/30-journey-a03b.png}
+\caption{Admin Internal UI: Pink Theme}
+\end{figure}
+
+\begin{figure}[htbp]
+\centering
+\includegraphics[width=2in]{images/30-journey-a03c.png}
+\caption{Admin Internal UI: Blue Theme}
+\end{figure}
+
+
+\newpage
+\subsubsection*{Editing City Records}
+Next let's test how an adminstrator account would edit an existing city record. If we go to the \textit{Edit Record} area from the current area (or from the status page), we can start editing any city record. We can access cities using either their rank number or their name.
+
+In the following screenshots, we edit Langford by accessing it using its rank (1). Then, we change its scenery rating from 4 to 5. When we access the dynamic city page after saving the changes, we can see that record edit worked successfully.
+
+\begin{figure}[htbp]
+\centering
+\includegraphics[width=4in]{images/30-journey-a04a.png}
+\caption{Editing City with Rank = 1}
+\end{figure}
+
+\begin{figure}[htbp]
+\centering
+\includegraphics[width=4in]{images/30-journey-a04b.png}
+\caption{City Page After the Change}
+\end{figure}
+
+\newpage
+\subsubsection*{Creating System Notifications}
+Back in the status page, adminstrator accounts can also create system notifications. In the following screenshots, we can observe the successful creation of a system notification.
+
+\begin{figure}[htbp]
+\centering
+\includegraphics[width=4in]{images/30-journey-a05a.png}
+\caption{Entering text for a new system notification}
+\end{figure}
+
+\begin{figure}[htbp]
+\centering
+\includegraphics[width=4in]{images/30-journey-a05b.png}
+\caption{New system notification successfully created}
+\end{figure}
+
+\newpage
+\subsubsection*{Deleting System Notifications}
+If an administrator account is logged in, they are also able to delete system notification posts. A special button for post deletion appears right next to the system notification timestamp. Once we click this button, we can observe that the notification post is successfully deleted as intended.
+
+\begin{figure}[htbp]
+\centering
+\includegraphics[width=\textwidth]{images/30-journey-a06a.png}
+\caption{The Delete button shows up when an admin is logged in}
+\end{figure}
+
+\begin{figure}[htbp]
+\centering
+\includegraphics[width=5in]{images/30-journey-a06b.png}
+\caption{The system notification page after post deletion}
+\end{figure}
+
+\newpage
+\subsubsection*{Logging Out}
+Finally, logged in adminstrators can log out of their accounts through three different pages, the status page, the edit user page, and the edit record page. As we can observe in the screenshots, the adminstrator is successfully logged out upon clicking one of these three log out links.
+
+\begin{figure}[htbp]
+\centering
+\includegraphics[width=\textwidth]{images/30-journey-a07a.png}
+\caption{Log out through edit user page}
+\end{figure}
+
+\begin{figure}[htbp]
+\centering
+\includegraphics[width=\textwidth]{images/30-journey-a07b.png}
+\caption{Log out through edit record page}
+\end{figure}
+
+\begin{figure}[htbp]
+\centering
+\includegraphics[width=\textwidth]{images/30-journey-a07c.png}
+\caption{Log out through status page}
+\end{figure}
+
+\newpage
+
+\begin{figure}[htbp]
+\centering
+\includegraphics[width=\textwidth]{images/30-journey-a07d.png}
+\caption{Status page on successful Log out}
+\end{figure}
+
+\subsubsection*{Journey: Administrator - Conclusion}
+This concludes the user-journey for administrator accounts. As we have observed from the screenshots and the available flow of actions that are possible for admin accounts to take, we can see that the admin-side of the website works error-free and perfectly as intended.
+
+\subsection*{Conclusion}
+In conclusion, the website works perfectly as intended. From a detailed testing of the user experience journey (for both end-users and administrators), we can observe that the website is indeed error-free in terms of all of its intended functionality | which is also fully-complete overall as intended.
 
 \end{document}
