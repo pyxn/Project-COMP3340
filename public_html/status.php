@@ -57,6 +57,9 @@ $services = array(
 <head>
     <title>New City Better Life | Status</title>
     <meta content="text/html" charset="UTF-8">
+    <meta name="author" content="co-authored by Weichong Wu, Yijiu Xu, Pao Yu, Chen Qiao">
+    <meta name="keywords" content="new city, better life, status, notifications, admin login">
+    <meta name="description" content="This website displays the status of web server, database and so on.">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
     <?php echo ThemeHelper::get_css_theme($theme_color); ?>
