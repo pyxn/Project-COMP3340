@@ -73,17 +73,7 @@ session_start();
 		<p>A new survey found that almost one quarter (23%) of Canadians moved or plan to move since April 2020 cited COVID-19 as a reason for relocating. Our website is aiming to help people to find their dream city by providing information of the most livable places in Canada. The main functionalities are implemented through generation of dynamic pages producing list of cities based on client priorities and the comparison among these cities.</p>
 		<br><br><br><br>
 
-		<a href="sitemap.php"><h4>Site Map</h4></a>
-		<br><br>
 
-		<a href="author.php"><h4>Our Team </h4></a>
-		<br><br>
-
-		<a href="contact.php"><h4>Contact Us</h4></a>
-		<br><br>
-
-		<a href="terms.html"><h4>Terms of Use </h4></a>
-		<br><br>
 
 	</section>
 
@@ -92,6 +82,21 @@ session_start();
 
     <footer>
         <?php echo ThemeHelper::get_theme_switcher($theme_color); ?>
+
+	<div style="text-align:center">
+
+	<a href="sitemap.php"><h4>Site Map</h4></a>
+	&nbsp&nbsp|&nbsp&nbsp
+	<a href="author.php"><h4>Our Team </h4></a>
+	&nbsp&nbsp|&nbsp&nbsp
+	<a href="contact.php"><h4>Contact Us</h4></a>
+	&nbsp&nbsp|&nbsp&nbsp
+	<a href="terms.html"><h4>Terms of Use </h4></a>
+	&nbsp&nbsp|&nbsp&nbsp
+
+	</div>
+
+
     </footer>
 </body>
 
