@@ -69,9 +69,9 @@ session_start();
 	<div class="container">
             <div style="text-align:center">
             <h2>Contact Us</h2>
-            <p>Swing by for a cup of coffee, or leave us a message:</p>
             </div>
 
+	    <div style="text-align:center">
   	    <form action="contact_action.php">
 
    	    <label for="name">Name</label>
@@ -90,6 +90,7 @@ session_start();
 	    <br><br>
 
   	    </form>
+	    </div>
 
 	</div>
 
