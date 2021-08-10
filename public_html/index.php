@@ -33,6 +33,10 @@ $db_password                = $sql_configuration_array['database']['password'];
 <head>
     <title>Home Page</title>
     <meta charset="UTF-8">
+    <meta name="author" content="co-authored by Weichong Wu, Yijiu Xu, Pao Yu, Chen Qiao">
+    <meta name="keywords" content="new city, better life, map, air quality, livable">
+    <meta name="description" content="This website contains a map of Canada, a table of most livable Canadian cities 
+    and Data visualization of air quality.">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, height=device-height, initial-scale=1.0, user-scalable=0, minimum-scale=1.0, maximum-scale=1.0">
     <meta http-equiv='cache-control' content='no-cache'>
