@@ -14,6 +14,9 @@ if (isset($_SESSION['theme'])) {
 
 <head>
     <title>Find Dream City</title>
+    <meta name="author" content="co-authored by Weichong Wu, Yijiu Xu, Pao Yu, Chen Qiao">
+    <meta name="keywords" content="new city, better life, filters, Canadian cities, livable places">
+    <meta name="description" content="This website contains filters and a table dispalying the cities after filtration.">
     <link rel="stylesheet" type="text/css" href="styles/bootstrap.css">
     <?php echo ThemeHelper::get_css_theme($theme_color); ?>
 </head>
