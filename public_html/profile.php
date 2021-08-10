@@ -17,6 +17,9 @@ if (!isset($_SESSION['username'])) {
 
 <head>
     <title>My Favorite Cities</title>
+    <meta name="author" content="co-authored by Weichong Wu, Yijiu Xu, Pao Yu, Chen Qiao">
+    <meta name="keywords" content="new city, better life, profile, favorite cities, edit account">
+    <meta name="description" content="This website shows user profile, a list of cities added to my favorite by user and a link to account editing page.">
     <link rel="stylesheet" type="text/css" href="styles/bootstrap.css">
     <?php echo ThemeHelper::get_css_theme($theme_color); ?>
 </head>
