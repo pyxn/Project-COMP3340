@@ -82,8 +82,9 @@ session_start();
 
     <footer>
         <?php echo ThemeHelper::get_theme_switcher($theme_color); ?>
+    </footer>
 
-	<div style="text-align:center">
+    <footer style="text-align:center">
 
 	<a href="sitemap.php"><h4>Site Map</h4></a>
 	&nbsp&nbsp|&nbsp&nbsp
@@ -93,9 +94,6 @@ session_start();
 	&nbsp&nbsp|&nbsp&nbsp
 	<a href="terms.html"><h4>Terms of Use </h4></a>
 	&nbsp&nbsp|&nbsp&nbsp
-
-	</div>
-
 
     </footer>
 </body>
