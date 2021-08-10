@@ -34,7 +34,7 @@ session_start();
 <html>
 
 <head>
-    <title>About Page</title>
+    <title>User Training</title>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, height=device-height, initial-scale=1.0, user-scalable=0, minimum-scale=1.0, maximum-scale=1.0">
@@ -43,6 +43,14 @@ session_start();
     <meta http-equiv='pragma' content='no-cache'>
     <link rel="stylesheet" href="styles/main.css" />
     <link rel="stylesheet" type="text/css" href="styles/staticStyle.css">
+    <style>
+	.video-container { position: relative; padding-bottom: 56.25%; padding-top: 30px; height: 0; overflow: hidden; }
+
+	.video-container iframe, .video-container object, .video-container embed { position: absolute; top: 0; left: 0; width: 100%; height: 100%; }
+
+    </style>
+
+
     <script src="login.js"></script>
 </head>
 
@@ -67,7 +75,10 @@ session_start();
 	<section>
 		<h2>User Training</h2>
 		<br><br>
+
+		<div class="video-container">
 		<iframe width="560" height="315" src="https://www.youtube.com/embed/0FBFpGkqyig" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+		</div>
 
 
 		<br><br><br><br>
