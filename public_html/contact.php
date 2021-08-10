@@ -74,15 +74,18 @@ session_start();
 
    	    <label for="name">Name</label>
    	    <input type="text" id="name" name="name" placeholder="Your name..">
+	    <br><br>
 
     	    <label for="email">Email</label>
     	    <input type="text" id="email" name="email" placeholder="Your email address">
- 
+            <br><br>
 
     	    <label for="subject">Subject</label>
     	    <textarea id="subject" name="subject" placeholder="Your message"style="height:200px"></textarea>
+	    <br><br>
 
     	    <input type="submit" value="Submit">
+	    <br><br>
 
   	</form>
 	</div>
