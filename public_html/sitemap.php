@@ -1,5 +1,13 @@
 <?php
 
+session_start();
+
+require_once('./helpers/ThemeHelper.php');
+$theme_color = 'blue';
+if (isset($_SESSION['theme'])) {
+    $theme_color = $_SESSION['theme'];
+}
+
 /**
  * ---------------------------------------------------------------------------------
  * SQL CONNECTION CREDENTIALS
@@ -23,6 +31,7 @@ session_start();
 
 ?>
 
+
 <html>
 
 <head>
@@ -34,6 +43,7 @@ session_start();
     <meta http-equiv='expires' content='0'>
     <meta http-equiv='pragma' content='no-cache'>
     <link rel="stylesheet" href="styles/main.css" />
+    <link rel="stylesheet" type="text/css" href="styles/staticStyle.css">
     <script src="login.js"></script>
 </head>
 
@@ -59,7 +69,7 @@ session_start();
 
 	<h2> Sitemap </h2>
 	<br>
-	<img src="sitemap.png" alt="Sitemap">
+	<img src="./images/sitemap.png" alt="Sitemap">
 	<br>
 
 	</section>
