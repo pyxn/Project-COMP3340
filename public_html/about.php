@@ -86,13 +86,13 @@ session_start();
 
     <footer>
 
-	<a href="sitemap.php"><h4>Site Map</h4></a>
+	<a href="sitemap.php"><b>Site Map</b></a>
 	&nbsp&nbsp|&nbsp&nbsp
-	<a href="author.php"><h4>Our Team </h4></a>
+	<a href="author.php"><b>Our Team </b></a>
 	&nbsp&nbsp|&nbsp&nbsp
-	<a href="contact.php"><h4>Contact Us</h4></a>
+	<a href="contact.php"><b>Contact Us</b></a>
 	&nbsp&nbsp|&nbsp&nbsp
-	<a href="terms.html"><h4>Terms of Use </h4></a>
+	<a href="terms.html"><b>Terms of Use </b></a>
 
     </footer>
 </body>
