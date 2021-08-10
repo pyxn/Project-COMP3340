@@ -66,11 +66,13 @@ session_start();
 
 	<section>
 
-	<h2> Our Team </h2>
-	<br>
-
 	<div class="container">
-  	<form action="contact_action.php">
+            <div style="text-align:center">
+            <h2>Contact Us</h2>
+            <p>Swing by for a cup of coffee, or leave us a message:</p>
+            </div>
+
+  	    <form action="contact_action.php">
 
    	    <label for="name">Name</label>
    	    <input type="text" id="name" name="name" placeholder="Your name..">
@@ -87,7 +89,8 @@ session_start();
     	    <input type="submit" value="Submit">
 	    <br><br>
 
-  	</form>
+  	    </form>
+
 	</div>
 
 
