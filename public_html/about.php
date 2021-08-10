@@ -84,7 +84,7 @@ session_start();
         <?php echo ThemeHelper::get_theme_switcher($theme_color); ?>
     </footer>
 
-    <footer>
+    <footer style="text-align:center">
 
 	<a href="sitemap.php"><b>Site Map</b></a>
 	&nbsp&nbsp|&nbsp&nbsp
