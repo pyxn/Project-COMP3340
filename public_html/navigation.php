@@ -22,7 +22,7 @@ session_start();
         ?>
         <li><a href="status.php">Server Status</a></li>
         <li><a href="https://project-comp3340.gitbook.io/project/">Documentation</a></li>
-        <li><a href="https://www.youtube.com/watch?v=0FBFpGkqyig">User Training</a></li>
+        <li><a href="training.php">User Training</a></li>
         <li><a href="about.php">About</a></li>
         <?php
         if (isset($_SESSION['username'])) {
