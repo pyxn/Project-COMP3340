@@ -1,12 +1,12 @@
 # --------------------------------------------------------------------------
-# WORKFLOW: DEPLOY WEBSITE TO MAIN SERVER
+# WORKFLOW: DEPLOY WEBSITE TO TEST SERVER
 # --------------------------------------------------------------------------
-# This workflow will deploy the website to the main myweb server when:
+# This workflow will deploy the website to the backup test server when:
 # - a commit is pushed on the 'main' branch
 # --------------------------------------------------------------------------
 
 # The name of the workflow
-name: Automatic Deploy to Server (Main)
+name: Automatic Deploy to Server (Test)
 
 # The workflow will only execute when a push is made on main branch
 on:
@@ -29,27 +29,27 @@ jobs:
     - uses: actions/checkout@master
 
     # Mirror files from GitHub repository to a remote server using SFTP
-    - name: Main Server - SFTP Mirror (Full)
+    - name: Test Server - SFTP Mirror (Full)
       uses: pyxn/sftp-mirror@v2.0.0
       env:
-        HOSTNAME: ${{ secrets.HOSTNAME_MAIN }}
-        USERNAME: ${{ secrets.USERNAME_MAIN }}
-        PASSWORD: ${{ secrets.PASSWORD_MAIN }}
+        HOSTNAME: ${{ secrets.HOSTNAME_TEST }}
+        USERNAME: ${{ secrets.USERNAME_TEST }}
+        PASSWORD: ${{ secrets.PASSWORD_TEST }}
         PATH_LOCAL: "./public_html/"
-        PATH_REMOTE: "./public_html/project/"  
+        PATH_REMOTE: "./newcitybetterlife.com/public_html/"
         PROTOCOL: sftp
         PORT: 22
         ARGS: --verbose --overwrite --delete 
         MODE: mirror_full
 
     # Creates a server-only configuration file
-    - name: Main Server - SFTP Mirror (File Create - sql-config.ini)
+    - name: Test Server - SFTP Mirror (File Create - sql-config.ini)
       uses: pyxn/sftp-mirror@v2.0.0
       env:
-        HOSTNAME: ${{ secrets.HOSTNAME_MAIN }}
-        USERNAME: ${{ secrets.USERNAME_MAIN }}
-        PASSWORD: ${{ secrets.PASSWORD_MAIN }}
-        PATH_REMOTE: "./"
+        HOSTNAME: ${{ secrets.HOSTNAME_TEST }}
+        USERNAME: ${{ secrets.USERNAME_TEST }}
+        PASSWORD: ${{ secrets.PASSWORD_TEST }}
+        PATH_REMOTE: "./newcitybetterlife.com/"
         PROTOCOL: sftp
         PORT: 22
         MODE: mirror_file_create
@@ -57,15 +57,15 @@ jobs:
         CREATE_FILE_CONTENTS: "[database]\ndatabase = 'qiao6_comp3340'\nhostname = 'localhost'\nusername = '${{ secrets.USERNAME }}'\npassword = '${{ secrets.PASSWORD }}'"
 
     # Creates a server-only configuration file
-    - name: Main Server - SFTP Mirror (File Create - map-config.js)
+    - name: Test Server - SFTP Mirror (File Create - map-config.js)
       uses: pyxn/sftp-mirror@v2.0.0
       env:
-        HOSTNAME: ${{ secrets.HOSTNAME_MAIN }}
-        USERNAME: ${{ secrets.USERNAME_MAIN }}
-        PASSWORD: ${{ secrets.PASSWORD_MAIN }}
-        PATH_REMOTE: "./public_html/project/scripts/"
+        HOSTNAME: ${{ secrets.HOSTNAME_TEST }}
+        USERNAME: ${{ secrets.USERNAME_TEST }}
+        PASSWORD: ${{ secrets.PASSWORD_TEST }}
+        PATH_REMOTE: "./newcitybetterlife.com/public_html/scripts/"
         PROTOCOL: sftp
         PORT: 22
         MODE: mirror_file_create
         CREATE_FILE_NAME: "map-config.js"
-        CREATE_FILE_CONTENTS: "let mapConfiguration = { token: '${{ secrets.MAPKIT_TOKEN_MAIN }}' }"
+        CREATE_FILE_CONTENTS: "let mapConfiguration = { token: '${{ secrets.MAPKIT_TOKEN_TEST }}' }"
